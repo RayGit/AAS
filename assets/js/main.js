@@ -11,7 +11,7 @@ var _workend = function() { spinner.stop(); }
 
 /** Alerts **/
 var _badfile = function() {
-    alertify.alert('此文件似乎不是有效的Excel文件。  如果我们做错了，请把这个文件发送到 zhang_lei@hnu.edu.com ，我们将为您测试一下！', function(){});
+    alertify.alert('此文件似乎不是有效的Excel文件。', function(){});
 };
 
 var _pending = function() {
@@ -24,7 +24,7 @@ var _large = function(len, cb) {
 
 var _failed = function(e) {
     console.log(e, e.stack);
-    alertify.alert(e.stack+ '很不幸，我们打开失败了。请使用原始解析器测试文件。</br>如有问题，请将测试文件及相关问题描述清楚，发送到 zhang_lei@hnu.edu.com，我们将尽力解决解决。', function(){});
+    alertify.alert(e.stack+ '很不幸，我们打开失败了。', function(){});
 };
 
 /* 为工作表生成 button */
