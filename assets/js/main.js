@@ -58,7 +58,7 @@ window.addEventListener('resize', _resize);
 var _onsheet = function(json, sheetnames, select_sheet_cb) {
     document.getElementById('footnote').style.display = "none";
 
-    make_buttons(sheetnames, select_sheet_cb);
+    //make_buttons(sheetnames, select_sheet_cb);
 
     /* 显示 grid */
     _grid.style.display = "block";
@@ -95,6 +95,7 @@ var _onsheet = function(json, sheetnames, select_sheet_cb) {
         for (var j = 0; j < dx_keys.length; j ++)
             if (json[i][insert_pos-1].indexOf(dx_keys[j])> -1)
                 json[i][insert_pos] += dx_keys[j]+"; ";
+
         if (json[i][json[i].length-1] === "1")
             json[i][L] = "大学";
         else if (json[i][json[i].length-1] === "2")

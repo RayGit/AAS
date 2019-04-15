@@ -43,7 +43,7 @@
             return function (e) {
                 console.log("2: " + e );
                 e.defaults = {
-                    attributes: [["allowColumnReordering", !0], ["allowColumnResize", !0], ["allowColumnResizeFromCell", !1], ["allowFreezingRows", !1], ["allowFreezingColumns", !1], ["allowMovingSelection", !0], ["allowRowHeaderResize", !0], ["allowRowReordering", !1], ["allowRowResize", !0], ["allowRowResizeFromCell", !1], ["allowSorting", !0], ["autoGenerateSchema", !1], ["autoResizeColumns", !1], ["borderDragBehavior", "none"], ["borderResizeZone", 10], ["clearSettingsOptionText", "清空保存的设置"], ["columnHeaderClickBehavior", "sort"], ["columnSelectorHiddenText", "&nbsp;&nbsp;&nbsp;"], ["columnSelectorText", "添加/删除列"], ["columnSelectorVisibleText", "✓"], ["contextHoverScrollAmount", 2], ["contextHoverScrollRateMs", 5], ["copyHeadersOnSelectAll", !0], ["copyText", "Copy"], ["debug", !1], ["editable", !0], ["ellipsisText", "..."], ["filterOptionText", "筛选 %s"], ["filterTextPrefix", "(filtered) "], ["globalRowResize", !1], ["hideColumnText", "隐藏 %s"], ["maxAutoCompleteItems", 200], ["multiLine", !1], ["name", ""], ["pageUpDownOverlap", 1], ["pasteText", "Paste"], ["persistantSelectionMode", !1], ["removeFilterOptionText", "删除在 %s 上的筛选"], ["reorderDeadZone", 3], ["resizeScrollZone", 20], ["rowGrabZoneSize", 5], ["saveAppearance", !0], ["scrollAnimationPPSThreshold", .75], ["scrollPointerLock", !1], ["scrollRepeatRate", 75], ["selectionFollowsActiveCell", !1], ["selectionHandleBehavior", "none"], ["selectionMode", "cell"], ["selectionScrollIncrement", 20], ["selectionScrollZone", 20], ["showClearSettingsOption", !0], ["showColumnHeaders", !0], ["showColumnSelector", !0], ["showCopy", !1], ["showFilter", !0], ["showNewRow", !1], ["showOrderByOption", !0], ["showOrderByOptionTextAsc", "按 %s 升序排列"], ["showOrderByOptionTextDesc", "按 %s 降序排列"], ["showPaste", !1], ["showPerformance", !1], ["showRowHeaders", !0], ["showRowNumbers", !0], ["snapToRow", !1], ["touchContextMenuTimeMs", 800], ["touchDeadZone", 3], ["touchEasingMethod", "easeOutQuad"], ["touchReleaseAcceleration", 1e3], ["touchReleaseAnimationDurationMs", 2e3], ["touchScrollZone", 20], ["touchSelectHandleZone", 20], ["touchZoomSensitivity", .005], ["touchZoomMin", .5], ["touchZoomMax", 1.75], ["maxPixelRatio", 2], ["tree", !1], ["treeHorizontalScroll", !1]],
+                    attributes: [["allowColumnReordering", !1], ["allowColumnResize", !0], ["allowColumnResizeFromCell", !1], ["allowFreezingRows", !1], ["allowFreezingColumns", !1], ["allowMovingSelection", !0], ["allowRowHeaderResize", !0], ["allowRowReordering", !1], ["allowRowResize", !0], ["allowRowResizeFromCell", !1], ["allowSorting", !0], ["autoGenerateSchema", !1], ["autoResizeColumns", !1], ["borderDragBehavior", "none"], ["borderResizeZone", 10], ["clearSettingsOptionText", "清空保存的设置"], ["columnHeaderClickBehavior", "sort"], ["columnSelectorHiddenText", "&nbsp;&nbsp;&nbsp;"], ["columnSelectorText", "添加/删除列"], ["columnSelectorVisibleText", "✓"], ["contextHoverScrollAmount", 2], ["contextHoverScrollRateMs", 5], ["copyHeadersOnSelectAll", !0], ["copyText", "Copy"], ["debug", !1], ["editable", !0], ["ellipsisText", "..."], ["filterOptionText", "筛选 %s"], ["filterTextPrefix", "(filtered) "], ["globalRowResize", !1], ["hideColumnText", "隐藏 %s"], ["maxAutoCompleteItems", 200], ["multiLine", !1], ["name", ""], ["pageUpDownOverlap", 1], ["pasteText", "Paste"], ["persistantSelectionMode", !1], ["removeFilterOptionText", "删除在 %s 上的筛选"], ["reorderDeadZone", 3], ["resizeScrollZone", 20], ["rowGrabZoneSize", 5], ["saveAppearance", !0], ["scrollAnimationPPSThreshold", .75], ["scrollPointerLock", !1], ["scrollRepeatRate", 75], ["selectionFollowsActiveCell", !1], ["selectionHandleBehavior", "none"], ["selectionMode", "cell"], ["selectionScrollIncrement", 20], ["selectionScrollZone", 20], ["showClearSettingsOption", !0], ["showColumnHeaders", !0], ["showColumnSelector", !0], ["showCopy", !1], ["showFilter", !0], ["showNewRow", !1], ["showOrderByOption", !0], ["showOrderByOptionTextAsc", "按 %s 升序排列"], ["showOrderByOptionTextDesc", "按 %s 降序排列"], ["showPaste", !1], ["showPerformance", !1], ["showRowHeaders", !0], ["showRowNumbers", !0], ["snapToRow", !1], ["touchContextMenuTimeMs", 800], ["touchDeadZone", 3], ["touchEasingMethod", "easeOutQuad"], ["touchReleaseAcceleration", 1e3], ["touchReleaseAnimationDurationMs", 2e3], ["touchScrollZone", 20], ["touchSelectHandleZone", 20], ["touchZoomSensitivity", .005], ["touchZoomMin", .5], ["touchZoomMax", 1.75], ["maxPixelRatio", 2], ["tree", !1], ["treeHorizontalScroll", !1]],
                     styles: [["activeCellBackgroundColor", "rgba(255, 255, 255, 1)"], ["activeCellBorderColor", "rgba(110, 168, 255, 1)"], ["activeCellBorderWidth", 1], ["activeCellColor", "rgba(0, 0, 0, 1)"], ["activeCellFont", "16px sans-serif"], ["activeCellHoverBackgroundColor", "rgba(255, 255, 255, 1)"], ["activeCellHorizontalAlignment", "left"], ["activeCellHoverColor", "rgba(0, 0, 0, 1)"], ["activeCellOverlayBorderColor", "rgba(66, 133, 244, 1)"], ["activeCellOverlayBorderWidth", 1], ["activeCellPaddingBottom", 5], ["activeCellPaddingLeft", 5], ["activeCellPaddingRight", 5], ["activeCellPaddingTop", 5], ["activeCellSelectedBackgroundColor", "rgba(236, 243, 255, 1)"], ["activeCellSelectedColor", "rgba(0, 0, 0, 1)"], ["activeCellVerticalAlignment", "center"], ["activeColumnHeaderCellBackgroundColor", "rgba(225, 225, 225, 1)"], ["activeColumnHeaderCellColor", "rgba(0, 0, 0, 1)"], ["activeRowHeaderCellBackgroundColor", "rgba(225, 225, 225, 1)"], ["activeRowHeaderCellColor", "rgba(0, 0, 0, 1)"], ["autocompleteBottomMargin", 60], ["autosizeHeaderCellPadding", 8], ["autosizePadding", 5], ["cellAutoResizePadding", 13], ["cellBackgroundColor", "rgba(255, 255, 255, 1)"], ["cellBorderColor", "rgba(195, 199, 202, 1)"], ["cellBorderWidth", 1], ["cellColor", "rgba(0, 0, 0, 1)"], ["cellFont", "16px sans-serif"], ["cellGridHeight", 250], ["cellHeight", 24], ["cellHeightWithChildGrid", 150], ["cellHorizontalAlignment", "left"], ["cellHoverBackgroundColor", "rgba(255, 255, 255, 1)"], ["cellHoverColor", "rgba(0, 0, 0, 1)"], ["cellPaddingBottom", 5], ["cellPaddingLeft", 5], ["cellPaddingRight", 5], ["cellPaddingTop", 5], ["cellSelectedBackgroundColor", "rgba(236, 243, 255, 1)"], ["cellSelectedColor", "rgba(0, 0, 0, 1)"], ["cellVerticalAlignment", "center"], ["cellWidth", 250], ["cellWidthWithChildGrid", 250], ["cellWhiteSpace", "nowrap"], ["cellLineHeight", 1], ["cellLineSpacing", 3], ["childContextMenuArrowColor", "rgba(43, 48, 43, 1)"], ["childContextMenuArrowHTML", "&#x25BA;"], ["childContextMenuMarginLeft", -11], ["childContextMenuMarginTop", -6], ["columnHeaderCellBackgroundColor", "rgba(240, 240, 240, 1)"], ["columnHeaderCellBorderColor", "rgba(172, 172, 172, 1)"], ["columnHeaderCellBorderWidth", 1], ["columnHeaderCellCapBackgroundColor", "rgba(240, 240, 240, 1)"], ["columnHeaderCellCapBorderColor", "rgba(172, 172, 172, 1)"], ["columnHeaderCellCapBorderWidth", 1], ["columnHeaderCellColor", "rgba(50, 50, 50, 1)"], ["columnHeaderCellFont", "16px sans-serif"], ["columnHeaderCellHeight", 25], ["columnHeaderCellHorizontalAlignment", "left"], ["columnHeaderCellHoverBackgroundColor", "rgba(235, 235, 235, 1)"], ["columnHeaderCellHoverColor", "rgba(0, 0, 0, 1)"], ["columnHeaderCellPaddingBottom", 5], ["columnHeaderCellPaddingLeft", 5], ["columnHeaderCellPaddingRight", 5], ["columnHeaderCellPaddingTop", 5], ["columnHeaderCellVerticalAlignment", "center"], ["columnHeaderOrderByArrowBorderColor", "rgba(195, 199, 202, 1)"], ["columnHeaderOrderByArrowBorderWidth", 1], ["columnHeaderOrderByArrowColor", "rgba(155, 155, 155, 1)"], ["columnHeaderOrderByArrowHeight", 8], ["columnHeaderOrderByArrowMarginLeft", 0], ["columnHeaderOrderByArrowMarginRight", 5], ["columnHeaderOrderByArrowMarginTop", 6], ["columnHeaderOrderByArrowWidth", 13], ["contextFilterButtonBorder", "solid 1px rgba(158, 163, 169, 1)"], ["contextFilterButtonBorderRadius", "3px"], ["contextFilterButtonHTML", "&#x25BC;"], ["contextFilterInputBackground", "rgba(255,255,255,1)"], ["contextFilterInputBorder", "solid 1px rgba(158, 163, 169, 1)"], ["contextFilterInputBorderRadius", "0"], ["contextFilterInputColor", "rgba(0,0,0,1)"], ["contextFilterInputFontFamily", "sans-serif"], ["contextFilterInputFontSize", "14px"], ["contextFilterInvalidRegExpBackground", "rgba(180, 6, 1, 1)"], ["contextFilterInvalidRegExpColor", "rgba(255, 255, 255, 1)"], ["contextMenuArrowColor", "rgba(43, 48, 43, 1)"], ["contextMenuArrowDownHTML", "&#x25BC;"], ["contextMenuArrowUpHTML", "&#x25B2;"], ["contextMenuBackground", "rgba(240, 240, 240, 1)"], ["contextMenuBorder", "solid 1px rgba(158, 163, 169, 1)"], ["contextMenuBorderRadius", "3px"], ["contextMenuChildArrowFontSize", "12px"], ["contextMenuColor", "rgba(43, 48, 43, 1)"], ["contextMenuCursor", "default"], ["contextMenuFilterButtonFontFamily", "sans-serif"], ["contextMenuFilterButtonFontSize", "10px"], ["contextMenuFilterInvalidExpresion", "rgba(237, 155, 156, 1)"], ["contextMenuFontFamily", "sans-serif"], ["contextMenuFontSize", "16px"], ["contextMenuHoverBackground", "rgba(182, 205, 250, 1)"], ["contextMenuHoverColor", "rgba(43, 48, 153, 1)"], ["contextMenuItemBorderRadius", "3px"], ["contextMenuItemMargin", "2px"], ["contextMenuLabelDisplay", "inline-block"], ["contextMenuLabelMargin", "0 3px 0 0"], ["contextMenuLabelMaxWidth", "700px"], ["contextMenuLabelMinWidth", "75px"], ["contextMenuMarginLeft", 3], ["contextMenuMarginTop", -3], ["contextMenuOpacity", "0.98"], ["contextMenuPadding", "2px"], ["contextMenuWindowMargin", 30], ["contextMenuZIndex", 1e4], ["cornerCellBackgroundColor", "rgba(240, 240, 240, 1)"], ["cornerCellBorderColor", "rgba(202, 202, 202, 1)"], ["debugBackgroundColor", "rgba(0, 0, 0, .0)"], ["debugColor", "rgba(255, 15, 24, 1)"], ["debugEntitiesColor", "rgba(76, 231, 239, 1.00)"], ["debugFont", "11px sans-serif"], ["debugPerfChartBackground", "rgba(29, 25, 26, 1.00)"], ["debugPerfChartTextColor", "rgba(255, 255, 255, 0.8)"], ["debugPerformanceColor", "rgba(252, 255, 37, 1.00)"], ["debugScrollHeightColor", "rgba(248, 33, 103, 1.00)"], ["debugScrollWidthColor", "rgba(66, 255, 27, 1.00)"], ["debugTouchPPSXColor", "rgba(246, 102, 24, 1.00)"], ["debugTouchPPSYColor", "rgba(186, 0, 255, 1.00)"], ["display", "inline-block"], ["editCellBackgroundColor", "white"], ["editCellBorder", "solid 1px rgba(110, 168, 255, 1)"], ["editCellBoxShadow", "0 2px 5px rgba(0,0,0,0.4)"], ["editCellColor", "black"], ["editCellFontFamily", "sans-serif"], ["editCellFontSize", "16px"], ["editCellPaddingLeft", 4], ["editCellZIndex", 1e4], ["frozenMarkerHoverColor", "rgba(236, 243, 255, 1)"], ["frozenMarkerHoverBorderColor", "rgba(110, 168, 255, 1)"], ["frozenMarkerActiveColor", "rgba(236, 243, 255, 1)"], ["frozenMarkerActiveBorderColor", "rgba(110, 168, 255, 1)"], ["frozenMarkerColor", "rgba(222, 222, 222, 1)"], ["frozenMarkerBorderColor", "rgba(168, 168, 168, 1)"], ["frozenMarkerBorderWidth", 1], ["frozenMarkerWidth", 2], ["gridBackgroundColor", "rgba(240, 240, 240, 1)"], ["gridBorderCollapse", "collapse"], ["gridBorderColor", "rgba(202, 202, 202, 1)"], ["gridBorderWidth", 1], ["height", "auto"], ["maxHeight", "inherit"], ["maxWidth", "inherit"], ["minColumnWidth", 45], ["minHeight", "inherit"], ["minRowHeight", 24], ["minWidth", "inherit"], ["mobileContextMenuMargin", 10], ["mobileEditInputHeight", 30], ["mobileEditFontFamily", "sans-serif"], ["mobileEditFontSize", "16px"], ["moveOverlayBorderWidth", 1], ["moveOverlayBorderColor", "rgba(66, 133, 244, 1)"], ["moveOverlayBorderSegments", "12, 7"], ["name", "default"], ["overflowY", "auto"], ["overflowX", "auto"], ["reorderMarkerBackgroundColor", "rgba(0, 0, 0, 0.1)"], ["reorderMarkerBorderColor", "rgba(0, 0, 0, 0.2)"], ["reorderMarkerBorderWidth", 1.25], ["reorderMarkerIndexBorderColor", "rgba(66, 133, 244, 1)"], ["reorderMarkerIndexBorderWidth", 2.75], ["rowHeaderCellBackgroundColor", "rgba(240, 240, 240, 1)"], ["rowHeaderCellBorderColor", "rgba(200, 200, 200, 1)"], ["rowHeaderCellBorderWidth", 1], ["rowHeaderCellColor", "rgba(50, 50, 50, 1)"], ["rowHeaderCellFont", "16px sans-serif"], ["rowHeaderCellHeight", 25], ["rowHeaderCellHorizontalAlignment", "left"], ["rowHeaderCellHoverBackgroundColor", "rgba(235, 235, 235, 1)"], ["rowHeaderCellHoverColor", "rgba(0, 0, 0, 1)"], ["rowHeaderCellPaddingBottom", 5], ["rowHeaderCellPaddingLeft", 5], ["rowHeaderCellPaddingRight", 5], ["rowHeaderCellPaddingTop", 5], ["rowHeaderCellSelectedBackgroundColor", "rgba(217, 217, 217, 1)"], ["rowHeaderCellSelectedColor", "rgba(50, 50, 50, 1)"], ["rowHeaderCellVerticalAlignment", "center"], ["rowHeaderCellWidth", 57], ["scrollBarActiveColor", "rgba(125, 125, 125, 1)"], ["scrollBarBackgroundColor", "rgba(240, 240, 240, 1)"], ["scrollBarBorderColor", "rgba(202, 202, 202, 1)"], ["scrollBarBorderWidth", .5], ["scrollBarBoxBorderRadius", 4.125], ["scrollBarBoxColor", "rgba(192, 192, 192, 1)"], ["scrollBarBoxMargin", 2], ["scrollBarBoxMinSize", 15], ["scrollBarBoxWidth", 8], ["scrollBarCornerBackgroundColor", "rgba(240, 240, 240, 1)"], ["scrollBarCornerBorderColor", "rgba(202, 202, 202, 1)"], ["scrollBarWidth", 11], ["selectionHandleBorderColor", "rgba(255, 255, 255, 1)"], ["selectionHandleBorderWidth", 1.5], ["selectionHandleColor", "rgba(66, 133, 244, 1)"], ["selectionHandleSize", 8], ["selectionHandleType", "square"], ["selectionOverlayBorderColor", "rgba(66, 133, 244, 1)"], ["selectionOverlayBorderWidth", 1], ["treeArrowBorderColor", "rgba(195, 199, 202, 1)"], ["treeArrowBorderWidth", 1], ["treeArrowClickRadius", 5], ["treeArrowColor", "rgba(155, 155, 155, 1)"], ["treeArrowHeight", 8], ["treeArrowMarginLeft", 0], ["treeArrowMarginRight", 5], ["treeArrowMarginTop", 6], ["treeArrowWidth", 13], ["treeGridHeight", 250], ["width", "auto"]]
                 }
             }
@@ -54,44 +54,56 @@
             "use strict";
             return function (e) {
                 e.integerToAlpha = function (e) {
+                    console.log("integerToAlpha: " + e);
                     for (var t = "a".charCodeAt(0), o = "z".charCodeAt(0) - t + 1, r = ""; e >= 0;) r = String.fromCharCode(e % o + t) + r, e = Math.floor(e / o) - 1;
                     return r
                 }, e.insertColumn = function (t, o) {
+                    console.log("insertColumn: " + e);
                     var r = e.getSchema();
                     if (r.length < o) throw new Error("Index is beyond the length of the schema.");
                     e.validateColumn(t, r), r.splice(o, 0, t), e.data.forEach(function (o) {
                         e.applyDefaultValue(o, t)
                     }), e.intf.schema = r
                 }, e.deleteColumn = function (t) {
+                    console.log("deleteColumn: " + e);
                     var o = e.getSchema();
                     e.data.forEach(function (e) {
                         delete e[o[t].name]
                     }), o.splice(t, 1), e.intf.schema = o
                 }, e.addColumn = function (t) {
+                    console.log("addColumn: " + e);
                     var o = e.getSchema();
                     e.validateColumn(t, o), o.push(t), e.data.forEach(function (o) {
                         e.applyDefaultValue(o, t)
                     }), e.intf.schema = o
                 }, e.deleteRow = function (t) {
+                    console.log("deleteRow: " + e);
                     e.originalData.splice(t, 1), e.setFilter(), e.resize(!0)
                 }, e.insertRow = function (t, o) {
+                    console.log("insertRow: " + e);
                     if (e.originalData.length < o) throw new Error("Index is beyond the length of the dataset.");
                     e.originalData.splice(o, 0, t), e.getSchema().forEach(function (r) {
                         void 0 === t[r.name] && e.applyDefaultValue(e.originalData[o], r)
                     }), e.setFilter(), e.resize(!0)
                 }, e.addRow = function (t) {
+                    console.log("addRow: " + e);
                     e.originalData.push(t), e.getSchema().forEach(function (o) {
                         void 0 === t[o.name] && e.applyDefaultValue(e.originalData[e.originalData.length - 1], o)
                     }), e.setFilter(), e.resize(!0)
                 }, e.setRowHeight = function (t, o) {
+                    console.log("setRowHeight: " + e);
                     e.sizes.rows[t] = o, e.draw(!0)
                 }, e.setColumnWidth = function (t, o) {
+                    console.log("setColumnWidth: " + e);
                     e.sizes.columns[t] = o, e.draw(!0)
                 }, e.resetColumnWidths = function () {
+                    console.log("resetColumnWidths: " + e);
                     e.sizes.columns = {}, e.draw(!0)
                 }, e.resetRowHeights = function () {
+                    console.log("resetRowHeights: " + e);
                     e.sizes.rows = {}, e.draw(!0)
                 }, e.setFilter = function (t, o) {
+                    console.log("setFilter: " + e);
                     function r() {
                         e.refreshFromOrigialData(), Object.keys(e.columnFilters).forEach(function (o) {
                             var r = e.getHeaderByName(t);
@@ -104,13 +116,16 @@
                     if (void 0 === t && void 0 === o) return e.columnFilters = {}, r();
                     !t || "" !== o && void 0 !== o ? e.columnFilters[t] = o : delete e.columnFilters[t], r()
                 }, e.findRowScrollTop = function (t) {
+                    console.log("findRowScrollTop: " + e);
                     if (void 0 === e.scrollCache.y[t]) throw new RangeError("Row index out of range.");
                     return e.scrollCache.y[t]
                 }, e.findColumnScrollLeft = function (t) {
+                    console.log("findColumnScrollLeft: " + e);
                     var o = Math.max(t - 1, 0);
                     if (void 0 === e.scrollCache.x[o]) throw new Error("Column index out of range.");
                     return e.scrollCache.x[o] - e.getColummnWidth(e.orders.columns[t])
                 }, e.gotoCell = function (t, o, r, n) {
+                    console.log("gotoCell: " + e);
                     var l, i = void 0 === t ? void 0 : e.findColumnScrollLeft(t),
                         a = void 0 === o ? void 0 : e.findRowScrollTop(o),
                         s = e.scrollBox.width - (e.scrollBox.verticalBarVisible ? e.style.scrollBarWidth : 0),
@@ -119,20 +134,25 @@
                         (l = e.getVisibleCellByIndex(t, o)) && (i += l.width * r, a += l.height * n, e.scrollBox.scrollTo(i, a))
                     })) : void 0 !== t ? e.scrollBox.scrollLeft = i : void 0 !== o && (e.scrollBox.scrollTop = a)
                 }, e.gotoRow = function (t) {
+                    console.log("gotoRow: " + e);
                     e.gotoCell(0, t)
                 }, e.scrollIntoView = function (t, o, r, n) {
+                    console.log("scrollIntoView: " + e);
                     0 === e.visibleCells.filter(function (r) {
                         return (r.rowIndex === o || void 0 === o) && (r.columnIndex === t || void 0 === t) && r.x > 0 && r.y > 0 && r.x + r.width < e.width && r.y + r.height < e.height
                     }).length && e.gotoCell(t, o, r, n)
                 }, e.setActiveCell = function (t, o) {
+                    console.log("setActiveCell: " + e);
                     t < 0 && (t = 0), o < 0 && (o = 0), e.activeCell = {rowIndex: o, columnIndex: t}
                 }, e.selectNone = function (t) {
+                    console.log("selectNone: " + e);
                     e.selections = [], e.dispatchEvent("selectionchanged", {
                         selectedData: e.getSelectedData(),
                         selections: e.selections,
                         selectionBounds: e.selectionBounds
                     }), t || e.draw()
                 }, e.selectAll = function (t) {
+                    console.log("selectAll: " + e);
                     e.selectArea({
                         top: 0,
                         left: -1,
@@ -140,11 +160,13 @@
                         bottom: e.data.length - 1
                     }), t || e.draw()
                 }, e.isColumnSelected = function (t) {
+                    console.log("isColumnSelected: " + e);
                     var o = !0;
                     return e.data.forEach(function (r, n) {
                         e.selections[n] && -1 !== e.selections[n].indexOf(e.orders.columns[t]) || (o = !1)
                     }), o
                 }, e.forEachSelectedCell = function (t, o) {
+                    console.log("forEachSelectedCell : " + e);
                     var r = [], n = o ? e.getSchema() : e.getVisibleSchema(), l = e.data.length;
                     e.selections.forEach(function (o, i) {
                         i !== l && (0 !== o.length ? (r[i] = {}, o.forEach(function (o) {
@@ -152,6 +174,7 @@
                         })) : r[i] = null)
                     })
                 }, e.selectColumn = function (t, o, r, n) {
+                    console.log("selectColumn: " + e);
                     var l, i, a;
 
                     function s(t) {
@@ -174,6 +197,7 @@
                         selectionBounds: e.getSelectionBounds()
                     })
                 }, e.selectRow = function (t, o, r, n) {
+                    console.log("selectRow: " + e);
                     var l, i, a, s = e.getVisibleSchema();
 
                     function c() {
@@ -197,12 +221,14 @@
                     } else d(t);
                     c()
                 }, e.collapseTree = function (t) {
+                    console.log("collapseTree: " + e);
                     e.dispatchEvent("collapsetree", {
                         childGrid: e.childGrids[t],
                         data: e.data[t],
                         rowIndex: t
                     }), e.openChildren[t].blur(), e.openChildren[t].dispose(), delete e.openChildren[t], delete e.sizes.trees[t], delete e.childGrids[t], e.dispatchEvent("resizerow", {cellHeight: e.style.cellHeight}), e.resize(!0), e.draw(!0)
                 }, e.expandTree = function (t) {
+                    console.log("expandTree: " + e);
                     var o, r = e.args.treeGridAttributes || {}, n = e.getColumnHeaderCellHeight(),
                         l = e.sizes.columns.cornerCell || e.style.rowHeaderCellWidth,
                         i = e.sizes.trees[t] || e.style.treeGridHeight;
@@ -224,14 +250,19 @@
                         rowIndex: t
                     }), e.openChildren[t] = o, e.sizes.trees[t] = i, e.dispatchEvent("resizerow", {height: e.style.cellHeight}), e.resize(!0)
                 }, e.toggleTree = function (t) {
+                    console.log("toggleTree: " + e);
                     if (e.openChildren[t]) return e.collapseTree(t);
                     e.expandTree(t)
                 }, e.getHeaderByName = function (t) {
+                    console.log("getHeaderByName: " + e);
                     var o, r = e.getSchema();
                     for (o = 0; o < r.length; o += 1) if (r[o].name === t) return r[o]
                 }, e.fitColumnToValues = function (t, o) {
+                    console.log("fitColumnToValues: " + o);
+                    e.deleteRow(0);
                     e.canvas && (e.sizes.columns["cornerCell" === t ? -1 : e.getHeaderByName(t).index] = Math.max(e.findColumnMaxTextLength(t), e.style.minColumnWidth), o || (e.resize(), e.draw(!0)))
                 }, e.isCellVisible = function (t, o) {
+                    console.log("fitColumnToValues: " + e);
                     if (void 0 !== o) return e.visibleCells.filter(function (e) {
                         return e.columnIndex === t && e.rowIndex === o
                     }).length > 0;
@@ -239,6 +270,7 @@
                     for (r = 0; r < n; r += 1) if (t.x === e.visibleCells[r].x && t.y === e.visibleCells[r].y) return !0;
                     return !1
                 }, e.order = function (t, o, r, n) {
+                    console.log("order: " + e);
                     var l, i = e.getSchema().filter(function (e) {
                         return e.name === t
                     });
@@ -253,8 +285,10 @@
                         }), e.draw(!0), n || e.setStorageData()
                     }
                 }, e.isInGrid = function (t) {
+                    //console.log("isInGrid: " + e);
                     return !(t.x < 0 || t.x > e.width || t.y < 0 || t.y > e.height)
                 }, e.moveSelection = function (t, o) {
+                    console.log("moveSelection: " + e);
                     var r = [];
                     e.selections.forEach(function (e, n) {
                         r[n + o] = [], e.forEach(function (e) {
@@ -262,6 +296,7 @@
                         })
                     }), e.selections = r
                 }, e.moveTo = function (t, o, r) {
+                    console.log("moveTo: " + e);
                     var n, l = e.getSelectedData(), i = e.getVisibleSchema(), a = t.length, s = -1 / 0, c = 1 / 0,
                         d = r - 1;
                     t.forEach(function (t, r) {
@@ -275,18 +310,22 @@
                         })
                     })
                 }, e.isColumnVisible = function (t) {
+                    console.log("isColumnVisible: " + e);
                     return e.visibleCells.filter(function (e) {
                         return e.columnIndex === t
                     }).length > 0
                 }, e.isRowVisible = function (t) {
+                    console.log("isRowVisible: " + e);
                     return e.visibleCells.filter(function (e) {
                         return e.rowIndex === t
                     }).length > 0
                 }, e.getVisibleCellByIndex = function (t, o) {
+                    console.log("getVisibleCellByIndex: " + e);
                     return e.visibleCells.filter(function (e) {
                         return e.columnIndex === t && e.rowIndex === o
                     })[0]
                 }, e.getCellAt = function (t, o, r) {
+                    //console.log("getCellAt: " + t);
                     function n(r) {
                         return r.x + r.width - .4 * e.attributes.borderResizeZone < t && r.x + r.width + .6 * e.attributes.borderResizeZone > t ? "r" : r.x - .4 * e.attributes.borderResizeZone < t && r.x + .6 * e.attributes.borderResizeZone > t ? "l" : r.y + r.height - .4 * e.attributes.borderResizeZone < o && r.y + r.height + .6 * e.attributes.borderResizeZone > o ? "b" : r.y - .4 * e.attributes.borderResizeZone < o && r.y + .6 * e.attributes.borderResizeZone > o ? "t" : void 0
                     }
@@ -330,23 +369,28 @@
                         }
                     }
                 }, e.getSelectionBounds = function () {
+                    console.log("getSelectionBounds: " + e);
                     var t = {x: 1 / 0, y: 1 / 0}, o = {x: -1 / 0, y: -1 / 0};
                     return e.selections.forEach(function (e, r) {
                         var n, l;
                         t.y = r < t.y ? r : t.y, o.y = r > o.y ? r : o.y, n = Math.max.apply(null, e), l = Math.min.apply(null, e), t.x = l < t.x ? l : t.x, o.x = n > o.x ? n : o.x
                     }), {top: t.y, left: t.x, bottom: o.y, right: o.x}
                 }, e.getSchemaFromData = function (t) {
+                    console.log("getSchemaFromData: " + t);
                     return t = t || e.data, Object.keys(t[0] || {" ": ""}).map(function (o, r) {
                         var n = e.getBestGuessDataType(o, t), l = {
                             name: o,
-                            title: isNaN(parseInt(o, 10)) ? o : e.integerToAlpha(o).toUpperCase(),
+                            // title: isNaN(parseInt(o, 10)) ? o : e.integerToAlpha(o).toUpperCase(),
+                            title: t[0][parseInt(o, 10)],
                             index: r,
                             type: n,
                             filter: e.filter(n)
-                        };
+                        }
+
                         return e.storedSettings && e.storedSettings.visibility && void 0 !== e.storedSettings.visibility[l.name] && (l.hidden = !e.storedSettings.visibility[l.name]), l
                     })
                 }, e.clearChangeLog = function () {
+                    console.log("clearChangeLog: " + e);
                     e.changes = []
                 }, e.selectArea = function (t, o) {
                     e.selectionBounds = t || e.selectionBounds;
@@ -362,6 +406,7 @@
                         }
                     }), e.dispatchEvent("selectionchanged", r)
                 }, e.findColumnMaxTextLength = function (t) {
+                    console.log("findColumnMaxTextLength : " + e);
                     var o = -1 / 0;
                     return "cornerCell" === t ? (e.ctx.font = e.style.rowHeaderCellFont, e.ctx.measureText((e.data.length + (e.attributes.showNewRow ? 1 : 0)).toString()).width + e.style.autosizePadding + e.style.autosizeHeaderCellPadding + e.style.rowHeaderCellPaddingRight + e.style.rowHeaderCellPaddingLeft + (e.attributes.tree ? e.style.treeArrowWidth + e.style.treeArrowMarginLeft + e.style.treeArrowMarginRight : 0)) : (e.getSchema().forEach(function (r) {
                         if (r.name === t) {
@@ -375,12 +420,15 @@
                         o = n > o ? n : o
                     }), o)
                 }, e.getHeaderWidth = function () {
+                    console.log("getHeaderWidth: " + e);
                     return e.getVisibleSchema().reduce(function (t, o) {
                         return t + (o.width || e.style.cellWidth)
                     }, 0)
                 }, e.getRowHeight = function (t) {
+                    console.log("getRowHeight: " + e);
                     return (e.sizes.rows[t] || e.style.cellHeight) * e.scale
                 }, e.getColummnWidth = function (t) {
+                    console.log("getColummnWidth: " + t);
                     return (e.sizes.columns[t] || e.getSchema()[t].width || e.style.cellWidth) * e.scale
                 }, e.formatters.string = function (e) {
                     return void 0 !== e.cell.value ? e.cell.value : ""
@@ -390,11 +438,13 @@
                         return void 0 === t[e] || null === t[e] ? 1 : void 0 === r[e] || null === r[e] ? 0 : o ? t[e].localeCompare ? t[e].localeCompare(r[e]) : 1 : r[e].localeCompare ? r[e].localeCompare(t[e]) : 1
                     }
                 }, e.sorters.number = function (e, t) {
+                    console.log(": " + e);
                     var o = "asc" === t;
                     return function (t, r) {
                         return o ? t[e] - r[e] : r[e] - t[e]
                     }
                 }, e.sorters.date = function (e, t) {
+                    console.log(": " + e);
                     var o = "asc" === t;
                     return function (t, r) {
                         return o ? new Date(t[e]).getTime() - new Date(r[e]).getTime() : new Date(r[e]).getTime() - new Date(t[e]).getTime()
@@ -408,6 +458,7 @@
             "use strict";
             return function (e) {
                 e.getClippingRect = function (t) {
+                    console.log(": " + e);
                     var o = e.position(e.parentNode), r = e.position(t), n = e.scrollOffset(e.canvas),
                         l = {x: 0, y: 0, h: 0, w: 0}, i = {x: -1 / 0, y: -1 / 0, h: 1 / 0, w: 1 / 0},
                         a = e.getColumnHeaderCellHeight(), s = e.getRowHeaderCellWidth();
@@ -418,15 +469,18 @@
                         w: l.w < i.w ? l.w : i.w
                     }
                 }, e.clipElement = function (t) {
+                    console.log(": " + e);
                     var o = e.getClippingRect(t);
                     o.w < 0 && (o.w = 0), o.h < 0 && (o.h = 0), t.style.clip = "rect(" + o.y + "px," + o.w + "px," + o.h + "px," + o.x + "px)"
                 }, e.scrollOffset = function (t) {
+                    console.log(": " + e);
                     for (var o = 0, r = 0, n = document.scrollingElement || {
                         scrollLeft: 0,
                         scrollTop: 0
                     }; t.parentNode && "CANVAS-DATAGRID" !== t.nodeName && t !== e.intf;) "canvas-datagrid-tree" !== t.nodeType && "canvas-datagrid-cell" !== t.nodeType && (o -= t.scrollLeft, r -= t.scrollTop), t = t.parentNode;
                     return {left: o - n.scrollLeft, top: r - n.scrollTop}
                 }, e.resizeEditInput = function () {
+                    console.log(": " + e);
                     if (e.input && e.input.editCell) {
                         var t = e.canvas.getBoundingClientRect(), o = e.scrollOffset(e.intf),
                             r = "collapse" === e.style.gridBorderCollapse ? 1 : 2, n = e.style.cellBorderWidth * r,
@@ -440,6 +494,7 @@
                         e.input.style.left = t.left + l.x + e.canvasOffsetLeft - o.left + "px", e.input.style.top = t.top + l.y - e.style.cellBorderWidth + e.canvasOffsetTop - o.top + "px", e.input.style.height = l.height - n + "px", e.input.style.width = l.width - e.style.cellPaddingLeft + "px", e.clipElement(e.input)
                     }
                 }, e.position = function (t, o) {
+                    console.log(": " + e);
                     for (var r, n, l = 0, i = 0, a = t; t.offsetParent && "CANVAS-DATAGRID" !== t.nodeName;) l += t.offsetLeft, i += t.offsetTop, r = t.offsetHeight, n = t.offsetWidth, t = t.offsetParent;
                     return o ? {left: l, top: i, height: r, width: n} : (t = a, {
                         left: l + (a = e.scrollOffset(t)).left,
@@ -448,6 +503,7 @@
                         width: n
                     })
                 }, e.getLayerPos = function (t) {
+                    console.log(": " + e);
                     var o = e.canvas.getBoundingClientRect(), r = {x: t.clientX - o.left, y: t.clientY - o.top};
                     return e.isChildGrid && (r.x -= e.canvasOffsetLeft, r.y -= e.canvasOffsetTop), {
                         x: r.x,
@@ -455,6 +511,7 @@
                         rect: o
                     }
                 }, e.endEdit = function (t) {
+                    console.log(": " + e);
                     var o = e.input.editCell, r = o.rowIndex;
                     if (e.dispatchEvent("beforeendedit", {
                         cell: o,
@@ -485,6 +542,7 @@
                         input: e.input
                     }), e.input = void 0, !0
                 }, e.beginEditAt = function (t, o, r) {
+                    console.log(": " + e);
                     if (e.attributes.editable) {
                         e.input && e.endEdit();
                         var n, l, i, a, s, c = e.getVisibleCellByIndex(t, o);
@@ -512,6 +570,7 @@
                         }
                     }
                 }, e.createInlineStyle = function (t, o) {
+                    console.log(": " + e);
                     var r = {
                         "canvas-datagrid-context-menu-filter-input": {
                             height: "19px",
@@ -687,8 +746,10 @@
                         t.style[e] = r[o][e]
                     })
                 }, e.appendTo = function (t) {
+                    console.log(": " + e);
                     e.parentNode = t, e.setDom()
                 }, e.setDom = function () {
+                    console.log(": " + e);
                     e.isChildGrid ? (e.parentGrid = e.parentNode.parentGrid, e.ctx = e.parentGrid.context, e.canvas = e.parentGrid.canvas, e.controlInput = e.parentGrid.controlInput, e.eventParent = e.canvas) : (e.controlInput = e.controlInput || document.createElement("input"), e.controlInput.onblur = e.intf.blur, e.createInlineStyle(e.controlInput, "canvas-datagrid-control-input"), e.isChildGrid = !1, e.parentDOMNode = e.parentNode, e.parentIsCanvas = /^canvas$/i.test(e.parentDOMNode.tagName), e.parentIsCanvas ? (e.canvas = e.parentDOMNode, document.body.appendChild(e.controlInput)) : (e.canvas = document.createElement("canvas"), e.parentDOMNode.appendChild(e.canvas), document.body.appendChild(e.controlInput)), e.createInlineStyle(e.canvas, "canvas-datagrid"), e.ctx = e.canvas.getContext("2d"), e.ctx.textBaseline = "alphabetic", e.eventParent = e.canvas), e.parentNodeStyle = e.canvas.style, e.controlInput.setAttribute("readonly", !0), e.controlInput.addEventListener("blur", function (t) {
                         t.target !== e.canvas && (e.hasFocus = !1)
                     }), e.eventParent.addEventListener("scroll", e.resize, !1), e.eventParent.addEventListener("touchstart", e.touchstart, !1), e.eventParent.addEventListener("mouseup", e.mouseup, !1), e.eventParent.addEventListener("mousedown", e.mousedown, !1), e.eventParent.addEventListener("dblclick", e.dblclick, !1), e.eventParent.addEventListener("click", e.click, !1), e.eventParent.addEventListener("mousemove", e.mousemove), e[e.isChildGrid ? "parentGrid" : "eventParent"].addEventListener("wheel", e.scrollWheel, !1), e.canvas.addEventListener("contextmenu", e.contextmenuEvent, !1), e.controlInput.addEventListener("copy", e.copy), e.controlInput.addEventListener("cut", e.cut), e.controlInput.addEventListener("paste", e.paste), e.controlInput.addEventListener("keypress", e.keypress, !1), e.controlInput.addEventListener("keyup", e.keyup, !1), e.controlInput.addEventListener("keydown", e.keydown, !1), window.addEventListener("resize", e.resize)
