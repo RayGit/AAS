@@ -259,7 +259,6 @@
                     for (o = 0; o < r.length; o += 1) if (r[o].name === t) return r[o]
                 }, e.fitColumnToValues = function (t, o) {
                     console.log("fitColumnToValues: " + o);
-                    e.deleteRow(0);
                     e.canvas && (e.sizes.columns["cornerCell" === t ? -1 : e.getHeaderByName(t).index] = Math.max(e.findColumnMaxTextLength(t), e.style.minColumnWidth), o || (e.resize(), e.draw(!0)))
                 }, e.isCellVisible = function (t, o) {
                     console.log("fitColumnToValues: " + e);
@@ -1077,65 +1076,83 @@
                         e.childGrids[t].draw()
                     })
                 }, e.resizeChildGrids = function () {
+                    console.log("resizeChildGrids: ");
                     Object.keys(e.childGrids).forEach(function (t) {
                         e.childGrids[t].resize()
                     })
                 }, e.autoScrollZone = function (t, o, r, n) {
+                    console.log("autoScrollZone: ");
                     var l, i = e.getRowHeaderCellWidth(), a = e.getColumnHeaderCellHeight();
                     -1 !== r && (o > e.width - e.attributes.selectionScrollZone && o < e.width && (e.scrollBox.scrollLeft += e.attributes.selectionScrollIncrement, l = !0), o - e.attributes.selectionScrollZone - i < 0 && (e.scrollBox.scrollLeft -= e.attributes.selectionScrollIncrement, l = !0)), -1 !== r && (r > e.height - e.attributes.selectionScrollZone && r < e.height && (e.scrollBox.scrollTop += e.attributes.selectionScrollIncrement, l = !0), r - e.attributes.selectionScrollZone - a < 0 && (e.scrollBox.scrollTop -= e.attributes.selectionScrollIncrement, l = !0)), l && !n && e.currentCell && -1 !== e.currentCell.columnIndex && (e.scrollTimer = setTimeout(e.mousemove, e.attributes.scrollRepeatRate, t))
                 }, e.refreshFromOrigialData = function () {
+                    console.log("refreshFromOrigialData: ");
                     e.data = e.originalData.filter(function (e) {
                         return !0
                     })
                 }, e.validateColumn = function (e, t) {
+                    console.log("validateColumn: ");
                     if (!e.name) throw new Error("A column must contain at least a name.");
                     if (t.filter(function (t) {
                         return t.name === e.name
                     }).length > 0) throw new Error("A column with the name " + e.name + " already exists and cannot be added again.");
                     return !0
                 }, e.setDefaults = function (e, t, o, r) {
+                    console.log("setAttributes: ");
                     e[o] = void 0 === t[o] ? r : t[o]
                 }, e.setAttributes = function () {
+                    console.log("setAttributes: ");
                     e.defaults.attributes.forEach(function (t) {
                         e.setDefaults(e.attributes, e.args, t[0], t[1])
                     })
                 }, e.setStyle = function () {
+                    console.log("setStyle: ");
                     e.defaults.styles.forEach(function (t) {
                         e.setDefaults(e.style, e.args.style || {}, t[0], t[1])
                     })
                 }, e.autosize = function (t) {
+                    console.log("autosize: ");
                     e.getVisibleSchema().forEach(function (o, r) {
                         o.name !== t && void 0 !== t || (e.sizes.columns[r] = Math.max(e.findColumnMaxTextLength(o.name), e.style.minColumnWidth))
                     }), e.sizes.columns[-1] = e.findColumnMaxTextLength("cornerCell")
                 }, e.dispose = function () {
+                    console.log("dispose: ");
                     !e.isChildGrid && e.canvas && e.canvas.parentNode && e.canvas.parentNode.removeChild(e.canvas), e.isChildGrid || document.body.removeChild(e.controlInput), e.eventParent.removeEventListener("mouseup", e.mouseup, !1), e.eventParent.removeEventListener("mousedown", e.mousedown, !1), e.eventParent.removeEventListener("dblclick", e.dblclick, !1), e.eventParent.removeEventListener("click", e.click, !1), e.eventParent.removeEventListener("mousemove", e.mousemove), e.eventParent.removeEventListener("wheel", e.scrollWheel, !1), e.canvas.removeEventListener("contextmenu", e.contextmenu, !1), e.canvas.removeEventListener("copy", e.copy), e.controlInput.removeEventListener("copy", e.copy), e.controlInput.removeEventListener("cut", e.cut), e.controlInput.removeEventListener("paste", e.paste), e.controlInput.removeEventListener("keypress", e.keypress, !1), e.controlInput.removeEventListener("keyup", e.keyup, !1), e.controlInput.removeEventListener("keydown", e.keydown, !1), window.removeEventListener("resize", e.resize), e.observer && e.observer.disconnect && e.observer.disconnect()
                 }, e.tryLoadStoredSettings = function () {
+                    console.log("tryLoadStoredSettings: ");
                     var t;
                     e.reloadStoredValues(), e.storedSettings && "object" == typeof e.storedSettings.orders && null !== e.storedSettings.orders && (e.storedSettings.orders.rows.length >= (e.data || []).length && (e.orders.rows = e.storedSettings.orders.rows), t = e.getSchema(), e.storedSettings.orders.columns.length === t.length && (e.orders.columns = e.storedSettings.orders.columns), e.orderBy = void 0 === e.storedSettings.orderBy ? t[0].name : e.storedSettings.orderBy, e.orderDirection = void 0 === e.storedSettings.orderDirection ? "asc" : e.storedSettings.orderDirection, void 0 !== e.storedSettings.orderBy && e.getHeaderByName(e.orderBy) && e.orderDirection && e.order(e.orderBy, e.orderDirection))
                 }, e.getDomRoot = function () {
+                    console.log("getDomRoot: ");
                     return e.shadowRoot ? e.shadowRoot.host : e.parentNode
                 }, e.getFontName = function (e) {
+                    console.log("getFontName: ");
                     return e.replace(/\d+\.?\d*px/, "")
                 }, e.getFontHeight = function (e) {
+                    console.log("getFontHeight: ");
                     return parseFloat(e, 10)
                 }, e.parseStyleValue = function (t) {
+                    console.log("parseStyleValue: ");
                     if (/Font/.test(t)) return e.style[t + "Height"] = e.getFontHeight(e.style[t]), void(e.style[t + "Name"] = e.getFontName(e.style[t]));
                     "moveOverlayBorderSegments" === t && "string" == typeof e.style[t] && (e.style[t] = e.style[t].split(",").map(function (e) {
                         return parseInt(e, 10)
                     }))
                 }, e.initProp = function (t) {
+                    console.log("initProp: ");
                     e.args[t] && Object.keys(e.args[t]).forEach(function (o) {
                         e[t][o] = e.args[t][o]
                     })
                 }, e.getStyleProperty = function (t) {
+                    console.log("getStyleProperty: ");
                     return -1 === e.styleKeys.indexOf(t) ? e.parentNodeStyle[t] : e.style[t]
                 }, e.setStyleProperty = function (t, o, r) {
+                    console.log("setStyleProperty: ");
                     var n = -1 !== ["height", "width", "minHeight", "minWidth", "maxHeight", "maxWidth"].indexOf(t);
                     -1 === e.styleKeys.indexOf(t) ? e.parentNodeStyle[t] = o : (/-/.test(t) && (t = e.dehyphenateProperty(t)), e.style[t] = o, e.parseStyleValue(t)), n && e.resize(), r || (e.draw(!0), e.dispatchEvent("stylechanged", {
                         name: "style",
                         value: o
                     }))
                 }, e.reloadStoredValues = function () {
+                    console.log("reloadStoredValues: ");
                     if (e.attributes.name && e.attributes.saveAppearance) {
                         try {
                             e.storedSettings = localStorage.getItem(e.storageName + "-" + e.attributes.name)
@@ -1147,19 +1164,45 @@
                         } catch (t) {
                             console.warn("could not read settings from localStore", t), e.storedSettings = void 0
                         }
-                        e.storedSettings && ("object" == typeof e.storedSettings.sizes && null !== e.storedSettings.sizes && (e.sizes.rows = e.storedSettings.sizes.rows, e.sizes.columns = e.storedSettings.sizes.columns, ["trees", "columns", "rows"].forEach(function (t) {
+                        e.storedSettings && ("object" == typeof e.storedSettings.sizes && null !== e.storedSettings.sizes
+                        && (e.sizes.rows = e.storedSettings.sizes.rows, e.sizes.columns = e.storedSettings.sizes.columns, ["trees", "columns", "rows"].forEach(function (t) {
                             e.sizes[t] || (e.sizes[t] = {})
                         })), "object" == typeof e.storedSettings.visibility && e.getSchema().forEach(function (t) {
                             e.storedSettings.visibility && void 0 !== e.storedSettings.visibility[t.name] && (t.hidden = !e.storedSettings.visibility[t.name])
                         }))
                     }
                 }, e.init = function () {
+                    console.log("init: ");
                     if (!e.initialized) {
                         var t = {};
-                        return e.setAttributes(), e.setStyle(), e.initScrollBox(), e.setDom(), e.nodeType = "canvas-datagrid", e.ie = /Trident/.test(window.navigator.userAgent), e.edge = /Edge/.test(window.navigator.userAgent), e.webKit = /WebKit/.test(window.navigator.userAgent), e.moz = /Gecko/.test(window.navigator.userAgent), e.mobile = /Mobile/i.test(window.navigator.userAgent), e.cursorGrab = "grab", e.cursorGrabing = "grabbing", e.cursorGrab = e.webKit ? "-webkit-grab" : e.cursorGrab, e.cursorGrabing = e.moz ? "-webkit-grabbing" : e.cursorGrabbing, e.pointerLockPosition = {
+                        return e.setAttributes(), e.setStyle(), e.initScrollBox(), e.setDom(), e.nodeType = "canvas-datagrid", e.ie = /Trident/.test(window.navigator.userAgent),
+                            e.edge = /Edge/.test(window.navigator.userAgent), e.webKit = /WebKit/.test(window.navigator.userAgent), e.moz = /Gecko/.test(window.navigator.userAgent),
+                            e.mobile = /Mobile/i.test(window.navigator.userAgent), e.cursorGrab = "grab", e.cursorGrabing = "grabbing",
+                            e.cursorGrab = e.webKit ? "-webkit-grab" : e.cursorGrab, e.cursorGrabing = e.moz ? "-webkit-grabbing" : e.cursorGrabbing, e.pointerLockPosition = {
                             x: 0,
                             y: 0
-                        }, Object.keys(e.style).forEach(e.parseStyleValue), e.intf.moveSelection = e.moveSelection, e.intf.moveTo = e.moveTo, e.intf.addEventListener = e.addEventListener, e.intf.removeEventListener = e.removeEventListener, e.intf.dispatchEvent = e.dispatchEvent, e.intf.dispose = e.dispose, e.intf.appendTo = e.appendTo, e.intf.getVisibleCellByIndex = e.getVisibleCellByIndex, e.intf.filters = e.filters, e.intf.sorters = e.sorters, e.intf.autosize = e.autosize, e.intf.beginEditAt = e.beginEditAt, e.intf.endEdit = e.endEdit, e.intf.setActiveCell = e.setActiveCell, e.intf.forEachSelectedCell = e.forEachSelectedCell, e.intf.scrollIntoView = e.scrollIntoView, e.intf.clearChangeLog = e.clearChangeLog, e.intf.gotoCell = e.gotoCell, e.intf.gotoRow = e.gotoRow, e.intf.getHeaderByName = e.getHeaderByName, e.intf.findColumnScrollLeft = e.findColumnScrollLeft, e.intf.findRowScrollTop = e.findRowScrollTop, e.intf.fitColumnToValues = e.fitColumnToValues, e.intf.findColumnMaxTextLength = e.findColumnMaxTextLength, e.intf.disposeContextMenu = e.disposeContextMenu, e.intf.getCellAt = e.getCellAt, e.intf.isCellVisible = e.isCellVisible, e.intf.isRowVisible = e.isRowVisible, e.intf.isColumnVisible = e.isColumnVisible, e.intf.order = e.order, e.intf.draw = e.draw, e.intf.isComponent = e.isComponent, e.intf.selectArea = e.selectArea, e.intf.clipElement = e.clipElement, e.intf.getSchemaFromData = e.getSchemaFromData, e.intf.setFilter = e.setFilter, e.intf.selectRow = e.selectRow, e.intf.parentGrid = e.parentGrid, e.intf.toggleTree = e.toggleTree, e.intf.expandTree = e.expandTree, e.intf.collapseTree = e.collapseTree, e.intf.canvas = e.canvas, e.intf.context = e.ctx, e.intf.insertRow = e.insertRow, e.intf.deleteRow = e.deleteRow, e.intf.addRow = e.addRow, e.intf.insertColumn = e.insertColumn, e.intf.deleteColumn = e.deleteColumn, e.intf.addColumn = e.addColumn, e.intf.getClippingRect = e.getClippingRect, e.intf.setRowHeight = e.setRowHeight, e.intf.setColumnWidth = e.setColumnWidth, e.intf.resetColumnWidths = e.resetColumnWidths, e.intf.resetRowHeights = e.resetRowHeights, e.intf.resize = e.resize, e.intf.selectColumn = e.selectColumn, e.intf.selectRow = e.selectRow, e.intf.selectAll = e.selectAll, e.intf.selectNone = e.selectNone, e.intf.drawChildGrids = e.drawChildGrids, e.intf.assertPxColor = e.assertPxColor, e.intf.clearPxColorAssertions = e.clearPxColorAssertions, e.intf.integerToAlpha = e.integerToAlpha, e.intf.copy = e.copy, e.intf.setStyleProperty = e.setStyleProperty, Object.defineProperty(e.intf, "defaults", {
+                        }, Object.keys(e.style).forEach(e.parseStyleValue), e.intf.moveSelection = e.moveSelection, e.intf.moveTo = e.moveTo,
+                            e.intf.addEventListener = e.addEventListener, e.intf.removeEventListener = e.removeEventListener,
+                            e.intf.dispatchEvent = e.dispatchEvent, e.intf.dispose = e.dispose, e.intf.appendTo = e.appendTo,
+                            e.intf.getVisibleCellByIndex = e.getVisibleCellByIndex, e.intf.filters = e.filters, e.intf.sorters = e.sorters,
+                            e.intf.autosize = e.autosize, e.intf.beginEditAt = e.beginEditAt, e.intf.endEdit = e.endEdit,
+                            e.intf.setActiveCell = e.setActiveCell, e.intf.forEachSelectedCell = e.forEachSelectedCell,
+                            e.intf.scrollIntoView = e.scrollIntoView, e.intf.clearChangeLog = e.clearChangeLog, e.intf.gotoCell = e.gotoCell,
+                            e.intf.gotoRow = e.gotoRow, e.intf.getHeaderByName = e.getHeaderByName, e.intf.findColumnScrollLeft = e.findColumnScrollLeft,
+                            e.intf.findRowScrollTop = e.findRowScrollTop, e.intf.fitColumnToValues = e.fitColumnToValues,
+                            e.intf.findColumnMaxTextLength = e.findColumnMaxTextLength, e.intf.disposeContextMenu = e.disposeContextMenu,
+                            e.intf.getCellAt = e.getCellAt, e.intf.isCellVisible = e.isCellVisible, e.intf.isRowVisible = e.isRowVisible,
+                            e.intf.isColumnVisible = e.isColumnVisible, e.intf.order = e.order, e.intf.draw = e.draw, e.intf.isComponent = e.isComponent,
+                            e.intf.selectArea = e.selectArea, e.intf.clipElement = e.clipElement, e.intf.getSchemaFromData = e.getSchemaFromData,
+                            e.intf.setFilter = e.setFilter, e.intf.selectRow = e.selectRow, e.intf.parentGrid = e.parentGrid, e.intf.toggleTree = e.toggleTree,
+                            e.intf.expandTree = e.expandTree, e.intf.collapseTree = e.collapseTree, e.intf.canvas = e.canvas, e.intf.context = e.ctx,
+                            e.intf.insertRow = e.insertRow, e.intf.deleteRow = e.deleteRow, e.intf.addRow = e.addRow, e.intf.insertColumn = e.insertColumn,
+                            e.intf.deleteColumn = e.deleteColumn, e.intf.addColumn = e.addColumn, e.intf.getClippingRect = e.getClippingRect,
+                            e.intf.setRowHeight = e.setRowHeight, e.intf.setColumnWidth = e.setColumnWidth, e.intf.resetColumnWidths = e.resetColumnWidths,
+                            e.intf.resetRowHeights = e.resetRowHeights, e.intf.resize = e.resize, e.intf.selectColumn = e.selectColumn,
+                            e.intf.selectRow = e.selectRow, e.intf.selectAll = e.selectAll, e.intf.selectNone = e.selectNone, e.intf.drawChildGrids = e.drawChildGrids,
+                            e.intf.assertPxColor = e.assertPxColor, e.intf.clearPxColorAssertions = e.clearPxColorAssertions, e.intf.integerToAlpha = e.integerToAlpha,
+                            e.intf.copy = e.copy, e.intf.setStyleProperty = e.setStyleProperty, Object.defineProperty(e.intf, "defaults", {
                             get: function () {
                                 return {
                                     styles: e.defaults.styles.reduce(function (e, t) {
@@ -1234,6 +1277,7 @@
                     function o(t) {
                         -1 === e.styleKeys.indexOf(t) && e.styleKeys.push(t)
                     }
+
                 }, e.intf.blur = function (t) {
                     e.hasFocus = !1
                 }, e.intf.focus = function () {
@@ -2661,8 +2705,10 @@
                     e(self)
                 }), self.isChildGrid ? (self.shadowRoot = args.parentNode.shadowRoot, self.parentNode = args.parentNode) : self.intf.createShadowRoot ? (self.shadowRoot = self.intf.attachShadow({mode: "open"}), self.parentNode = self.shadowRoot) : self.parentNode = self.intf, self.init(), self.intf
             }
-
-            return window.HTMLElement && (Grid.prototype = Object.create(window.HTMLElement.prototype)), window.customElements && (Grid.observedAttributes = component.getObservableAttributes(), Grid.prototype.disconnectedCallback = component.disconnectedCallback, Grid.prototype.attributeChangedCallback = component.attributeChangedCallback, Grid.prototype.connectedCallback = component.connectedCallback, Grid.prototype.adoptedCallback = component.adoptedCallback, window.customElements.define("canvas-datagrid", Grid)), !window || window.canvasDatagrid || window.require || (window.canvasDatagrid = function (e) {
+            return window.HTMLElement && (Grid.prototype = Object.create(window.HTMLElement.prototype)), window.customElements && (Grid.observedAttributes = component.getObservableAttributes(),
+                Grid.prototype.disconnectedCallback = component.disconnectedCallback, Grid.prototype.attributeChangedCallback = component.attributeChangedCallback,
+                Grid.prototype.connectedCallback = component.connectedCallback, Grid.prototype.adoptedCallback = component.adoptedCallback, window.customElements.define("canvas-datagrid", Grid)),
+            !window || window.canvasDatagrid || window.require || (window.canvasDatagrid = function (e) {
                 return new Grid(e)
             }), module.exports = function (e) {
                 e = e || {};

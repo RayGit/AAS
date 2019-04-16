@@ -104,6 +104,9 @@ var _onsheet = function(json, sheetnames, select_sheet_cb) {
 
     /* 加载数据 */
     cdg.data = json;
+
+    /* 操作表格 */
+    cdg.deleteRow(0);
 };
 
 /** Drop it like it's hot **/
