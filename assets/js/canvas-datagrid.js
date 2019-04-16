@@ -1020,7 +1020,8 @@
                                         }
 
                                         var l = document.createElement("div");
-                                        n(l), l.addEventListener("touchstart", r), l.addEventListener("click", r), l.innerHTML = (o.hidden ? e.attributes.columnSelectorHiddenText : e.attributes.columnSelectorVisibleText) + (o.title || o.name), t.push({title: l})
+                                        n(l), l.addEventListener("touchstart", r), l.addEventListener("click", r),
+                                            l.innerHTML = (o.hidden ? e.attributes.columnSelectorHiddenText : e.attributes.columnSelectorVisibleText) + (o.title || o.name), t.push({title: l})
                                     }), t
                                 }
                             }), t.cell && t.cell.header && t.cell.columnIndex > -1 && t.items.push({
