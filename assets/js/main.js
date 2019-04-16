@@ -106,6 +106,7 @@ var _onsheet = function(json, sheetnames, select_sheet_cb) {
     cdg.data = json;
 
     /* 操作表格 */
+    cdg.autosize();
     cdg.deleteRow(0);
 };
 
