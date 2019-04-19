@@ -1,14 +1,17 @@
 /* 加载进度条 */
-var loading='<div class="loading"><div class="pic"><i></i><i></i><i></i><i></i><i></i></div></div>';
-$("body").append(loading);
+// var loading='<div class="loading"><div class="pic"><i></i><i></i><i></i><i></i><i></i></div></div>';
+// $("body").append(loading);
 // setInterval(function(){
 //     $(".loading").fadeOut();
 // },10000);
-document.onreadystatechange = function () {//即在加载的过程中执行下面的代码
-    if(document.readyState === "complete"){//complete加载完成
-        $(".loading").fadeOut();
-    }
-};
+$(function () {
+    document.onreadystatechange = function () {//即在加载的过程中执行下面的代码
+        if(document.readyState === "complete"){//complete加载完成
+            $(".loading").fadeOut();
+        }
+    };
+});
+
 
 /** drop target **/
 var _target = document.getElementById('drop');
@@ -18,8 +21,8 @@ var _grid = document.getElementById('grid');
 /** Spinner **/
 var spinner;
 
-var _workstart = function() { spinner = new Spinner().spin(_target); }
-var _workend = function() { spinner.stop(); }
+var _workstart = function() { spinner = new Spinner().spin(_target); };
+var _workend = function() { spinner.stop(); };
 
 /** Alerts **/
 var _badfile = function() {

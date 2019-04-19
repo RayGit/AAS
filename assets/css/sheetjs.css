@@ -68,15 +68,45 @@ pre {
     background-color: #fff;
 }
 .loading .pic{
-    width: 50px;height: 50px;position: absolute;top: 0;left: 0;bottom: 0;right: 0;margin: auto;}
-.loading .pic i{display: block;float: left;width: 6px;height: 50px;background-color: #399;margin: 0 2px;transform: scaleY(.4);animation: load 1.2s infinite;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
 }
-.loading .pic i:nth-child(1){}
-.loading .pic i:nth-child(2){animation-delay: .1s; }
-.loading .pic i:nth-child(3){animation-delay: .2s;}
-.loading .pic i:nth-child(4){animation-delay: .3s;}
-.loading .pic i:nth-child(5){animation-delay: .4s;}
+.loading .pic i{
+    display: block;
+    float: left;
+    width: 6px;
+    height: 50px;
+    background-color: #399;
+    margin: 0 2px;
+    transform: scaleY(.4);
+    animation: load 1.2s infinite;
+}
+.loading .pic i:nth-child(1){
+
+}
+.loading .pic i:nth-child(2){
+    animation-delay: .1s;
+}
+.loading .pic i:nth-child(3){
+    animation-delay: .2s;
+}
+.loading .pic i:nth-child(4){
+    animation-delay: .3s;
+}
+.loading .pic i:nth-child(5){
+    animation-delay: .4s;
+}
 @keyframes load{
-    0%,40%,100%{transform: scaleY(.4);}
-    20%{transform: scaleY(1);}
+    0%,40%,100%{
+        transform: scaleY(.4);
+    }
+    20%{
+        transform: scaleY(1);
+    }
 }
