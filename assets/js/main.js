@@ -86,8 +86,8 @@ cdg.style.height = '100%';
 cdg.style.width = '100%';
 
 function _resize() {
-    _grid.style.height = (window.innerHeight - 200) + "px";
-    _grid.style.width = (window.innerWidth - 200) + "px";
+    _grid.style.height = (window.innerHeight - 70) + "px";
+    _grid.style.width = (window.innerWidth - 20) + "px";
     // _grid.style.height = "100%";
     // _grid.style.width = "100%"
 }
