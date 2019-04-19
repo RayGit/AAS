@@ -36,12 +36,12 @@
             return Object.prototype.hasOwnProperty.call(e, t)
         }, o.p = "", o(o.s = 9)
     }([function (e, t, o) {
-        console.log("1: " + e );
+        //console.log("1: " + e );
         var r;
         void 0 === (r = function () {
             "use strict";
             return function (e) {
-                console.log("2: " + e );
+                //console.log("2: " + e );
                 e.defaults = {
                     attributes: [["allowColumnReordering", !0], ["allowColumnResize", !0], ["allowColumnResizeFromCell", !1], ["allowFreezingRows", !1],
                         ["allowFreezingColumns", !1], ["allowMovingSelection", !0], ["allowRowHeaderResize", !0], ["allowRowReordering", !1], ["allowRowResize", !0],
@@ -129,56 +129,56 @@
             "use strict";
             return function (e) {
                 e.integerToAlpha = function (e) {
-                    console.log("integerToAlpha: " + e);
+                    //console.log("integerToAlpha: " + e);
                     for (var t = "a".charCodeAt(0), o = "z".charCodeAt(0) - t + 1, r = ""; e >= 0;) r = String.fromCharCode(e % o + t) + r, e = Math.floor(e / o) - 1;
                     return r
                 }, e.insertColumn = function (t, o) {
-                    console.log("insertColumn: " + e);
+                    //console.log("insertColumn: " + e);
                     var r = e.getSchema();
                     if (r.length < o) throw new Error("Index is beyond the length of the schema.");
                     e.validateColumn(t, r), r.splice(o, 0, t), e.data.forEach(function (o) {
                         e.applyDefaultValue(o, t)
                     }), e.intf.schema = r
                 }, e.deleteColumn = function (t) {
-                    console.log("deleteColumn: " + e);
+                    //console.log("deleteColumn: " + e);
                     var o = e.getSchema();
                     e.data.forEach(function (e) {
                         delete e[o[t].name]
                     }), o.splice(t, 1), e.intf.schema = o
                 }, e.addColumn = function (t) {
-                    console.log("addColumn: " + e);
+                    //console.log("addColumn: " + e);
                     var o = e.getSchema();
                     e.validateColumn(t, o), o.push(t), e.data.forEach(function (o) {
                         e.applyDefaultValue(o, t)
                     }), e.intf.schema = o
                 }, e.deleteRow = function (t) {
-                    console.log("deleteRow: " + e);
+                    //console.log("deleteRow: " + e);
                     e.originalData.splice(t, 1), e.setFilter(), e.resize(!0)
                 }, e.insertRow = function (t, o) {
-                    console.log("insertRow: " + e);
+                    //console.log("insertRow: " + e);
                     if (e.originalData.length < o) throw new Error("Index is beyond the length of the dataset.");
                     e.originalData.splice(o, 0, t), e.getSchema().forEach(function (r) {
                         void 0 === t[r.name] && e.applyDefaultValue(e.originalData[o], r)
                     }), e.setFilter(), e.resize(!0)
                 }, e.addRow = function (t) {
-                    console.log("addRow: " + e);
+                    //console.log("addRow: " + e);
                     e.originalData.push(t), e.getSchema().forEach(function (o) {
                         void 0 === t[o.name] && e.applyDefaultValue(e.originalData[e.originalData.length - 1], o)
                     }), e.setFilter(), e.resize(!0)
                 }, e.setRowHeight = function (t, o) {
-                    console.log("setRowHeight: " + e);
+                    //console.log("setRowHeight: " + e);
                     e.sizes.rows[t] = o, e.draw(!0)
                 }, e.setColumnWidth = function (t, o) {
-                    console.log("setColumnWidth: " + e);
+                    //console.log("setColumnWidth: " + e);
                     e.sizes.columns[t] = o, e.draw(!0)
                 }, e.resetColumnWidths = function () {
-                    console.log("resetColumnWidths: " + e);
+                    //console.log("resetColumnWidths: " + e);
                     e.sizes.columns = {}, e.draw(!0)
                 }, e.resetRowHeights = function () {
-                    console.log("resetRowHeights: " + e);
+                    //console.log("resetRowHeights: " + e);
                     e.sizes.rows = {}, e.draw(!0)
                 }, e.setFilter = function (t, o) {
-                    console.log("setFilter: " + e);
+                    //console.log("setFilter: " + e);
                     function r() {
                         e.refreshFromOrigialData(), Object.keys(e.columnFilters).forEach(function (o) {
                             var r = e.getHeaderByName(t);
@@ -191,16 +191,16 @@
                     if (void 0 === t && void 0 === o) return e.columnFilters = {}, r();
                     !t || "" !== o && void 0 !== o ? e.columnFilters[t] = o : delete e.columnFilters[t], r()
                 }, e.findRowScrollTop = function (t) {
-                    console.log("findRowScrollTop: " + e);
+                    //console.log("findRowScrollTop: " + e);
                     if (void 0 === e.scrollCache.y[t]) throw new RangeError("Row index out of range.");
                     return e.scrollCache.y[t]
                 }, e.findColumnScrollLeft = function (t) {
-                    console.log("findColumnScrollLeft: " + e);
+                    //console.log("findColumnScrollLeft: " + e);
                     var o = Math.max(t - 1, 0);
                     if (void 0 === e.scrollCache.x[o]) throw new Error("Column index out of range.");
                     return e.scrollCache.x[o] - e.getColummnWidth(e.orders.columns[t])
                 }, e.gotoCell = function (t, o, r, n) {
-                    console.log("gotoCell: " + e);
+                    //console.log("gotoCell: " + e);
                     var l, i = void 0 === t ? void 0 : e.findColumnScrollLeft(t),
                         a = void 0 === o ? void 0 : e.findRowScrollTop(o),
                         s = e.scrollBox.width - (e.scrollBox.verticalBarVisible ? e.style.scrollBarWidth : 0),
@@ -209,25 +209,25 @@
                         (l = e.getVisibleCellByIndex(t, o)) && (i += l.width * r, a += l.height * n, e.scrollBox.scrollTo(i, a))
                     })) : void 0 !== t ? e.scrollBox.scrollLeft = i : void 0 !== o && (e.scrollBox.scrollTop = a)
                 }, e.gotoRow = function (t) {
-                    console.log("gotoRow: " + e);
+                    //console.log("gotoRow: " + e);
                     e.gotoCell(0, t)
                 }, e.scrollIntoView = function (t, o, r, n) {
-                    console.log("scrollIntoView: " + e);
+                    //console.log("scrollIntoView: " + e);
                     0 === e.visibleCells.filter(function (r) {
                         return (r.rowIndex === o || void 0 === o) && (r.columnIndex === t || void 0 === t) && r.x > 0 && r.y > 0 && r.x + r.width < e.width && r.y + r.height < e.height
                     }).length && e.gotoCell(t, o, r, n)
                 }, e.setActiveCell = function (t, o) {
-                    console.log("setActiveCell: " + e);
+                    //console.log("setActiveCell: " + e);
                     t < 0 && (t = 0), o < 0 && (o = 0), e.activeCell = {rowIndex: o, columnIndex: t}
                 }, e.selectNone = function (t) {
-                    console.log("selectNone: " + e);
+                    //console.log("selectNone: " + e);
                     e.selections = [], e.dispatchEvent("selectionchanged", {
                         selectedData: e.getSelectedData(),
                         selections: e.selections,
                         selectionBounds: e.selectionBounds
                     }), t || e.draw()
                 }, e.selectAll = function (t) {
-                    console.log("selectAll: " + e);
+                    //console.log("selectAll: " + e);
                     e.selectArea({
                         top: 0,
                         left: -1,
@@ -235,13 +235,13 @@
                         bottom: e.data.length - 1
                     }), t || e.draw()
                 }, e.isColumnSelected = function (t) {
-                    console.log("isColumnSelected: " + e);
+                    //console.log("isColumnSelected: " + e);
                     var o = !0;
                     return e.data.forEach(function (r, n) {
                         e.selections[n] && -1 !== e.selections[n].indexOf(e.orders.columns[t]) || (o = !1)
                     }), o
                 }, e.forEachSelectedCell = function (t, o) {
-                    console.log("forEachSelectedCell : " + e);
+                    //console.log("forEachSelectedCell : " + e);
                     var r = [], n = o ? e.getSchema() : e.getVisibleSchema(), l = e.data.length;
                     e.selections.forEach(function (o, i) {
                         i !== l && (0 !== o.length ? (r[i] = {}, o.forEach(function (o) {
@@ -249,7 +249,7 @@
                         })) : r[i] = null)
                     })
                 }, e.selectColumn = function (t, o, r, n) {
-                    console.log("selectColumn: " + e);
+                    //console.log("selectColumn: " + e);
                     var l, i, a;
 
                     function s(t) {
@@ -272,7 +272,7 @@
                         selectionBounds: e.getSelectionBounds()
                     })
                 }, e.selectRow = function (t, o, r, n) {
-                    console.log("selectRow: " + e);
+                    //console.log("selectRow: " + e);
                     var l, i, a, s = e.getVisibleSchema();
 
                     function c() {
@@ -296,14 +296,14 @@
                     } else d(t);
                     c()
                 }, e.collapseTree = function (t) {
-                    console.log("collapseTree: " + e);
+                    //console.log("collapseTree: " + e);
                     e.dispatchEvent("collapsetree", {
                         childGrid: e.childGrids[t],
                         data: e.data[t],
                         rowIndex: t
                     }), e.openChildren[t].blur(), e.openChildren[t].dispose(), delete e.openChildren[t], delete e.sizes.trees[t], delete e.childGrids[t], e.dispatchEvent("resizerow", {cellHeight: e.style.cellHeight}), e.resize(!0), e.draw(!0)
                 }, e.expandTree = function (t) {
-                    console.log("expandTree: " + e);
+                    //console.log("expandTree: " + e);
                     var o, r = e.args.treeGridAttributes || {}, n = e.getColumnHeaderCellHeight(),
                         l = e.sizes.columns.cornerCell || e.style.rowHeaderCellWidth,
                         i = e.sizes.trees[t] || e.style.treeGridHeight;
@@ -325,19 +325,19 @@
                         rowIndex: t
                     }), e.openChildren[t] = o, e.sizes.trees[t] = i, e.dispatchEvent("resizerow", {height: e.style.cellHeight}), e.resize(!0)
                 }, e.toggleTree = function (t) {
-                    console.log("toggleTree: " + e);
+                    //console.log("toggleTree: " + e);
                     if (e.openChildren[t]) return e.collapseTree(t);
                     e.expandTree(t)
                 }, e.getHeaderByName = function (t) {
-                    console.log("getHeaderByName: " + e);
+                    //console.log("getHeaderByName: " + e);
                     var o, r = e.getSchema();
                     for (o = 0; o < r.length; o += 1) if (r[o].name === t) return r[o]
                 }, e.fitColumnToValues = function (t, o) {
-                    console.log("fitColumnToValues: " + t);
+                    //console.log("fitColumnToValues: " + t);
                     e.canvas && (e.sizes.columns["cornerCell" === t ? -1 : e.getHeaderByName(t).index] = Math.max(e.findColumnMaxTextLength(t), e.style.minColumnWidth), o || (e.resize(), e.draw(!0)))
                     //e.canvas && (e.sizes.columns["cornerCell" === t ? -1 : e.getHeaderByName(t).index] = e.findColumnMaxTextLength(t) < e.style.minColumnWidth ? e.findColumnMaxTextLength(t):e.style.minColumnWidth, o || (e.resize(), e.draw(!0)))
                 }, e.isCellVisible = function (t, o) {
-                    console.log("fitColumnToValues: " + e);
+                    //console.log("fitColumnToValues: " + e);
                     if (void 0 !== o) return e.visibleCells.filter(function (e) {
                         return e.columnIndex === t && e.rowIndex === o
                     }).length > 0;
@@ -345,7 +345,7 @@
                     for (r = 0; r < n; r += 1) if (t.x === e.visibleCells[r].x && t.y === e.visibleCells[r].y) return !0;
                     return !1
                 }, e.order = function (t, o, r, n) {
-                    console.log("order: " + e);
+                    //console.log("order: " + e);
                     var l, i = e.getSchema().filter(function (e) {
                         return e.name === t
                     });
@@ -360,10 +360,10 @@
                         }), e.draw(!0), n || e.setStorageData()
                     }
                 }, e.isInGrid = function (t) {
-                    //console.log("isInGrid: " + e);
+                    ////console.log("isInGrid: " + e);
                     return !(t.x < 0 || t.x > e.width || t.y < 0 || t.y > e.height)
                 }, e.moveSelection = function (t, o) {
-                    console.log("moveSelection: " + e);
+                    //console.log("moveSelection: " + e);
                     var r = [];
                     e.selections.forEach(function (e, n) {
                         r[n + o] = [], e.forEach(function (e) {
@@ -371,7 +371,7 @@
                         })
                     }), e.selections = r
                 }, e.moveTo = function (t, o, r) {
-                    console.log("moveTo: " + e);
+                    //console.log("moveTo: " + e);
                     var n, l = e.getSelectedData(), i = e.getVisibleSchema(), a = t.length, s = -1 / 0, c = 1 / 0,
                         d = r - 1;
                     t.forEach(function (t, r) {
@@ -385,22 +385,22 @@
                         })
                     })
                 }, e.isColumnVisible = function (t) {
-                    console.log("isColumnVisible: " + e);
+                    //console.log("isColumnVisible: " + e);
                     return e.visibleCells.filter(function (e) {
                         return e.columnIndex === t
                     }).length > 0
                 }, e.isRowVisible = function (t) {
-                    console.log("isRowVisible: " + e);
+                    //console.log("isRowVisible: " + e);
                     return e.visibleCells.filter(function (e) {
                         return e.rowIndex === t
                     }).length > 0
                 }, e.getVisibleCellByIndex = function (t, o) {
-                    console.log("getVisibleCellByIndex: " + e);
+                    //console.log("getVisibleCellByIndex: " + e);
                     return e.visibleCells.filter(function (e) {
                         return e.columnIndex === t && e.rowIndex === o
                     })[0]
                 }, e.getCellAt = function (t, o, r) {
-                    //console.log("getCellAt: " + t);
+                    ////console.log("getCellAt: " + t);
                     function n(r) {
                         return r.x + r.width - .4 * e.attributes.borderResizeZone < t && r.x + r.width + .6 * e.attributes.borderResizeZone > t ? "r" : r.x - .4 * e.attributes.borderResizeZone < t && r.x + .6 * e.attributes.borderResizeZone > t ? "l" : r.y + r.height - .4 * e.attributes.borderResizeZone < o && r.y + r.height + .6 * e.attributes.borderResizeZone > o ? "b" : r.y - .4 * e.attributes.borderResizeZone < o && r.y + .6 * e.attributes.borderResizeZone > o ? "t" : void 0
                     }
@@ -444,14 +444,14 @@
                         }
                     }
                 }, e.getSelectionBounds = function () {
-                    console.log("getSelectionBounds: " + e);
+                    //console.log("getSelectionBounds: " + e);
                     var t = {x: 1 / 0, y: 1 / 0}, o = {x: -1 / 0, y: -1 / 0};
                     return e.selections.forEach(function (e, r) {
                         var n, l;
                         t.y = r < t.y ? r : t.y, o.y = r > o.y ? r : o.y, n = Math.max.apply(null, e), l = Math.min.apply(null, e), t.x = l < t.x ? l : t.x, o.x = n > o.x ? n : o.x
                     }), {top: t.y, left: t.x, bottom: o.y, right: o.x}
                 }, e.getSchemaFromData = function (t) {
-                    console.log("getSchemaFromData: " + t);
+                    //console.log("getSchemaFromData: " + t);
                     return t = t || e.data, Object.keys(t[0] || {" ": ""}).map(function (o, r) {
                         var n = e.getBestGuessDataType(o, t), l = {
                             name: o,
@@ -465,7 +465,7 @@
                         return e.storedSettings && e.storedSettings.visibility && void 0 !== e.storedSettings.visibility[l.name] && (l.hidden = !e.storedSettings.visibility[l.name]), l
                     })
                 }, e.clearChangeLog = function () {
-                    console.log("clearChangeLog: " + e);
+                    //console.log("clearChangeLog: " + e);
                     e.changes = []
                 }, e.selectArea = function (t, o) {
                     e.selectionBounds = t || e.selectionBounds;
@@ -481,7 +481,7 @@
                         }
                     }), e.dispatchEvent("selectionchanged", r)
                 }, e.findColumnMaxTextLength = function (t) {
-                    console.log("findColumnMaxTextLength : " + e);
+                    //console.log("findColumnMaxTextLength : " + e);
                     var o = -1 / 0;
                     return "cornerCell" === t ? (e.ctx.font = e.style.rowHeaderCellFont, e.ctx.measureText((e.data.length + (e.attributes.showNewRow ? 1 : 0)).toString()).width + e.style.autosizePadding + e.style.autosizeHeaderCellPadding + e.style.rowHeaderCellPaddingRight + e.style.rowHeaderCellPaddingLeft + (e.attributes.tree ? e.style.treeArrowWidth + e.style.treeArrowMarginLeft + e.style.treeArrowMarginRight : 0)) : (e.getSchema().forEach(function (r) {
                         if (r.name === t) {
@@ -495,15 +495,15 @@
                         o = n > o ? n : o
                     }), o)
                 }, e.getHeaderWidth = function () {
-                    console.log("getHeaderWidth: " + e);
+                    //console.log("getHeaderWidth: " + e);
                     return e.getVisibleSchema().reduce(function (t, o) {
                         return t + (o.width || e.style.cellWidth)
                     }, 0)
                 }, e.getRowHeight = function (t) {
-                    console.log("getRowHeight: " + e);
+                    //console.log("getRowHeight: " + e);
                     return (e.sizes.rows[t] || e.style.cellHeight) * e.scale
                 }, e.getColummnWidth = function (t) {
-                    console.log("getColummnWidth: " + t);
+                    //console.log("getColummnWidth: " + t);
                     return (e.sizes.columns[t] || e.getSchema()[t].width || e.style.cellWidth) * e.scale
                 }, e.formatters.string = function (e) {
                     return void 0 !== e.cell.value ? e.cell.value : ""
@@ -513,13 +513,13 @@
                         return void 0 === t[e] || null === t[e] ? 1 : void 0 === r[e] || null === r[e] ? 0 : o ? t[e].localeCompare ? t[e].localeCompare(r[e]) : 1 : r[e].localeCompare ? r[e].localeCompare(t[e]) : 1
                     }
                 }, e.sorters.number = function (e, t) {
-                    console.log("sorters.number: " + e);
+                    //console.log("sorters.number: " + e);
                     var o = "asc" === t;
                     return function (t, r) {
                         return o ? t[e] - r[e] : r[e] - t[e]
                     }
                 }, e.sorters.date = function (e, t) {
-                    console.log("sorters.date: " + e);
+                    //console.log("sorters.date: " + e);
                     var o = "asc" === t;
                     return function (t, r) {
                         return o ? new Date(t[e]).getTime() - new Date(r[e]).getTime() : new Date(r[e]).getTime() - new Date(t[e]).getTime()
@@ -533,7 +533,7 @@
             "use strict";
             return function (e) {
                 e.getClippingRect = function (t) {
-                    console.log("getClippingRect: " + e);
+                    //console.log("getClippingRect: " + e);
                     var o = e.position(e.parentNode), r = e.position(t), n = e.scrollOffset(e.canvas),
                         l = {x: 0, y: 0, h: 0, w: 0}, i = {x: -1 / 0, y: -1 / 0, h: 1 / 0, w: 1 / 0},
                         a = e.getColumnHeaderCellHeight(), s = e.getRowHeaderCellWidth();
@@ -544,18 +544,18 @@
                         w: l.w < i.w ? l.w : i.w
                     }
                 }, e.clipElement = function (t) {
-                    console.log("clipElement: " + e);
+                    //console.log("clipElement: " + e);
                     var o = e.getClippingRect(t);
                     o.w < 0 && (o.w = 0), o.h < 0 && (o.h = 0), t.style.clip = "rect(" + o.y + "px," + o.w + "px," + o.h + "px," + o.x + "px)"
                 }, e.scrollOffset = function (t) {
-                    console.log("scrollOffset: " + e);
+                    //console.log("scrollOffset: " + e);
                     for (var o = 0, r = 0, n = document.scrollingElement || {
                         scrollLeft: 0,
                         scrollTop: 0
                     }; t.parentNode && "CANVAS-DATAGRID" !== t.nodeName && t !== e.intf;) "canvas-datagrid-tree" !== t.nodeType && "canvas-datagrid-cell" !== t.nodeType && (o -= t.scrollLeft, r -= t.scrollTop), t = t.parentNode;
                     return {left: o - n.scrollLeft, top: r - n.scrollTop}
                 }, e.resizeEditInput = function () {
-                    console.log("resizeEditInput: " + e);
+                    //console.log("resizeEditInput: " + e);
                     if (e.input && e.input.editCell) {
                         var t = e.canvas.getBoundingClientRect(), o = e.scrollOffset(e.intf),
                             r = "collapse" === e.style.gridBorderCollapse ? 1 : 2, n = e.style.cellBorderWidth * r,
@@ -569,7 +569,7 @@
                         e.input.style.left = t.left + l.x + e.canvasOffsetLeft - o.left + "px", e.input.style.top = t.top + l.y - e.style.cellBorderWidth + e.canvasOffsetTop - o.top + "px", e.input.style.height = l.height - n + "px", e.input.style.width = l.width - e.style.cellPaddingLeft + "px", e.clipElement(e.input)
                     }
                 }, e.position = function (t, o) {
-                    console.log("position: " + e);
+                    //console.log("position: " + e);
                     for (var r, n, l = 0, i = 0, a = t; t.offsetParent && "CANVAS-DATAGRID" !== t.nodeName;) l += t.offsetLeft, i += t.offsetTop, r = t.offsetHeight, n = t.offsetWidth, t = t.offsetParent;
                     return o ? {left: l, top: i, height: r, width: n} : (t = a, {
                         left: l + (a = e.scrollOffset(t)).left,
@@ -578,7 +578,7 @@
                         width: n
                     })
                 }, e.getLayerPos = function (t) {
-                    console.log("getLayerPos: " + e);
+                    //console.log("getLayerPos: " + e);
                     var o = e.canvas.getBoundingClientRect(), r = {x: t.clientX - o.left, y: t.clientY - o.top};
                     return e.isChildGrid && (r.x -= e.canvasOffsetLeft, r.y -= e.canvasOffsetTop), {
                         x: r.x,
@@ -586,7 +586,7 @@
                         rect: o
                     }
                 }, e.endEdit = function (t) {
-                    console.log("endEdit: " + e);
+                    //console.log("endEdit: " + e);
                     var o = e.input.editCell, r = o.rowIndex;
                     if (e.dispatchEvent("beforeendedit", {
                         cell: o,
@@ -617,7 +617,7 @@
                         input: e.input
                     }), e.input = void 0, !0
                 }, e.beginEditAt = function (t, o, r) {
-                    console.log("beginEditAt: " + e);
+                    //console.log("beginEditAt: " + e);
                     if (e.attributes.editable) {
                         e.input && e.endEdit();
                         var n, l, i, a, s, c = e.getVisibleCellByIndex(t, o);
@@ -645,7 +645,7 @@
                         }
                     }
                 }, e.createInlineStyle = function (t, o) {
-                    console.log("createInlineStyle: " + e);
+                    //console.log("createInlineStyle: " + e);
                     var r = {
                         "canvas-datagrid-context-menu-filter-input": {
                             height: "19px",
@@ -821,10 +821,10 @@
                         t.style[e] = r[o][e]
                     })
                 }, e.appendTo = function (t) {
-                    console.log("appendTo: " + e);
+                    //console.log("appendTo: " + e);
                     e.parentNode = t, e.setDom()
                 }, e.setDom = function () {
-                    console.log("setDom: " + e);
+                    //console.log("setDom: " + e);
                     e.isChildGrid ? (e.parentGrid = e.parentNode.parentGrid, e.ctx = e.parentGrid.context, e.canvas = e.parentGrid.canvas, e.controlInput = e.parentGrid.controlInput, e.eventParent = e.canvas) : (e.controlInput = e.controlInput || document.createElement("input"), e.controlInput.onblur = e.intf.blur, e.createInlineStyle(e.controlInput, "canvas-datagrid-control-input"), e.isChildGrid = !1, e.parentDOMNode = e.parentNode, e.parentIsCanvas = /^canvas$/i.test(e.parentDOMNode.tagName), e.parentIsCanvas ? (e.canvas = e.parentDOMNode, document.body.appendChild(e.controlInput)) : (e.canvas = document.createElement("canvas"), e.parentDOMNode.appendChild(e.canvas), document.body.appendChild(e.controlInput)), e.createInlineStyle(e.canvas, "canvas-datagrid"), e.ctx = e.canvas.getContext("2d"), e.ctx.textBaseline = "alphabetic", e.eventParent = e.canvas), e.parentNodeStyle = e.canvas.style, e.controlInput.setAttribute("readonly", !0), e.controlInput.addEventListener("blur", function (t) {
                         t.target !== e.canvas && (e.hasFocus = !1)
                     }), e.eventParent.addEventListener("scroll", e.resize, !1), e.eventParent.addEventListener("touchstart", e.touchstart, !1), e.eventParent.addEventListener("mouseup", e.mouseup, !1), e.eventParent.addEventListener("mousedown", e.mousedown, !1), e.eventParent.addEventListener("dblclick", e.dblclick, !1), e.eventParent.addEventListener("click", e.click, !1), e.eventParent.addEventListener("mousemove", e.mousemove), e[e.isChildGrid ? "parentGrid" : "eventParent"].addEventListener("wheel", e.scrollWheel, !1), e.canvas.addEventListener("contextmenu", e.contextmenuEvent, !1), e.controlInput.addEventListener("copy", e.copy), e.controlInput.addEventListener("cut", e.cut), e.controlInput.addEventListener("paste", e.paste), e.controlInput.addEventListener("keypress", e.keypress, !1), e.controlInput.addEventListener("keyup", e.keyup, !1), e.controlInput.addEventListener("keydown", e.keydown, !1), window.addEventListener("resize", e.resize)
@@ -839,7 +839,7 @@
                 var t, o, r;
 
                 function n(t) {
-                    console.log("function n(t): " + e);
+                    //console.log("function n(t): " + e);
                     e.createInlineStyle(t, "canvas-datagrid-context-menu-item" + (e.mobile ? "-mobile" : "")), t.addEventListener("mouseover", function () {
                         e.createInlineStyle(t, "canvas-datagrid-context-menu-item:hover")
                     }), t.addEventListener("mouseout", function () {
@@ -848,7 +848,7 @@
                 }
 
                 function l(r, i, a, s) {
-                    console.log("function l(r, i, a, s): " + e);
+                    //console.log("function l(r, i, a, s): " + e);
                     var c, d = document.createElement("div"), u = document.createElement("div"),
                         h = document.createElement("div"), f = [], g = -1, m = {};
                     if (!Array.isArray(a)) throw new Error("createContextMenu expects an array.");
@@ -913,10 +913,10 @@
                             e.hasFocus && (d.scrollTop += t.deltaY, d.scrollLeft += t.deltaX), x()
                         }), u.innerHTML = e.style.contextMenuArrowUpHTML, h.innerHTML = e.style.contextMenuArrowDownHTML, d.appendChild(u), document.body.appendChild(h), document.body.appendChild(d), (c = d.getBoundingClientRect()).bottom > window.innerHeight && (s && s.inputDropdown || (o.y -= c.bottom + e.style.contextMenuWindowMargin - window.innerHeight), o.y < 0 && (o.y = e.style.contextMenuWindowMargin), d.offsetHeight > window.innerHeight - e.style.contextMenuWindowMargin && (d.style.height = window.innerHeight - 2 * e.style.contextMenuWindowMargin + "px")), c.right > window.innerWidth && (o.x -= c.right - window.innerWidth + e.style.contextMenuWindowMargin), o.x < 0 && (o.x = e.style.contextMenuWindowMargin), o.y < 0 && (o.y = e.style.contextMenuWindowMargin), d.style.left = o.x + "px", d.style.top = o.y + "px", c = d.getBoundingClientRect(), u.style.top = c.top + "px", h.style.top = c.top + c.height - h.offsetHeight + "px", u.style.left = c.left + "px", h.style.left = c.left + "px", h.style.width = d.offsetWidth + "px", u.style.width = d.offsetWidth + "px", h.addEventListener("mouseover", p("down")), h.addEventListener("mouseout", y()), u.addEventListener("mouseover", p("up")), u.addEventListener("mouseout", y()), x()
                     }(), m.clickIndex = function (e) {
-                        console.log("m.clickIndex: " + e);
+                        //console.log("m.clickIndex: " + e);
                         a[e].contextItemContainer.dispatchEvent(new Event("click"))
                     }, m.rect = c, m.items = a, m.upArrow = u, m.downArrow = h, m.dispose = function () {
-                        console.log("m.dispose: " + e);
+                        //console.log("m.dispose: " + e);
                         clearTimeout(o), f.forEach(function (e) {
                             e.dispose()
                         }), [h, u, d].forEach(function (e) {
@@ -936,7 +936,7 @@
                 }
 
                 function i(t) {
-                    console.log("function i(t): " + e);
+                    //console.log("function i(t): " + e);
                     var o, n, i = document.createElement("div"), a = document.createElement("div"),
                         s = document.createElement("button"), c = document.createElement("input"),
                         d = t.cell && t.cell.header ? t.cell.header.title || t.cell.header.name : "";
@@ -972,20 +972,20 @@
                     e.createInlineStyle(a, "canvas-datagrid-context-menu-label"), e.createInlineStyle(s, "canvas-datagrid-context-menu-filter-button"), e.createInlineStyle(c, "canvas-datagrid-context-menu-filter-input"), u(), c.onclick = e.disposeAutocomplete, c.addEventListener("keydown", function (t) {
                         40 === t.keyCode && (r.selectedIndex += 1), 38 === t.keyCode && (r.selectedIndex -= 1), 13 === t.keyCode && (r.clickIndex(r.selectedIndex), e.disposeContextMenu()), 9 === t.keyCode && (r.clickIndex(r.selectedIndex), t.preventDefault()), 27 === t.keyCode && e.disposeContextMenu()
                     }), c.addEventListener("keyup", function () {
-                        console.log("c.addEventListener: " + e);
+                        //console.log("c.addEventListener: " + e);
                         e.setFilter(t.cell.header.name, c.value)
                     }), c.addEventListener("keyup", h), ["focus", "blur", "keydown", "keyup", "change"].forEach(function (e) {
-                        console.log("[\"focus\", \"blur\", \"keydown\", \"keyup\", \"change\"].forEach(function (e): " + e);
+                        //console.log("[\"focus\", \"blur\", \"keydown\", \"keyup\", \"change\"].forEach(function (e): " + e);
                         c.addEventListener(e, u)
                     }), c.value = t.cell.header && e.columnFilters[t.cell.header.name] || "", a.innerHTML = e.attributes.filterOptionText.replace(/%s/g, d), s.onclick = function () {
-                        console.log("s.onclick: " + e);
+                        //console.log("s.onclick: " + e);
                         if (r) return e.disposeAutocomplete();
                         h()
                     }, s.innerHTML = e.style.contextFilterButtonHTML, i.addEventListener("click", function (e) {
-                        console.log("i.addEventListener: " + e);
+                        //console.log("i.addEventListener: " + e);
                         return e.stopPropagation()
                     }), i.appendChild(a), i.appendChild(c), i.appendChild(s), t.items.push({title: i}), Object.keys(e.columnFilters).length && Object.keys(e.columnFilters).forEach(function (o) {
-                        console.log("Object.keys(e.columnFilters).forEach: " + e);
+                        //console.log("Object.keys(e.columnFilters).forEach: " + e);
                         var r = e.getHeaderByName(o);
                         t.items.push({
                             title: e.attributes.removeFilterOptionText.replace(/%s/g, r.title || r.name),
@@ -997,13 +997,13 @@
                 }
 
                 e.disposeAutocomplete = function () {
-                    console.log("e.disposeAutocomplete: " + e);
+                    //console.log("e.disposeAutocomplete: " + e);
                     r && (r.dispose(), r = void 0)
                 }, e.disposeContextMenu = function () {
-                    console.log("e.disposeContextMenu: " + e);
+                    //console.log("e.disposeContextMenu: " + e);
                     document.removeEventListener("click", e.disposeContextMenu), t = e.style.contextMenuZIndex, e.disposeAutocomplete(), e.contextMenu && e.contextMenu.dispose(), e.contextMenu = void 0
                 }, e.contextmenuEvent = function (t, o) {
-                    console.log("e.contextmenuEvent: " + e);
+                    //console.log("e.contextmenuEvent: " + e);
                     if (e.hasFocus || t.target === e.canvas) {
                         var r, a = [], s = o || e.getLayerPos(t),
                             c = {NativeEvent: t, cell: e.getCellAt(s.x, s.y), items: a};
@@ -1106,7 +1106,7 @@
                     x: 0,
                     y: 0
                 }, e.getSelectedData = function (t) {
-                    console.log("e.getSelectedData: " + e);
+                    //console.log("e.getSelectedData: " + e);
                     var o = [], r = e.getSchema(), n = e.data.length;
                     return 0 === n ? [] : (e.selections.forEach(function (l, i) {
                         l && i !== n && (0 !== l.length ? (o[i] = {}, l.forEach(function (n) {
@@ -1115,13 +1115,13 @@
                         })) : o[i] = null)
                     }), o)
                 }, e.getColumnHeaderCellHeight = function () {
-                    console.log("e.getColumnHeaderCellHeight: " + e);
+                    //console.log("e.getColumnHeaderCellHeight: " + e);
                     return e.attributes.showColumnHeaders ? (e.sizes.rows[-1] || e.style.columnHeaderCellHeight) * e.scale : 0
                 }, e.getRowHeaderCellWidth = function () {
-                    console.log("e.getRowHeaderCellWidth: " + e);
+                    //console.log("e.getRowHeaderCellWidth: " + e);
                     return e.attributes.showRowHeaders ? (e.sizes.columns[-1] || e.style.rowHeaderCellWidth) * e.scale : 0
                 }, e.setStorageData = function () {
-                    console.log("e.setStorageData: " + e);
+                    //console.log("e.setStorageData: " + e);
                     if (e.attributes.saveAppearance && e.attributes.name) {
                         var t = {};
                         e.getSchema().forEach(function (e) {
@@ -1138,126 +1138,126 @@
                         }))
                     }
                 }, e.getSchema = function () {
-                    console.log("e.getSchema: " + e);
+                    //console.log("e.getSchema: " + e);
                     return e.schema || e.tempSchema || []
                 }, e.createColumnOrders = function () {
-                    console.log("e.createColumnOrders: " + e);
+                    //console.log("e.createColumnOrders: " + e);
                     var t = e.getSchema();
                     e.orders.columns = o(0, t.length - 1)
                 }, e.createRowOrders = function () {
-                    console.log("e.createRowOrders: " + e);
+                    //console.log("e.createRowOrders: " + e);
                     e.orders.rows = o(0, e.data.length - 1)
                 }, e.getVisibleSchema = function () {
-                    console.log("e.getVisibleSchema: " + e);
+                    //console.log("e.getVisibleSchema: " + e);
                     return e.getSchema().filter(function (e) {
                         return !e.hidden
                     })
                 }, e.applyDefaultValue = function (t, o) {
-                    console.log("e.applyDefaultValue: " + e);
+                    //console.log("e.applyDefaultValue: " + e);
                     var r = o.defaultValue || "";
                     "function" == typeof r && (r = r.apply(e.intf, [o])), t[o.name] = r
                 }, e.createNewRowData = function () {
-                    console.log("e.createNewRowData: " + e);
+                    //console.log("e.createNewRowData: " + e);
                     e.newRow = {}, e.getSchema().forEach(function (t) {
                         e.applyDefaultValue(e.newRow, t)
                     })
                 }, e.getSchemaNameHash = function (t) {
-                    console.log("e.getSchemaNameHash: " + e);
+                    //console.log("e.getSchemaNameHash: " + e);
                     for (var o = 0; e.schemaHashes[t];) t += o += 1;
                     return t
                 }, e.filter = function (t) {
-                    console.log("e.filter: " + e);
+                    //console.log("e.filter: " + e);
                     var o = e.filters[t];
                     return o || void 0 === t || (console.warn("Cannot find filter for type %s, falling back to substring match.", t), o = e.filters.string), o
                 }, e.getBestGuessDataType = function (e, t) {
-                    console.log("e.getBestGuessDataType: " + e);
+                    //console.log("e.getBestGuessDataType: " + e);
                     var o, r, n = t.length;
                     for (r = 0; r < n; r += 1) if (void 0 !== t[r] && null !== t[r] && -1 !== [null, void 0].indexOf(t[r][e])) return "object" === (o = typeof t[r]) ? "string" : o;
                     return "string"
                 }, e.drawChildGrids = function () {
-                    console.log("e.drawChildGrids: " + e);
+                    //console.log("e.drawChildGrids: " + e);
                     Object.keys(e.childGrids).forEach(function (t) {
                         e.childGrids[t].draw()
                     })
                 }, e.resizeChildGrids = function () {
-                    console.log("resizeChildGrids: ");
+                    //console.log("resizeChildGrids: ");
                     Object.keys(e.childGrids).forEach(function (t) {
                         e.childGrids[t].resize()
                     })
                 }, e.autoScrollZone = function (t, o, r, n) {
-                    console.log("autoScrollZone: ");
+                    //console.log("autoScrollZone: ");
                     var l, i = e.getRowHeaderCellWidth(), a = e.getColumnHeaderCellHeight();
                     -1 !== r && (o > e.width - e.attributes.selectionScrollZone && o < e.width && (e.scrollBox.scrollLeft += e.attributes.selectionScrollIncrement, l = !0), o - e.attributes.selectionScrollZone - i < 0 && (e.scrollBox.scrollLeft -= e.attributes.selectionScrollIncrement, l = !0)), -1 !== r && (r > e.height - e.attributes.selectionScrollZone && r < e.height && (e.scrollBox.scrollTop += e.attributes.selectionScrollIncrement, l = !0), r - e.attributes.selectionScrollZone - a < 0 && (e.scrollBox.scrollTop -= e.attributes.selectionScrollIncrement, l = !0)), l && !n && e.currentCell && -1 !== e.currentCell.columnIndex && (e.scrollTimer = setTimeout(e.mousemove, e.attributes.scrollRepeatRate, t))
                 }, e.refreshFromOrigialData = function () {
-                    console.log("refreshFromOrigialData: ");
+                    //console.log("refreshFromOrigialData: ");
                     e.data = e.originalData.filter(function (e) {
                         return !0
                     })
                 }, e.validateColumn = function (e, t) {
-                    console.log("validateColumn: ");
+                    //console.log("validateColumn: ");
                     if (!e.name) throw new Error("A column must contain at least a name.");
                     if (t.filter(function (t) {
                         return t.name === e.name
                     }).length > 0) throw new Error("A column with the name " + e.name + " already exists and cannot be added again.");
                     return !0
                 }, e.setDefaults = function (e, t, o, r) {
-                    console.log("setAttributes: ");
+                    //console.log("setAttributes: ");
                     e[o] = void 0 === t[o] ? r : t[o]
                 }, e.setAttributes = function () {
-                    console.log("setAttributes: ");
+                    //console.log("setAttributes: ");
                     e.defaults.attributes.forEach(function (t) {
                         e.setDefaults(e.attributes, e.args, t[0], t[1])
                     })
                 }, e.setStyle = function () {
-                    console.log("setStyle: ");
+                    //console.log("setStyle: ");
                     e.defaults.styles.forEach(function (t) {
                         e.setDefaults(e.style, e.args.style || {}, t[0], t[1])
                     })
                 }, e.autosize = function (t) {
-                    console.log("autosize: ");
+                    //console.log("autosize: ");
                     e.getVisibleSchema().forEach(function (o, r) {
                         o.name !== t && void 0 !== t
                         || (e.sizes.columns[r] = e.findColumnMaxTextLength(o.name) < e.getColummnWidth(r) ? e.findColumnMaxTextLength(o.name):Math.max(e.getColummnWidth(r), e.style.minColumnWidth))
                     }), e.sizes.columns[-1] = e.findColumnMaxTextLength("cornerCell")
                 }, e.dispose = function () {
-                    console.log("dispose: ");
+                    //console.log("dispose: ");
                     !e.isChildGrid && e.canvas && e.canvas.parentNode && e.canvas.parentNode.removeChild(e.canvas), e.isChildGrid || document.body.removeChild(e.controlInput), e.eventParent.removeEventListener("mouseup", e.mouseup, !1), e.eventParent.removeEventListener("mousedown", e.mousedown, !1), e.eventParent.removeEventListener("dblclick", e.dblclick, !1), e.eventParent.removeEventListener("click", e.click, !1), e.eventParent.removeEventListener("mousemove", e.mousemove), e.eventParent.removeEventListener("wheel", e.scrollWheel, !1), e.canvas.removeEventListener("contextmenu", e.contextmenu, !1), e.canvas.removeEventListener("copy", e.copy), e.controlInput.removeEventListener("copy", e.copy), e.controlInput.removeEventListener("cut", e.cut), e.controlInput.removeEventListener("paste", e.paste), e.controlInput.removeEventListener("keypress", e.keypress, !1), e.controlInput.removeEventListener("keyup", e.keyup, !1), e.controlInput.removeEventListener("keydown", e.keydown, !1), window.removeEventListener("resize", e.resize), e.observer && e.observer.disconnect && e.observer.disconnect()
                 }, e.tryLoadStoredSettings = function () {
-                    console.log("tryLoadStoredSettings: ");
+                    //console.log("tryLoadStoredSettings: ");
                     var t;
                     e.reloadStoredValues(), e.storedSettings && "object" == typeof e.storedSettings.orders && null !== e.storedSettings.orders && (e.storedSettings.orders.rows.length >= (e.data || []).length && (e.orders.rows = e.storedSettings.orders.rows), t = e.getSchema(), e.storedSettings.orders.columns.length === t.length && (e.orders.columns = e.storedSettings.orders.columns), e.orderBy = void 0 === e.storedSettings.orderBy ? t[0].name : e.storedSettings.orderBy, e.orderDirection = void 0 === e.storedSettings.orderDirection ? "asc" : e.storedSettings.orderDirection, void 0 !== e.storedSettings.orderBy && e.getHeaderByName(e.orderBy) && e.orderDirection && e.order(e.orderBy, e.orderDirection))
                 }, e.getDomRoot = function () {
-                    console.log("getDomRoot: ");
+                    //console.log("getDomRoot: ");
                     return e.shadowRoot ? e.shadowRoot.host : e.parentNode
                 }, e.getFontName = function (e) {
-                    console.log("getFontName: ");
+                    //console.log("getFontName: ");
                     return e.replace(/\d+\.?\d*px/, "")
                 }, e.getFontHeight = function (e) {
-                    console.log("getFontHeight: ");
+                    //console.log("getFontHeight: ");
                     return parseFloat(e, 10)
                 }, e.parseStyleValue = function (t) {
-                    console.log("parseStyleValue: ");
+                    //console.log("parseStyleValue: ");
                     if (/Font/.test(t)) return e.style[t + "Height"] = e.getFontHeight(e.style[t]), void(e.style[t + "Name"] = e.getFontName(e.style[t]));
                     "moveOverlayBorderSegments" === t && "string" == typeof e.style[t] && (e.style[t] = e.style[t].split(",").map(function (e) {
                         return parseInt(e, 10)
                     }))
                 }, e.initProp = function (t) {
-                    console.log("initProp: ");
+                    //console.log("initProp: ");
                     e.args[t] && Object.keys(e.args[t]).forEach(function (o) {
                         e[t][o] = e.args[t][o]
                     })
                 }, e.getStyleProperty = function (t) {
-                    console.log("getStyleProperty: ");
+                    //console.log("getStyleProperty: ");
                     return -1 === e.styleKeys.indexOf(t) ? e.parentNodeStyle[t] : e.style[t]
                 }, e.setStyleProperty = function (t, o, r) {
-                    console.log("setStyleProperty: ");
+                    //console.log("setStyleProperty: ");
                     var n = -1 !== ["height", "width", "minHeight", "minWidth", "maxHeight", "maxWidth"].indexOf(t);
                     -1 === e.styleKeys.indexOf(t) ? e.parentNodeStyle[t] = o : (/-/.test(t) && (t = e.dehyphenateProperty(t)), e.style[t] = o, e.parseStyleValue(t)), n && e.resize(), r || (e.draw(!0), e.dispatchEvent("stylechanged", {
                         name: "style",
                         value: o
                     }))
                 }, e.reloadStoredValues = function () {
-                    console.log("reloadStoredValues: ");
+                    //console.log("reloadStoredValues: ");
                     if (e.attributes.name && e.attributes.saveAppearance) {
                         try {
                             e.storedSettings = localStorage.getItem(e.storageName + "-" + e.attributes.name)
@@ -1277,7 +1277,7 @@
                         }))
                     }
                 }, e.init = function () {
-                    console.log("init: ");
+                    //console.log("init: ");
                     if (!e.initialized) {
                         var t = {};
                         return e.setAttributes(), e.setStyle(), e.initScrollBox(), e.setDom(), e.nodeType = "canvas-datagrid", e.ie = /Trident/.test(window.navigator.userAgent),
@@ -1361,7 +1361,7 @@
                                 }
                             })
                         }), e.filters.string = function (t, o) {
-                            console.log("e.filters.string : ");
+                            //console.log("e.filters.string : ");
                             t = String(t);
                             var r, n = /\/(i|g|m)*$/.exec(o), l = n ? n[0].substring(1) : "", i = l.length;
                             if (e.invalidFilterRegEx = void 0, "/" === o.substring(0, 1) && n) {
@@ -1374,7 +1374,7 @@
                             }
                             return !!t.toString && -1 !== t.toString().toLocaleUpperCase().indexOf(o.toLocaleUpperCase())
                         }, e.filters.number = function (e, t) {
-                            console.log("e.filters.number: ");
+                            //console.log("e.filters.number: ");
                             return !t || e === t
                         }, ["formatters", "filters", "sorters"].forEach(e.initProp), e.applyComponentStyle(!1, e.intf), e.reloadStoredValues(), e.args.data && (e.intf.data = e.args.data), (e.intf.innerText || e.intf.textContent) && ("application/x-canvas-datagrid" === e.intf.dataType && (e.intf.dataType = "application/json+x-canvas-datagrid"), e.intf.data = e.intf.innerText || e.intf.textContent), e.args.schema && (e.intf.schema = e.args.schema),e.isChildGrid || !e.isComponent ? requestAnimationFrame(function () {
                             e.resize(!0)
@@ -1386,10 +1386,10 @@
                     }
 
                 }, e.intf.blur = function (t) {
-                    console.log("e.intf.blur: ");
+                    //console.log("e.intf.blur: ");
                     e.hasFocus = !1
                 }, e.intf.focus = function () {
-                    console.log("e.intf.focus: ");
+                    //console.log("e.intf.focus: ");
                     e.hasFocus = !0, e.controlInput.focus()
                 }, (e.shadowRoot || e.isChildGrid) && (Object.defineProperty(e.intf, "height", {
                     get: function () {
@@ -1521,7 +1521,7 @@
                         e.dataType = t
                     }
                 }),e.eventNames.forEach(function (t) {
-                    console.log("e.eventNames.forEach: ");
+                    //console.log("e.eventNames.forEach: ");
                     Object.defineProperty(e.intf, "on" + t, {
                         get: function () {
                             return e.componentL1Events[t]
@@ -1627,10 +1627,10 @@
                         }), e.resize(!0), e.dispatchEvent("schemachanged", {schema: e.schema})
                     }
                 }),e.intf.getTypes = function () {
-                    console.log("e.intf.getTypes: ");
+                    //console.log("e.intf.getTypes: ");
                     return Object.keys(e.parsers)
                 },e.parseInnerHtml = function (e) {
-                    console.log("e.parseInnerHtml: ");
+                    //console.log("e.parseInnerHtml: ");
                     if (!e || /^ +$/.test(e)) return [];
                     try {
                         e = JSON.parse(e)
@@ -1639,15 +1639,15 @@
                     }
                     return e
                 },e.parsers["application/json+x-canvas-datagrid"] = function (t, o) {
-                    console.log("e.parsers[\"application/json+x-canvas-datagrid\"]l: ");
+                    //console.log("e.parsers[\"application/json+x-canvas-datagrid\"]l: ");
                     e.parsers["application/x-canvas-datagrid"](e.parseInnerHtml(t), function (e, t) {
                         return o(e, t)
                     })
                 },e.parsers["application/x-canvas-datagrid"] = function (e, t) {
-                    console.log("e.parsers[\"application/x-canvas-datagrid\"] : ");
+                    //console.log("e.parsers[\"application/x-canvas-datagrid\"] : ");
                     return t(e)
                 },e.intf.parsers = e.parsers,e.etl = function (t, o) {
-                    console.log("e.intf.parsers = e.parsers,e.etl: ");
+                    //console.log("e.intf.parsers = e.parsers,e.etl: ");
                     if (!e.intf.parsers[e.dataType]) throw new Error("Unsupported data type.");
                     e.intf.parsers[e.dataType](t, function (t, r) {
                         Array.isArray(r) && (e.schema = r), e.attributes.autoGenerateSchema && (e.schema = e.getSchemaFromData(t)), e.schema || (e.tempSchema = e.getSchemaFromData(t)), e.getSchema() && e.createColumnOrders(), e.originalData = t, e.data = e.originalData, e.schema || 0 !== (e.data || []).length || (e.tempSchema = [{name: ""}]), e.fitColumnToValues("cornerCell", !0), (e.tempSchema && !e.schema || e.attributes.autoGenerateSchema) && (e.createColumnOrders(), e.dispatchEvent("schemachanged", {schema: e.tempSchema})), o()
@@ -1661,7 +1661,7 @@
                         })
                     }
                 }),e.initScrollBox = function () {
-                    console.log("e.initScrollBox: ");
+                    //console.log("e.initScrollBox: ");
                     var t = 0, o = 0, r = 0, n = 0, l = 0, i = 0, a = 20, s = 20;
 
                     function c(t, o) {
@@ -1767,32 +1767,32 @@
                         return e < .5 ? 16 * e * e * e * e * e : 1 + 16 * --e * e * e * e * e
                     }
                 }, e.easing = function (t, o, r, n) {
-                    console.log("e.easing: ");
+                    //console.log("e.easing: ");
                     return r * e.easingFunctions[e.attributes.touchEasingMethod](t / n) + o
                 }, e.calculatePPSTimed = function () {
-                    console.log("e.calculatePPSTimed: ");
+                    //console.log("e.calculatePPSTimed: ");
                     e.xPPST = -(e.touchDelta.x - e.touchSigmaTimed.x) / (e.touchDelta.t - e.touchSigmaTimed.t), e.yPPST = -(e.touchDelta.y - e.touchSigmaTimed.y) / (e.touchDelta.t - e.touchSigmaTimed.t), e.touchSigmaTimed = {
                         x: e.touchDelta.x,
                         y: e.touchDelta.y,
                         t: performance.now()
                     }
                 }, e.calculatePPS = function () {
-                    console.log("e.calculatePPS: ");
+                    //console.log("e.calculatePPS: ");
                     e.xPPS = -(e.touchDelta.x - e.touchSigma.x) / (e.touchDelta.t - e.touchSigma.t), e.yPPS = -(e.touchDelta.y - e.touchSigma.y) / (e.touchDelta.t - e.touchSigma.t), e.touchSigma = {
                         x: e.touchDelta.x,
                         y: e.touchDelta.y,
                         t: performance.now()
                     }
                 }, e.touchEndAnimation = function () {
-                    console.log("e.touchEndAnimation: ");
+                    //console.log("e.touchEndAnimation: ");
                     if (!e.canvas || !e.scrollBox.scrollTo) return requestAnimationFrame(e.touchEndAnimation);
                     var t, o = performance.now(), r = e.attributes.touchReleaseAnimationDurationMs;
                     t = o - e.touchDelta.t, e.animationFrames += 1, e.scrollAnimation.x = e.easing(t, e.touchDelta.scrollLeft, e.touchAnimateTo.x, r), e.scrollAnimation.y = e.easing(t, e.touchDelta.scrollTop, e.touchAnimateTo.y, r), t > r || e.scrollAnimation.y === e.scrollBox.scrollTop && e.scrollAnimation.x === e.scrollBox.scrollLeft || e.stopAnimation || (e.scrollBox.scrollTo(e.scrollAnimation.x, e.scrollAnimation.y), requestAnimationFrame(e.touchEndAnimation))
                 }, e.touchEditCell = function (t) {
-                    console.log("e.touchEditCell: ");
+                    //console.log("e.touchEditCell: ");
                     e.beginEditAt(t.columnIndex, t.rowIndex)
                 }, e.touchCell = function (t) {
-                    console.log("e.touchCell: ");
+                    //console.log("e.touchCell: ");
                     return function () {
                         clearInterval(e.calculatePPSTimer);
                         var o, r = e.getTouchPos(t);
@@ -1808,7 +1808,7 @@
                         }
                     }
                 }, e.touchstart = function (t) {
-                    console.log("e.touchstart: ");
+                    //console.log("e.touchstart: ");
                     if (t.changedTouches[0] && (e.touchStart = e.getTouchPos(t), e.startingCell = e.getCellAt(e.touchStart.x, e.touchStart.y, !0)), !e.dispatchEvent("touchstart", {
                         NativeEvent: t,
                         cell: e.startingCell
@@ -1850,14 +1850,14 @@
                         e.zoomAltered || (document.body.addEventListener("touchmove", e.touchmove, {passive: !1}), document.body.addEventListener("touchend", e.touchend, !1), document.body.addEventListener("touchcancel", e.touchcancel, !1), e.draw(!0))
                     }
                 }, e.touchSelect = function (t, o) {
-                    console.log("e.touchSelect: ");
+                    //console.log("e.touchSelect: ");
                     if (void 0 !== t.rowIndex && void 0 !== t.columnIndex) {
                         e.touchSelecting = !0;
                         var r = e.getSelectionBounds();
                         "selection-handle-bl" === o && t.rowIndex >= r.top && t.columnIndex <= r.right ? (r.bottom = t.rowIndex, r.left = t.columnIndex) : "selection-handle-tl" === o && t.rowIndex <= r.bottom && t.columnIndex <= r.right ? (r.top = t.rowIndex, r.left = t.columnIndex) : "selection-handle-tr" === o && t.rowIndex <= r.bottom && t.columnIndex >= r.left ? (r.top = t.rowIndex, r.right = t.columnIndex) : "selection-handle-br" === o && t.rowIndex >= r.top && t.columnIndex >= r.left && (r.bottom = t.rowIndex, r.right = t.columnIndex), "row" === e.attributes.selectionMode || -1 === t.rowIndex ? (r.left = 0, r.right = e.getSchema().length - 1) : r.left = Math.max(0, r.left), e.selectArea(r), e.draw(!0)
                     }
                 }, e.touchmove = function (o) {
-                    console.log("e.touchmove: ");
+                    //console.log("e.touchmove: ");
                     var r, n, l, i, a, s, c, d, u;
                     if (!e.dispatchEvent("beforetouchmove", {NativeEvent: o})) {
                         if (clearTimeout(t), o.changedTouches[0] && (e.touchPosition = e.getTouchPos(o)), o.changedTouches[1] && (e.touchPosition1 = e.getTouchPos(o, 1)), Math.abs(e.touchDelta.x) + Math.abs(e.touchDelta.y) > e.attributes.touchDeadZone && clearTimeout(e.touchContextTimeout), 2 === o.touches.length && e.touchPosition && e.touchPosition1) return d = e.touchPosition.y, u = e.touchPosition1.y, e.zoomDeltaStart || (e.zoomDeltaStart = Math.abs(d - u), e.startScale = e.scale), e.touchLength = 2, e.scaleDelta = e.zoomDeltaStart - Math.abs(d - u), e.scale = e.startScale - e.scaleDelta * e.attributes.touchZoomSensitivity, e.scale = Math.min(Math.max(e.scale, e.attributes.touchZoomMin), e.attributes.touchZoomMax), e.zoomAltered = !0, e.resize(!0), void e.resizeChildGrids();
@@ -1876,10 +1876,10 @@
                         }(), /vertical-scroll-/.test(e.startingCell.style) ? e.scrollBox.scrollTop = e.scrollBox.scrollHeight * ((e.touchPosition.y - r - c) / (e.scrollBox.height - c - r)) : /horizontal-scroll-/.test(e.startingCell.style) ? e.scrollBox.scrollLeft = e.scrollBox.scrollWidth * ((e.touchPosition.x - n - c) / (e.scrollBox.width - c - n)) : /selection-handle-/.test(e.startingCell.style) ? e.touchSelect(e.currentCell, e.startingCell.style) : (e.scrollBox.scrollTo(e.touchScrollStart.x - e.touchDelta.x, e.touchScrollStart.y - e.touchDelta.y), e.draw(!0)))
                     }
                 }, e.touchEndEvents = function (t) {
-                    console.log("e.touchEndEvents: ");
+                    //console.log("e.touchEndEvents: ");
                     e.zoomDeltaStart = void 0, e.touchSelecting = !1, clearInterval(e.touchScrollTimeout), clearInterval(e.touchContextTimeout), clearInterval(e.calculatePPSTimer), t.stopPropagation(), document.body.removeEventListener("touchmove", e.touchmove, {passive: !1}), document.body.removeEventListener("touchend", e.touchend, !1), document.body.removeEventListener("touchcancel", e.touchcancel, !1)
                 }, e.touchend = function (t) {
-                    console.log("e.touchend: ");
+                    //console.log("e.touchend: ");
                     if (!e.dispatchEvent("touchend", {
                         NativeEvent: t,
                         cell: e.currentCell
@@ -1888,7 +1888,7 @@
                         isNaN(e.xPPS) && (e.xPPS = 0), isNaN(e.yPPS) && (e.yPPS = 0), isNaN(e.xPPST) && (e.xPPST = 0), isNaN(e.yPPST) && (e.yPPST = 0), e.touchAnimateTo.x = e.xPPS * e.attributes.touchReleaseAcceleration, e.touchAnimateTo.y = e.yPPS * e.attributes.touchReleaseAcceleration, e.calculatePPSTimed(), o && !e.contextMenu ? e.touchCell(e.touchStartEvent)() : 0 !== e.animationFrames || !(Math.abs(e.xPPST) > e.attributes.scrollAnimationPPSThreshold || Math.abs(e.yPPST) > e.attributes.scrollAnimationPPSThreshold) || /-scroll-/.test(e.startingCell.style) || o || (e.stopAnimation = !1, e.touchEndAnimation()), e.touchEndEvents(t)
                     }
                 }, e.touchcancel = function (t) {
-                    console.log("e.touchcancel: ");
+                    //console.log("e.touchcancel: ");
                     e.dispatchEvent("touchcancel", {NativeEvent: t, cell: e.currentCell}) || e.touchEndEvents(t)
                 }
             }
@@ -1900,18 +1900,18 @@
             return function (e) {
                 var t;
                 e.stopPropagation = function (e) {
-                    console.log("e.stopPropagation: ");
+                    //console.log("e.stopPropagation: ");
                     e.stopPropagation()
                 }, e.addEventListener = function (t, o) {
-                    console.log("e.addEventListener: ");
+                    //console.log("e.addEventListener: ");
                     e.events[t] = e.events[t] || [], e.events[t].unshift(o)
                 }, e.removeEventListener = function (t, o) {
-                    console.log("e.removeEventListener: ");
+                    //console.log("e.removeEventListener: ");
                     (e.events[t] || []).forEach(function (r, n) {
                         o === r && e.events[t].splice(n, 1)
                     })
                 }, e.dispatchEvent = function (t, o) {
-                    console.log("e.dispatchEvent: " + t);
+                    //console.log("e.dispatchEvent: " + t);
                     var r;
 
                     function n() {
@@ -1922,10 +1922,10 @@
                         o.ctx = e.ctx, o.preventDefault = n, t.apply(e.intf, [o])
                     }), r
                 }, e.getRatio = function () {
-                    console.log("e.getRatio: ");
+                    //console.log("e.getRatio: ");
                     return Math.min(e.attributes.maxPixelRatio, (window.devicePixelRatio || 1) / (e.ctx.webkitBackingStorePixelRatio || e.ctx.mozBackingStorePixelRatio || e.ctx.msBackingStorePixelRatio || e.ctx.oBackingStorePixelRatio || e.ctx.backingStorePixelRatio || 1))
                 }, e.resize = function (t) {
-                    console.log("e.resize: ");
+                    //console.log("e.resize: ");
                     if (e.canvas) {
                         var o, r, n = {x: 0, y: 0, height: 0, width: 0, style: "vertical-scroll-bar"},
                             l = {x: 0, y: 0, height: 0, width: 0, style: "horizontal-scroll-bar"},
@@ -1979,7 +1979,7 @@
                         }))
                     }
                 }, e.scroll = function (t) {
-                    console.log("e.scroll: ");
+                    //console.log("e.scroll: ");
                     var o = e.getSchema(), r = (e.data || []).length, n = e.style.cellHeight;
                     for (e.scrollIndexTop = Math.floor(r * (e.scrollBox.scrollTop / e.scrollBox.scrollHeight) - 100), e.scrollIndexTop = Math.max(e.scrollIndexTop, 0),
                              e.scrollPixelTop = e.scrollCache.y[e.scrollIndexTop], 0 === e.scrollBox.scrollHeight && (e.scrollIndexTop = 0), e.scrollPixelTop = 0,
@@ -1995,7 +1995,7 @@
                         left: e.scrollBox.scrollLeft
                     })
                 }, e.mousemove = function (t, o) {
-                    console.log("e.mousemove: ");
+                    //console.log("e.mousemove: ");
                     if (!e.contextMenu && !e.input) {
                         e.mouse = o || e.getLayerPos(t);
                         var r, n, l, i, a = t.ctrlKey || t.metaKey || e.attributes.persistantSelectionMode,
@@ -2007,8 +2007,8 @@
                         }) || (e.hasFocus = !1), !e.dispatchEvent("mousemove", h) && (u && e.currentCell && (e.rowBoundaryCrossed = e.currentCell.rowIndex !== u.rowIndex,
                             e.columnBoundaryCrossed = e.currentCell.columnIndex !== u.columnIndex, e.cellBoundaryCrossed = e.rowBoundaryCrossed || e.columnBoundaryCrossed,
                             ["row", "column", "cell"].forEach(function (t) {
-                            e[t + "BoundaryCrossed"] && (h.cell = f, e.dispatchEvent(t + "mouseout", h), h.cell = u, e.dispatchEvent(t + "mouseover", h))
-                        })), e.currentCell = u, e.hasFocus)) {
+                                e[t + "BoundaryCrossed"] && (h.cell = f, e.dispatchEvent(t + "mouseout", h), h.cell = u, e.dispatchEvent(t + "mouseover", h))
+                            })), e.currentCell = u, e.hasFocus)) {
                             if (e.hovers = {}, !e.draggingItem && u && -1 === e.scrollModes.indexOf(u.context) && (e.dragItem = u, e.dragMode = u.dragContext, e.cursor = u.context,
                             "cell" === u.context && (e.cursor = "default", e.hovers = {
                                 rowIndex: u.rowIndex,
@@ -2036,15 +2036,15 @@
                                     if (e.selections = [], l = n, "row" === e.attributes.selectionMode)
                                         for (r = l.top; r <= l.bottom; r += 1)
                                             e.selectRow(r, !0, null, !0);
-                                        else
-                                            -1 !== n.top && e.selectArea(l, !0);
+                                    else
+                                        -1 !== n.top && e.selectArea(l, !0);
                                 e.autoScrollZone(t, c, d, a)
                             }
                             e.cellBoundaryCrossed = !1, e.rowBoundaryCrossed = !1, e.columnBoundaryCrossed = !1, e.draw(!0)
                         }
                     }
                 }, e.click = function (t, o) {
-                    console.log("e.click: ");
+                    //console.log("e.click: ");
                     var r, n = JSON.stringify(e.getSelectionBounds()),
                         l = t.ctrlKey || t.metaKey || e.attributes.persistantSelectionMode, i = o || e.getLayerPos(t);
                     if (e.currentCell = e.getCellAt(i.x, i.y), void 0 === e.currentCell.grid)
@@ -2059,16 +2059,16 @@
                                         return e.orderBy === r.header.name ? e.orderDirection = "asc" === e.orderDirection ? "desc" : "asc" : e.orderDirection = "asc", e.order(r.header.name, e.orderDirection), void a();
                                     if ("select" === e.attributes.columnHeaderClickBehavior)
                                         return e.selectColumn(r.header.index, l, t.shiftKey), void e.draw()
+                                }
+                                if (e.selections[r.rowIndex] = e.selections[r.rowIndex] || [], ("row" === e.attributes.selectionMode || "rowHeaderCell" === e.currentCell.style)
+                                && "rowHeaderCell" === e.currentCell.style && e.attributes.tree && i.x > 0
+                                && i.x - e.currentCell.x < e.style.treeArrowWidth + e.style.treeArrowMarginLeft + e.style.treeArrowMarginRight + e.style.treeArrowClickRadius
+                                && i.y - e.currentCell.y < e.style.treeArrowHeight + e.style.treeArrowMarginTop + e.style.treeArrowClickRadius && i.y > 0)
+                                    return void e.toggleTree(r.rowIndex);
+                                t.shiftKey && !l && (e.selectionBounds = e.getSelectionBounds(), e.selectArea(void 0, !1))
                             }
-                            if (e.selections[r.rowIndex] = e.selections[r.rowIndex] || [], ("row" === e.attributes.selectionMode || "rowHeaderCell" === e.currentCell.style)
-                            && "rowHeaderCell" === e.currentCell.style && e.attributes.tree && i.x > 0
-                            && i.x - e.currentCell.x < e.style.treeArrowWidth + e.style.treeArrowMarginLeft + e.style.treeArrowMarginRight + e.style.treeArrowClickRadius
-                            && i.y - e.currentCell.y < e.style.treeArrowHeight + e.style.treeArrowMarginTop + e.style.treeArrowClickRadius && i.y > 0)
-                                return void e.toggleTree(r.rowIndex);
-                            t.shiftKey && !l && (e.selectionBounds = e.getSelectionBounds(), e.selectArea(void 0, !1))
+                            a(), e.draw(!0)
                         }
-                        a(), e.draw(!0)
-                    }
 
                     function a() {
                         var t, o = e.getSelectionBounds();
@@ -2082,7 +2082,7 @@
                         }), e.dispatchEvent("selectionchanged", t))
                     }
                 }, e.dragResizeColumn = function (t) {
-                    console.log("e.dragResizeColumn: ");
+                    //console.log("e.dragResizeColumn: ");
                     var o, r, n;
                     return o = e.getLayerPos(t), r = e.resizingStartingWidth + o.x - e.dragStart.x, n = e.resizingStartingHeight + o.y - e.dragStart.y, r < e.style.minColumnWidth && (r = e.style.minColumnWidth), n < e.style.minRowHeight && (n = e.style.minRowHeight), !e.dispatchEvent("resizecolumn", {
                         x: r,
@@ -2090,17 +2090,17 @@
                         draggingItem: e.draggingItem
                     }) && (e.scrollBox.scrollLeft > e.scrollBox.scrollWidth - e.attributes.resizeScrollZone && "ew-resize" === e.dragMode && (e.resize(!0), e.scrollBox.scrollLeft += r), "ew-resize" === e.dragMode ? (e.sizes.columns["rowHeaderCell" === e.draggingItem.header.style ? "cornerCell" : e.draggingItem.sortColumnIndex] = r, -1 !== ["rowHeaderCell", "cornerCell"].indexOf(e.draggingItem.header.style) && e.resize(!0), void e.resizeChildGrids()) : "ns-resize" === e.dragMode ? (e.draggingItem.rowOpen ? e.sizes.trees[e.draggingItem.rowIndex] = n : e.attributes.globalRowResize ? e.style.cellHeight = n : e.sizes.rows[e.draggingItem.rowIndex] = n, e.dispatchEvent("resizerow", {row: n}), void e.resizeChildGrids()) : void(e.ellipsisCache = {}))
                 }, e.stopDragResize = function () {
-                    console.log("e.stopDragResize: ");
+                    //console.log("e.stopDragResize: ");
                     e.resize(), document.body.removeEventListener("mousemove", e.dragResizeColumn, !1), document.body.removeEventListener("mouseup", e.stopDragResize, !1), e.setStorageData(), e.draw(!0), e.ignoreNextClick = !0
                 }, e.scrollGrid = function (t) {
-                    console.log("e.scrollGrid: ");
+                    //console.log("e.scrollGrid: ");
                     var o = e.getLayerPos(t);
                     return e.attributes.scrollPointerLock && e.pointerLockPosition && -1 !== ["horizontal-scroll-box", "vertical-scroll-box"].indexOf(e.scrollStartMode) && (e.pointerLockPosition.x += t.movementX, e.pointerLockPosition.y += t.movementY, e.pointerLockPosition.x = Math.min(e.width - e.style.scrollBarWidth, Math.max(0, e.pointerLockPosition.x)), e.pointerLockPosition.y = Math.min(e.height - e.style.scrollBarWidth, Math.max(0, e.pointerLockPosition.y)), o = e.pointerLockPosition), e.scrollMode = e.getCellAt(o.x, o.y).context, "horizontal-scroll-box" === e.scrollMode && "horizontal-scroll-box" !== e.scrollStartMode ? (e.scrollStartMode = "horizontal-scroll-box", e.dragStart = o, e.scrollStart.left = e.scrollBox.scrollLeft, void clearTimeout(e.scrollTimer)) : "vertical-scroll-box" === e.scrollMode && "vertical-scroll-box" !== e.scrollStartMode ? (e.scrollStartMode = "vertical-scroll-box", e.dragStart = o, e.scrollStart.top = e.scrollBox.scrollTop, void clearTimeout(e.scrollTimer)) : ("vertical-scroll-box" === e.scrollStartMode && "vertical-scroll-box" !== e.scrollMode && (e.scrollMode = "vertical-scroll-box"), "horizontal-scroll-box" === e.scrollStartMode && "horizontal-scroll-box" !== e.scrollMode && (e.scrollMode = "horizontal-scroll-box"), clearTimeout(e.scrollTimer), void(-1 !== e.scrollModes.indexOf(e.scrollMode) && ("vertical-scroll-box" === e.scrollMode ? e.scrollBox.scrollTop = e.scrollStart.top + (o.y - e.dragStart.y) / e.scrollBox.heightBoxRatio : "vertical-scroll-top" === e.scrollMode ? (e.scrollBox.scrollTop -= e.page * e.style.cellHeight, e.scrollTimer = setTimeout(e.scrollGrid, e.attributes.scrollRepeatRate, t)) : "vertical-scroll-bottom" === e.scrollMode && (e.scrollBox.scrollTop += e.page * e.style.cellHeight, e.scrollTimer = setTimeout(e.scrollGrid, e.attributes.scrollRepeatRate, t)), "horizontal-scroll-box" === e.scrollMode ? e.scrollBox.scrollLeft = e.scrollStart.left + (o.x - e.dragStart.x) / e.scrollBox.widthBoxRatio : "horizontal-scroll-right" === e.scrollMode ? (e.scrollBox.scrollLeft += e.attributes.selectionScrollIncrement, e.scrollTimer = setTimeout(e.scrollGrid, e.attributes.scrollRepeatRate, t)) : "horizontal-scroll-left" === e.scrollMode && (e.scrollBox.scrollLeft -= e.attributes.selectionScrollIncrement, e.scrollTimer = setTimeout(e.scrollGrid, e.attributes.scrollRepeatRate, t)))))
                 }, e.stopScrollGrid = function () {
-                    console.log("e.stopScrollGrid: ");
+                    //console.log("e.stopScrollGrid: ");
                     clearTimeout(e.scrollTimer), document.exitPointerLock && document.exitPointerLock(), document.removeEventListener("mousemove", e.scrollGrid, !1)
                 }, e.dragReorder = function (t) {
-                    console.log("e.dragReorder: ");
+                    //console.log("e.dragReorder: ");
                     var o, r, n, l = "column-reorder" === e.dragMode, i = "row-reorder" === e.dragMode;
                     r = (o = e.getLayerPos(t)).x - e.dragStart.x, n = o.y - e.dragStart.y, !e.attributes.allowColumnReordering && l || !e.attributes.allowRowReordering && i || e.dispatchEvent("reordering", {
                         NativeEvent: t,
@@ -2112,7 +2112,7 @@
                         y: n
                     }, e.autoScrollZone(t, l ? o.x : -1, i ? o.y : -1, !1))
                 }, e.stopDragReorder = function (t) {
-                    console.log("e.stopDragReorder: ");
+                    //console.log("e.stopDragReorder: ");
                     var o, r, n = {"row-reorder": e.orders.rows, "column-reorder": e.orders.columns},
                         l = {"row-reorder": "rowIndex", "column-reorder": "sortColumnIndex"}[e.dragMode];
                     document.body.removeEventListener("mousemove", e.dragReorder, !1), document.body.removeEventListener("mouseup", e.stopDragReorder, !1), e.reorderObject && e.reorderTarget && ("column-reorder" === e.dragMode && e.reorderTarget.sortColumnIndex > -1 && e.reorderTarget.sortColumnIndex < e.getSchema().length || "row-reorder" === e.dragMode && e.reorderTarget.rowIndex > -1 && e.reorderTarget.rowIndex < e.data.length) && e.reorderObject[l] !== e.reorderTarget[l] && !e.dispatchEvent("reorder", {
@@ -2122,7 +2122,7 @@
                         dragMode: e.dragMode
                     }) && (e.ignoreNextClick = !0, o = n[e.dragMode].indexOf(e.reorderObject[l]), r = n[e.dragMode].indexOf(e.reorderTarget[l]), n[e.dragMode].splice(o, 1), n[e.dragMode].splice(r, 0, e.reorderObject[l]), e.resize(), e.setStorageData()), e.reorderObject = void 0, e.reorderTarget = void 0, e.draw(!0)
                 }, e.dragMove = function (t) {
-                    console.log("e.dragMove: ");
+                    //console.log("e.dragMove: ");
                     if (!e.dispatchEvent("moving", {NativeEvent: t, cell: e.currentCell})) {
                         var o = e.getLayerPos(t);
                         e.moveOffset = {
@@ -2133,7 +2133,7 @@
                         }, 1)
                     }
                 }, e.stopDragMove = function (t) {
-                    console.log("e.stopDragMove: ");
+                    //console.log("e.stopDragMove: ");
                     document.body.removeEventListener("mousemove", e.dragMove, !1), document.body.removeEventListener("mouseup", e.stopDragMove, !1);
                     var o = e.getSelectionBounds();
                     if (e.dispatchEvent("endmove", {
@@ -2142,7 +2142,7 @@
                     })) return e.movingSelection = void 0, e.moveOffset = void 0, void e.draw(!0);
                     e.moveOffset && (e.moveTo(e.movingSelection, o.left + e.moveOffset.x, o.top + e.moveOffset.y), e.moveSelection(e.moveOffset.x, e.moveOffset.y)), e.movingSelection = void 0, e.moveOffset = void 0, e.draw(!0)
                 }, e.freezeMove = function (t) {
-                    console.log("e.freezeMove: ");
+                    //console.log("e.freezeMove: ");
                     if (!e.dispatchEvent("freezemoving", {NativeEvent: t, cell: e.currentCell})) {
                         var o = e.getLayerPos(t);
                         e.ignoreNextClick = !0, e.freezeMarkerPosition = o, e.currentCell && void 0 !== e.currentCell.rowIndex && "frozen-row-marker" === e.dragMode && (e.scrollBox.scrollTop = 0, e.frozenRow = e.currentCell.rowIndex + 1), e.currentCell && void 0 !== e.currentCell.columnIndex && "frozen-column-marker" === e.dragMode && (e.scrollBox.scrollLeft = 0, e.frozenColumn = e.currentCell.columnIndex + 1), (Math.abs(o.x) > e.attributes.reorderDeadZone || Math.abs(o.y) > e.attributes.reorderDeadZone) && setTimeout(function () {
@@ -2150,11 +2150,11 @@
                         }, 1)
                     }
                 }, e.stopFreezeMove = function (t) {
-                    console.log("e.stopFreezeMove: ");
+                    //console.log("e.stopFreezeMove: ");
                     if (document.body.removeEventListener("mousemove", e.freezeMove, !1), document.body.removeEventListener("mouseup", e.stopFreezeMove, !1), e.freezeMarkerPosition = void 0, e.dispatchEvent("endfreezemove", {NativeEvent: t})) return e.frozenRow = e.startFreezeMove.x, e.frozenColumn = e.startFreezeMove.y, void e.draw(!0);
                     e.draw(!0)
                 }, e.mousedown = function (t, o) {
-                    console.log("e.mousedown: ");
+                    //console.log("e.mousedown: ");
                     if (e.lastMouseDownTarget = t.target, !e.dispatchEvent("mousedown", {
                         NativeEvent: t,
                         cell: e.currentCell
@@ -2189,18 +2189,18 @@
                         }
                     }
                 }, e.mouseup = function (t) {
-                    console.log("e.mouseup: ");
+                    //console.log("e.mouseup: ");
                     clearTimeout(e.scrollTimer), e.cellBoundaryCrossed = !0, e.rowBoundaryCrossed = !0, e.columnBoundaryCrossed = !0, e.selecting = void 0, e.draggingItem = void 0, e.dragStartObject = void 0, e.dispatchEvent("mouseup", {
                         NativeEvent: t,
                         cell: e.currentCell
                     }) || (e.hasFocus || t.target === e.canvas) && (e.currentCell && void 0 !== e.currentCell.grid || e.contextMenu || e.input || (e.dragStart && e.isInGrid(e.dragStart) && e.controlInput.focus(), t.preventDefault()))
                 }, e.getAdjacentCells = function () {
-                    console.log("e.getAdjacentCells: ");
+                    //console.log("e.getAdjacentCells: ");
                     var t, o = e.getSchema(), r = {};
                     for (t = 0; t < o.length; t += 1) o[e.orders.columns[t]].hidden || (void 0 === r.first && (r.first = t, r.left = t), r.last = t, t > e.activeCell.columnIndex && void 0 === r.right && (r.right = t), t < e.activeCell.columnIndex && (r.left = t));
                     return void 0 === r.right && (r.right = r.last), r
                 }, e.keydown = function (t) {
-                    console.log("e.keydown: ");
+                    //console.log("e.keydown: ");
                     var o, r, n = e.getAdjacentCells(), l = e.activeCell.columnIndex, i = e.activeCell.rowIndex,
                         a = t.ctrlKey || t.metaKey, s = e.data.length - 1, c = e.getSchema().length - 1;
                     if (!e.dispatchEvent("keydown", {NativeEvent: t, cell: e.currentCell}) && e.hasFocus) {
@@ -2220,19 +2220,19 @@
                         }), e.dispatchEvent("selectionchanged", r)), e.draw(!0))
                     }
                 }, e.keyup = function (t) {
-                    console.log("e.keyup: ");
+                    //console.log("e.keyup: ");
                     e.dispatchEvent("keyup", {NativeEvent: t, cell: e.currentCell}) || e.hasFocus
                 }, e.keypress = function (t) {
-                    console.log("e.keypress: ");
+                    //console.log("e.keypress: ");
                     e.hasFocus && e.dispatchEvent("keypress", {NativeEvent: t, cell: e.currentCell})
                 }, e.dblclick = function (t) {
-                    console.log("e.dblclick: ");
+                    //console.log("e.dblclick: ");
                     e.dispatchEvent("dblclick", {
                         NativeEvent: t,
                         cell: e.currentCell
                     }) || e.hasFocus && ("ew-resize" === e.currentCell.context && "columnHeaderCell" === e.currentCell.style ? e.fitColumnToValues(e.currentCell.header.name) : "ew-resize" === e.currentCell.context && "cornerCell" === e.currentCell.style ? e.autosize() : -1 !== ["cell", "activeCell"].indexOf(e.currentCell.style) && e.beginEditAt(e.currentCell.columnIndex, e.currentCell.rowIndex))
                 }, e.scrollWheel = function (o) {
-                    console.log("e.scrollWheel: ");
+                    //console.log("e.scrollWheel: ");
                     var r, n, l = o, i = void 0 === o.deltaX ? o.NativeEvent.deltaX : o.deltaX,
                         a = void 0 === o.deltaY ? o.NativeEvent.deltaY : o.deltaY,
                         s = void 0 === o.deltaMode ? o.NativeEvent.deltaMode : o.deltaMode;
@@ -2243,7 +2243,7 @@
                         }, 1))
                     }
                 }, e.pasteItem = function (t, o, r, n) {
-                    console.log("e.pasteItem: ");
+                    //console.log("e.pasteItem: ");
                     var l, i = e.getVisibleSchema(), a = r - 1, s = [];
                     if (/^text\/html/.test(n)) {
                         if (!/^(<meta[^>]+>)?<table>/.test(t.substring(0, 29))) return void console.warn("Unrecognized HTML format.  HTML must be a simple table, e.g.: <table><tr><td>data</td></tr></table>.  Data with the mime type text/html not in this format will not be imported as row data.");
@@ -2265,17 +2265,17 @@
                         }(t, e.data[r], o, i, n, r)
                     }), e.selections = s, l
                 }, e.getNextVisibleColumnIndex = function (t) {
-                    console.log("e.getNextVisibleColumnIndex: ");
+                    //console.log("e.getNextVisibleColumnIndex: ");
                     var o, r = e.getVisibleSchema();
                     for (o = 0; o < r.length; o += 1) if (r[o].columnIndex === t) return r[o + 1].columnIndex;
                     return -1
                 }, e.getVisibleColumnIndexOf = function (t) {
-                    console.log("e.getVisibleColumnIndexOf: ");
+                    //console.log("e.getVisibleColumnIndexOf: ");
                     var o, r = e.getVisibleSchema();
                     for (o = 0; o < r.length; o += 1) if (r[o].columnIndex === t) return o;
                     return -1
                 }, e.paste = function (t) {
-                    console.log("e.paste: ");
+                    //console.log("e.paste: ");
                     var o;
                     (o = Array.prototype.filter.call(t.clipboardData.items, function (e) {
                         return "text/html" === e.type
@@ -2290,12 +2290,12 @@
                         })
                     }(o) : console.warn("Cannot find supported clipboard data type.  Supported types are text/html, text/csv, text/plain.")
                 }, e.cut = function (t) {
-                    console.log("e.cut: ");
+                    //console.log("e.cut: ");
                     e.copy(t), e.forEachSelectedCell(function (e, t, o) {
                         e[t][o] = ""
                     })
                 }, e.copy = function (t) {
-                    console.log("e.copy: ");
+                    //console.log("e.copy: ");
                     if (!e.dispatchEvent("copy", {NativeEvent: t}) && e.hasFocus && t.clipboardData) {
                         e.data;
                         var o, r, n, l = [], i = [], a = {}, s = e.getSelectedData(), c = e.getSchema();
@@ -2420,7 +2420,7 @@
                 }
 
                 e.htmlImageCache = {}, e.draw = function (o) {
-                    console.log("e.draw: ");
+                    //console.log("e.draw: ");
                     if (!e.dispatchEvent("beforedraw", {}) && (e.isChildGrid || e.height && e.width)) if (e.isChildGrid && o) requestAnimationFrame(e.parentGrid.draw); else if (!1 !== e.intf.visible) {
                         var y, v, w, b, C, B, S, I, M, E, T, z, P, H, O, k, L, R, A = e.data || [],
                             W = "collapse" === e.style.gridBorderCollapse, D = [], F = [], N = [], j = [], _ = A.length,
@@ -2794,7 +2794,7 @@
                 }
 
                 return component.dehyphenateProperty = function (e) {
-                    console.log("component.dehyphenateProperty: ");
+                    //console.log("component.dehyphenateProperty: ");
                     e = e.replace("--cdg-", "");
                     var t, o = "";
                     return Array.prototype.forEach.call(e, function (e) {
@@ -2802,13 +2802,13 @@
                         "-" !== e ? o += e : t = !0
                     }), o
                 }, component.hyphenateProperty = function (e, t) {
-                    console.log("component.hyphenateProperty: ");
+                    //console.log("component.hyphenateProperty: ");
                     var o = "";
                     return Array.prototype.forEach.call(e, function (e) {
                         e !== e.toUpperCase() ? o += e : o += "-" + e.toLowerCase()
                     }), (t ? "--cdg-" : "") + o
                 }, component.applyComponentStyle = function (e, t) {
-                    console.log("component.applyComponentStyle: ");
+                    //console.log("component.applyComponentStyle: ");
                     if (t.isComponent) {
                         var o = window.getComputedStyle("CANVAS-DATAGRID" === t.tagName ? t : t.canvas, null), r = {};
                         t.computedStyle = o, defaults(r), (r = r.defaults.styles).forEach(function (e) {
@@ -2840,22 +2840,22 @@
                         return e
                     }
                 }, component.getObservableAttributes = function () {
-                    console.log("component.getObservableAttributes: ");
+                    //console.log("component.getObservableAttributes: ");
                     var e = {}, t = ["data", "schema", "style", "className", "name"];
                     return defaults(e), e.defaults.attributes.forEach(function (e) {
                         t.push(e[0].toLowerCase())
                     }), t
                 }, component.disconnectedCallback = function () {
-                    console.log(" component.disconnectedCallback: ");
+                    //console.log(" component.disconnectedCallback: ");
                     this.connected = !1
                 }, component.connectedCallback = function () {
-                    console.log("component.connectedCallback: ");
+                    //console.log("component.connectedCallback: ");
                     this.connected = !0, component.observe(this), component.applyComponentStyle(!0, this), this.resize(!0)
                 }, component.adoptedCallback = function () {
-                    console.log("component.adoptedCallback: ");
+                    //console.log("component.adoptedCallback: ");
                     this.resize()
                 }, component.attributeChangedCallback = function (attrName, oldVal, newVal) {
-                    console.log("component.attributeChangedCallback: ");
+                    //console.log("component.attributeChangedCallback: ");
                     var tfn, intf = this, def;
                     if ("style" !== attrName) {
                         if ("data" === attrName) return "application/x-canvas-datagrid" === intf.dataType && (intf.dataType = "application/json+x-canvas-datagrid"), void(intf.args.data = newVal);
@@ -2869,7 +2869,7 @@
                         } else intf.name = newVal; else intf.args.schema = typeMap.schema(newVal)
                     } else component.applyComponentStyle(!1, intf)
                 }, component.observe = function (e) {
-                    console.log("component.observe: ");
+                    //console.log("component.observe: ");
                     var t;
                     window.MutationObserver && (e.applyComponentStyle = function () {
                         component.applyComponentStyle(!1, e), e.resize()
@@ -2911,7 +2911,7 @@
             !window || window.canvasDatagrid || window.require || (window.canvasDatagrid = function (e) {
                 return new Grid(e)
             }), module.exports = function (e) {
-                console.log("module.exports: ");
+                //console.log("module.exports: ");
                 e = e || {};
                 var t,
                     o = ["style", "formatters", "sorters", "filters", "treeGridAttributes", "cellGridAttributes", "data", "schema"];
