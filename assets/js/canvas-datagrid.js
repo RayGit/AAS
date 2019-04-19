@@ -513,13 +513,13 @@
                         return void 0 === t[e] || null === t[e] ? 1 : void 0 === r[e] || null === r[e] ? 0 : o ? t[e].localeCompare ? t[e].localeCompare(r[e]) : 1 : r[e].localeCompare ? r[e].localeCompare(t[e]) : 1
                     }
                 }, e.sorters.number = function (e, t) {
-                    console.log(": " + e);
+                    console.log("sorters.number: " + e);
                     var o = "asc" === t;
                     return function (t, r) {
                         return o ? t[e] - r[e] : r[e] - t[e]
                     }
                 }, e.sorters.date = function (e, t) {
-                    console.log(": " + e);
+                    console.log("sorters.date: " + e);
                     var o = "asc" === t;
                     return function (t, r) {
                         return o ? new Date(t[e]).getTime() - new Date(r[e]).getTime() : new Date(r[e]).getTime() - new Date(t[e]).getTime()
@@ -533,7 +533,7 @@
             "use strict";
             return function (e) {
                 e.getClippingRect = function (t) {
-                    console.log(": " + e);
+                    console.log("getClippingRect: " + e);
                     var o = e.position(e.parentNode), r = e.position(t), n = e.scrollOffset(e.canvas),
                         l = {x: 0, y: 0, h: 0, w: 0}, i = {x: -1 / 0, y: -1 / 0, h: 1 / 0, w: 1 / 0},
                         a = e.getColumnHeaderCellHeight(), s = e.getRowHeaderCellWidth();
@@ -544,18 +544,18 @@
                         w: l.w < i.w ? l.w : i.w
                     }
                 }, e.clipElement = function (t) {
-                    console.log(": " + e);
+                    console.log("clipElement: " + e);
                     var o = e.getClippingRect(t);
                     o.w < 0 && (o.w = 0), o.h < 0 && (o.h = 0), t.style.clip = "rect(" + o.y + "px," + o.w + "px," + o.h + "px," + o.x + "px)"
                 }, e.scrollOffset = function (t) {
-                    console.log(": " + e);
+                    console.log("scrollOffset: " + e);
                     for (var o = 0, r = 0, n = document.scrollingElement || {
                         scrollLeft: 0,
                         scrollTop: 0
                     }; t.parentNode && "CANVAS-DATAGRID" !== t.nodeName && t !== e.intf;) "canvas-datagrid-tree" !== t.nodeType && "canvas-datagrid-cell" !== t.nodeType && (o -= t.scrollLeft, r -= t.scrollTop), t = t.parentNode;
                     return {left: o - n.scrollLeft, top: r - n.scrollTop}
                 }, e.resizeEditInput = function () {
-                    console.log(": " + e);
+                    console.log("resizeEditInput: " + e);
                     if (e.input && e.input.editCell) {
                         var t = e.canvas.getBoundingClientRect(), o = e.scrollOffset(e.intf),
                             r = "collapse" === e.style.gridBorderCollapse ? 1 : 2, n = e.style.cellBorderWidth * r,
@@ -569,7 +569,7 @@
                         e.input.style.left = t.left + l.x + e.canvasOffsetLeft - o.left + "px", e.input.style.top = t.top + l.y - e.style.cellBorderWidth + e.canvasOffsetTop - o.top + "px", e.input.style.height = l.height - n + "px", e.input.style.width = l.width - e.style.cellPaddingLeft + "px", e.clipElement(e.input)
                     }
                 }, e.position = function (t, o) {
-                    console.log(": " + e);
+                    console.log("position: " + e);
                     for (var r, n, l = 0, i = 0, a = t; t.offsetParent && "CANVAS-DATAGRID" !== t.nodeName;) l += t.offsetLeft, i += t.offsetTop, r = t.offsetHeight, n = t.offsetWidth, t = t.offsetParent;
                     return o ? {left: l, top: i, height: r, width: n} : (t = a, {
                         left: l + (a = e.scrollOffset(t)).left,
@@ -578,7 +578,7 @@
                         width: n
                     })
                 }, e.getLayerPos = function (t) {
-                    console.log(": " + e);
+                    console.log("getLayerPos: " + e);
                     var o = e.canvas.getBoundingClientRect(), r = {x: t.clientX - o.left, y: t.clientY - o.top};
                     return e.isChildGrid && (r.x -= e.canvasOffsetLeft, r.y -= e.canvasOffsetTop), {
                         x: r.x,
@@ -586,7 +586,7 @@
                         rect: o
                     }
                 }, e.endEdit = function (t) {
-                    console.log(": " + e);
+                    console.log("endEdit: " + e);
                     var o = e.input.editCell, r = o.rowIndex;
                     if (e.dispatchEvent("beforeendedit", {
                         cell: o,
@@ -617,7 +617,7 @@
                         input: e.input
                     }), e.input = void 0, !0
                 }, e.beginEditAt = function (t, o, r) {
-                    console.log(": " + e);
+                    console.log("beginEditAt: " + e);
                     if (e.attributes.editable) {
                         e.input && e.endEdit();
                         var n, l, i, a, s, c = e.getVisibleCellByIndex(t, o);
@@ -645,7 +645,7 @@
                         }
                     }
                 }, e.createInlineStyle = function (t, o) {
-                    console.log(": " + e);
+                    console.log("createInlineStyle: " + e);
                     var r = {
                         "canvas-datagrid-context-menu-filter-input": {
                             height: "19px",
@@ -821,10 +821,10 @@
                         t.style[e] = r[o][e]
                     })
                 }, e.appendTo = function (t) {
-                    console.log(": " + e);
+                    console.log("appendTo: " + e);
                     e.parentNode = t, e.setDom()
                 }, e.setDom = function () {
-                    console.log(": " + e);
+                    console.log("setDom: " + e);
                     e.isChildGrid ? (e.parentGrid = e.parentNode.parentGrid, e.ctx = e.parentGrid.context, e.canvas = e.parentGrid.canvas, e.controlInput = e.parentGrid.controlInput, e.eventParent = e.canvas) : (e.controlInput = e.controlInput || document.createElement("input"), e.controlInput.onblur = e.intf.blur, e.createInlineStyle(e.controlInput, "canvas-datagrid-control-input"), e.isChildGrid = !1, e.parentDOMNode = e.parentNode, e.parentIsCanvas = /^canvas$/i.test(e.parentDOMNode.tagName), e.parentIsCanvas ? (e.canvas = e.parentDOMNode, document.body.appendChild(e.controlInput)) : (e.canvas = document.createElement("canvas"), e.parentDOMNode.appendChild(e.canvas), document.body.appendChild(e.controlInput)), e.createInlineStyle(e.canvas, "canvas-datagrid"), e.ctx = e.canvas.getContext("2d"), e.ctx.textBaseline = "alphabetic", e.eventParent = e.canvas), e.parentNodeStyle = e.canvas.style, e.controlInput.setAttribute("readonly", !0), e.controlInput.addEventListener("blur", function (t) {
                         t.target !== e.canvas && (e.hasFocus = !1)
                     }), e.eventParent.addEventListener("scroll", e.resize, !1), e.eventParent.addEventListener("touchstart", e.touchstart, !1), e.eventParent.addEventListener("mouseup", e.mouseup, !1), e.eventParent.addEventListener("mousedown", e.mousedown, !1), e.eventParent.addEventListener("dblclick", e.dblclick, !1), e.eventParent.addEventListener("click", e.click, !1), e.eventParent.addEventListener("mousemove", e.mousemove), e[e.isChildGrid ? "parentGrid" : "eventParent"].addEventListener("wheel", e.scrollWheel, !1), e.canvas.addEventListener("contextmenu", e.contextmenuEvent, !1), e.controlInput.addEventListener("copy", e.copy), e.controlInput.addEventListener("cut", e.cut), e.controlInput.addEventListener("paste", e.paste), e.controlInput.addEventListener("keypress", e.keypress, !1), e.controlInput.addEventListener("keyup", e.keyup, !1), e.controlInput.addEventListener("keydown", e.keydown, !1), window.addEventListener("resize", e.resize)
@@ -839,6 +839,7 @@
                 var t, o, r;
 
                 function n(t) {
+                    console.log("function n(t): " + e);
                     e.createInlineStyle(t, "canvas-datagrid-context-menu-item" + (e.mobile ? "-mobile" : "")), t.addEventListener("mouseover", function () {
                         e.createInlineStyle(t, "canvas-datagrid-context-menu-item:hover")
                     }), t.addEventListener("mouseout", function () {
@@ -847,6 +848,7 @@
                 }
 
                 function l(r, i, a, s) {
+                    console.log("function l(r, i, a, s): " + e);
                     var c, d = document.createElement("div"), u = document.createElement("div"),
                         h = document.createElement("div"), f = [], g = -1, m = {};
                     if (!Array.isArray(a)) throw new Error("createContextMenu expects an array.");
@@ -911,8 +913,10 @@
                             e.hasFocus && (d.scrollTop += t.deltaY, d.scrollLeft += t.deltaX), x()
                         }), u.innerHTML = e.style.contextMenuArrowUpHTML, h.innerHTML = e.style.contextMenuArrowDownHTML, d.appendChild(u), document.body.appendChild(h), document.body.appendChild(d), (c = d.getBoundingClientRect()).bottom > window.innerHeight && (s && s.inputDropdown || (o.y -= c.bottom + e.style.contextMenuWindowMargin - window.innerHeight), o.y < 0 && (o.y = e.style.contextMenuWindowMargin), d.offsetHeight > window.innerHeight - e.style.contextMenuWindowMargin && (d.style.height = window.innerHeight - 2 * e.style.contextMenuWindowMargin + "px")), c.right > window.innerWidth && (o.x -= c.right - window.innerWidth + e.style.contextMenuWindowMargin), o.x < 0 && (o.x = e.style.contextMenuWindowMargin), o.y < 0 && (o.y = e.style.contextMenuWindowMargin), d.style.left = o.x + "px", d.style.top = o.y + "px", c = d.getBoundingClientRect(), u.style.top = c.top + "px", h.style.top = c.top + c.height - h.offsetHeight + "px", u.style.left = c.left + "px", h.style.left = c.left + "px", h.style.width = d.offsetWidth + "px", u.style.width = d.offsetWidth + "px", h.addEventListener("mouseover", p("down")), h.addEventListener("mouseout", y()), u.addEventListener("mouseover", p("up")), u.addEventListener("mouseout", y()), x()
                     }(), m.clickIndex = function (e) {
+                        console.log("m.clickIndex: " + e);
                         a[e].contextItemContainer.dispatchEvent(new Event("click"))
                     }, m.rect = c, m.items = a, m.upArrow = u, m.downArrow = h, m.dispose = function () {
+                        console.log("m.dispose: " + e);
                         clearTimeout(o), f.forEach(function (e) {
                             e.dispose()
                         }), [h, u, d].forEach(function (e) {
@@ -932,6 +936,7 @@
                 }
 
                 function i(t) {
+                    console.log("function i(t): " + e);
                     var o, n, i = document.createElement("div"), a = document.createElement("div"),
                         s = document.createElement("button"), c = document.createElement("input"),
                         d = t.cell && t.cell.header ? t.cell.header.title || t.cell.header.name : "";
@@ -967,15 +972,20 @@
                     e.createInlineStyle(a, "canvas-datagrid-context-menu-label"), e.createInlineStyle(s, "canvas-datagrid-context-menu-filter-button"), e.createInlineStyle(c, "canvas-datagrid-context-menu-filter-input"), u(), c.onclick = e.disposeAutocomplete, c.addEventListener("keydown", function (t) {
                         40 === t.keyCode && (r.selectedIndex += 1), 38 === t.keyCode && (r.selectedIndex -= 1), 13 === t.keyCode && (r.clickIndex(r.selectedIndex), e.disposeContextMenu()), 9 === t.keyCode && (r.clickIndex(r.selectedIndex), t.preventDefault()), 27 === t.keyCode && e.disposeContextMenu()
                     }), c.addEventListener("keyup", function () {
+                        console.log("c.addEventListener: " + e);
                         e.setFilter(t.cell.header.name, c.value)
                     }), c.addEventListener("keyup", h), ["focus", "blur", "keydown", "keyup", "change"].forEach(function (e) {
+                        console.log("[\"focus\", \"blur\", \"keydown\", \"keyup\", \"change\"].forEach(function (e): " + e);
                         c.addEventListener(e, u)
                     }), c.value = t.cell.header && e.columnFilters[t.cell.header.name] || "", a.innerHTML = e.attributes.filterOptionText.replace(/%s/g, d), s.onclick = function () {
+                        console.log("s.onclick: " + e);
                         if (r) return e.disposeAutocomplete();
                         h()
                     }, s.innerHTML = e.style.contextFilterButtonHTML, i.addEventListener("click", function (e) {
+                        console.log("i.addEventListener: " + e);
                         return e.stopPropagation()
                     }), i.appendChild(a), i.appendChild(c), i.appendChild(s), t.items.push({title: i}), Object.keys(e.columnFilters).length && Object.keys(e.columnFilters).forEach(function (o) {
+                        console.log("Object.keys(e.columnFilters).forEach: " + e);
                         var r = e.getHeaderByName(o);
                         t.items.push({
                             title: e.attributes.removeFilterOptionText.replace(/%s/g, r.title || r.name),
@@ -987,10 +997,13 @@
                 }
 
                 e.disposeAutocomplete = function () {
+                    console.log("e.disposeAutocomplete: " + e);
                     r && (r.dispose(), r = void 0)
                 }, e.disposeContextMenu = function () {
+                    console.log("e.disposeContextMenu: " + e);
                     document.removeEventListener("click", e.disposeContextMenu), t = e.style.contextMenuZIndex, e.disposeAutocomplete(), e.contextMenu && e.contextMenu.dispose(), e.contextMenu = void 0
                 }, e.contextmenuEvent = function (t, o) {
+                    console.log("e.contextmenuEvent: " + e);
                     if (e.hasFocus || t.target === e.canvas) {
                         var r, a = [], s = o || e.getLayerPos(t),
                             c = {NativeEvent: t, cell: e.getCellAt(s.x, s.y), items: a};
@@ -1015,7 +1028,7 @@
                                         function r(t) {
                                             o.hidden = !o.hidden, e.dispatchEvent("togglecolumn", {
                                                 column: o,
-                                                hidden: o.hidden
+                                                hidden: !o.hidden
                                             }), t.preventDefault(), e.stopPropagation(t), e.disposeContextMenu(), e.resize(!0), e.setStorageData()
                                         }
 
@@ -1093,6 +1106,7 @@
                     x: 0,
                     y: 0
                 }, e.getSelectedData = function (t) {
+                    console.log("e.getSelectedData: " + e);
                     var o = [], r = e.getSchema(), n = e.data.length;
                     return 0 === n ? [] : (e.selections.forEach(function (l, i) {
                         l && i !== n && (0 !== l.length ? (o[i] = {}, l.forEach(function (n) {
@@ -1101,10 +1115,13 @@
                         })) : o[i] = null)
                     }), o)
                 }, e.getColumnHeaderCellHeight = function () {
+                    console.log("e.getColumnHeaderCellHeight: " + e);
                     return e.attributes.showColumnHeaders ? (e.sizes.rows[-1] || e.style.columnHeaderCellHeight) * e.scale : 0
                 }, e.getRowHeaderCellWidth = function () {
+                    console.log("e.getRowHeaderCellWidth: " + e);
                     return e.attributes.showRowHeaders ? (e.sizes.columns[-1] || e.style.rowHeaderCellWidth) * e.scale : 0
                 }, e.setStorageData = function () {
+                    console.log("e.setStorageData: " + e);
                     if (e.attributes.saveAppearance && e.attributes.name) {
                         var t = {};
                         e.getSchema().forEach(function (e) {
@@ -1121,34 +1138,44 @@
                         }))
                     }
                 }, e.getSchema = function () {
+                    console.log("e.getSchema: " + e);
                     return e.schema || e.tempSchema || []
                 }, e.createColumnOrders = function () {
+                    console.log("e.createColumnOrders: " + e);
                     var t = e.getSchema();
                     e.orders.columns = o(0, t.length - 1)
                 }, e.createRowOrders = function () {
+                    console.log("e.createRowOrders: " + e);
                     e.orders.rows = o(0, e.data.length - 1)
                 }, e.getVisibleSchema = function () {
+                    console.log("e.getVisibleSchema: " + e);
                     return e.getSchema().filter(function (e) {
                         return !e.hidden
                     })
                 }, e.applyDefaultValue = function (t, o) {
+                    console.log("e.applyDefaultValue: " + e);
                     var r = o.defaultValue || "";
                     "function" == typeof r && (r = r.apply(e.intf, [o])), t[o.name] = r
                 }, e.createNewRowData = function () {
+                    console.log("e.createNewRowData: " + e);
                     e.newRow = {}, e.getSchema().forEach(function (t) {
                         e.applyDefaultValue(e.newRow, t)
                     })
                 }, e.getSchemaNameHash = function (t) {
+                    console.log("e.getSchemaNameHash: " + e);
                     for (var o = 0; e.schemaHashes[t];) t += o += 1;
                     return t
                 }, e.filter = function (t) {
+                    console.log("e.filter: " + e);
                     var o = e.filters[t];
                     return o || void 0 === t || (console.warn("Cannot find filter for type %s, falling back to substring match.", t), o = e.filters.string), o
                 }, e.getBestGuessDataType = function (e, t) {
+                    console.log("e.getBestGuessDataType: " + e);
                     var o, r, n = t.length;
                     for (r = 0; r < n; r += 1) if (void 0 !== t[r] && null !== t[r] && -1 !== [null, void 0].indexOf(t[r][e])) return "object" === (o = typeof t[r]) ? "string" : o;
                     return "string"
                 }, e.drawChildGrids = function () {
+                    console.log("e.drawChildGrids: " + e);
                     Object.keys(e.childGrids).forEach(function (t) {
                         e.childGrids[t].draw()
                     })
@@ -1334,6 +1361,7 @@
                                 }
                             })
                         }), e.filters.string = function (t, o) {
+                            console.log("e.filters.string : ");
                             t = String(t);
                             var r, n = /\/(i|g|m)*$/.exec(o), l = n ? n[0].substring(1) : "", i = l.length;
                             if (e.invalidFilterRegEx = void 0, "/" === o.substring(0, 1) && n) {
@@ -1346,6 +1374,7 @@
                             }
                             return !!t.toString && -1 !== t.toString().toLocaleUpperCase().indexOf(o.toLocaleUpperCase())
                         }, e.filters.number = function (e, t) {
+                            console.log("e.filters.number: ");
                             return !t || e === t
                         }, ["formatters", "filters", "sorters"].forEach(e.initProp), e.applyComponentStyle(!1, e.intf), e.reloadStoredValues(), e.args.data && (e.intf.data = e.args.data), (e.intf.innerText || e.intf.textContent) && ("application/x-canvas-datagrid" === e.intf.dataType && (e.intf.dataType = "application/json+x-canvas-datagrid"), e.intf.data = e.intf.innerText || e.intf.textContent), e.args.schema && (e.intf.schema = e.args.schema),e.isChildGrid || !e.isComponent ? requestAnimationFrame(function () {
                             e.resize(!0)
@@ -1357,8 +1386,10 @@
                     }
 
                 }, e.intf.blur = function (t) {
+                    console.log("e.intf.blur: ");
                     e.hasFocus = !1
                 }, e.intf.focus = function () {
+                    console.log("e.intf.focus: ");
                     e.hasFocus = !0, e.controlInput.focus()
                 }, (e.shadowRoot || e.isChildGrid) && (Object.defineProperty(e.intf, "height", {
                     get: function () {
@@ -1490,6 +1521,7 @@
                         e.dataType = t
                     }
                 }),e.eventNames.forEach(function (t) {
+                    console.log("e.eventNames.forEach: ");
                     Object.defineProperty(e.intf, "on" + t, {
                         get: function () {
                             return e.componentL1Events[t]
@@ -1595,8 +1627,10 @@
                         }), e.resize(!0), e.dispatchEvent("schemachanged", {schema: e.schema})
                     }
                 }),e.intf.getTypes = function () {
+                    console.log("e.intf.getTypes: ");
                     return Object.keys(e.parsers)
                 },e.parseInnerHtml = function (e) {
+                    console.log("e.parseInnerHtml: ");
                     if (!e || /^ +$/.test(e)) return [];
                     try {
                         e = JSON.parse(e)
@@ -1605,12 +1639,15 @@
                     }
                     return e
                 },e.parsers["application/json+x-canvas-datagrid"] = function (t, o) {
+                    console.log("e.parsers[\"application/json+x-canvas-datagrid\"]l: ");
                     e.parsers["application/x-canvas-datagrid"](e.parseInnerHtml(t), function (e, t) {
                         return o(e, t)
                     })
                 },e.parsers["application/x-canvas-datagrid"] = function (e, t) {
+                    console.log("e.parsers[\"application/x-canvas-datagrid\"] : ");
                     return t(e)
                 },e.intf.parsers = e.parsers,e.etl = function (t, o) {
+                    console.log("e.intf.parsers = e.parsers,e.etl: ");
                     if (!e.intf.parsers[e.dataType]) throw new Error("Unsupported data type.");
                     e.intf.parsers[e.dataType](t, function (t, r) {
                         Array.isArray(r) && (e.schema = r), e.attributes.autoGenerateSchema && (e.schema = e.getSchemaFromData(t)), e.schema || (e.tempSchema = e.getSchemaFromData(t)), e.getSchema() && e.createColumnOrders(), e.originalData = t, e.data = e.originalData, e.schema || 0 !== (e.data || []).length || (e.tempSchema = [{name: ""}]), e.fitColumnToValues("cornerCell", !0), (e.tempSchema && !e.schema || e.attributes.autoGenerateSchema) && (e.createColumnOrders(), e.dispatchEvent("schemachanged", {schema: e.tempSchema})), o()
@@ -1624,6 +1661,7 @@
                         })
                     }
                 }),e.initScrollBox = function () {
+                    console.log("e.initScrollBox: ");
                     var t = 0, o = 0, r = 0, n = 0, l = 0, i = 0, a = 20, s = 20;
 
                     function c(t, o) {
@@ -1729,26 +1767,32 @@
                         return e < .5 ? 16 * e * e * e * e * e : 1 + 16 * --e * e * e * e * e
                     }
                 }, e.easing = function (t, o, r, n) {
+                    console.log("e.easing: ");
                     return r * e.easingFunctions[e.attributes.touchEasingMethod](t / n) + o
                 }, e.calculatePPSTimed = function () {
+                    console.log("e.calculatePPSTimed: ");
                     e.xPPST = -(e.touchDelta.x - e.touchSigmaTimed.x) / (e.touchDelta.t - e.touchSigmaTimed.t), e.yPPST = -(e.touchDelta.y - e.touchSigmaTimed.y) / (e.touchDelta.t - e.touchSigmaTimed.t), e.touchSigmaTimed = {
                         x: e.touchDelta.x,
                         y: e.touchDelta.y,
                         t: performance.now()
                     }
                 }, e.calculatePPS = function () {
+                    console.log("e.calculatePPS: ");
                     e.xPPS = -(e.touchDelta.x - e.touchSigma.x) / (e.touchDelta.t - e.touchSigma.t), e.yPPS = -(e.touchDelta.y - e.touchSigma.y) / (e.touchDelta.t - e.touchSigma.t), e.touchSigma = {
                         x: e.touchDelta.x,
                         y: e.touchDelta.y,
                         t: performance.now()
                     }
                 }, e.touchEndAnimation = function () {
+                    console.log("e.touchEndAnimation: ");
                     if (!e.canvas || !e.scrollBox.scrollTo) return requestAnimationFrame(e.touchEndAnimation);
                     var t, o = performance.now(), r = e.attributes.touchReleaseAnimationDurationMs;
                     t = o - e.touchDelta.t, e.animationFrames += 1, e.scrollAnimation.x = e.easing(t, e.touchDelta.scrollLeft, e.touchAnimateTo.x, r), e.scrollAnimation.y = e.easing(t, e.touchDelta.scrollTop, e.touchAnimateTo.y, r), t > r || e.scrollAnimation.y === e.scrollBox.scrollTop && e.scrollAnimation.x === e.scrollBox.scrollLeft || e.stopAnimation || (e.scrollBox.scrollTo(e.scrollAnimation.x, e.scrollAnimation.y), requestAnimationFrame(e.touchEndAnimation))
                 }, e.touchEditCell = function (t) {
+                    console.log("e.touchEditCell: ");
                     e.beginEditAt(t.columnIndex, t.rowIndex)
                 }, e.touchCell = function (t) {
+                    console.log("e.touchCell: ");
                     return function () {
                         clearInterval(e.calculatePPSTimer);
                         var o, r = e.getTouchPos(t);
@@ -1764,6 +1808,7 @@
                         }
                     }
                 }, e.touchstart = function (t) {
+                    console.log("e.touchstart: ");
                     if (t.changedTouches[0] && (e.touchStart = e.getTouchPos(t), e.startingCell = e.getCellAt(e.touchStart.x, e.touchStart.y, !0)), !e.dispatchEvent("touchstart", {
                         NativeEvent: t,
                         cell: e.startingCell
@@ -1805,12 +1850,14 @@
                         e.zoomAltered || (document.body.addEventListener("touchmove", e.touchmove, {passive: !1}), document.body.addEventListener("touchend", e.touchend, !1), document.body.addEventListener("touchcancel", e.touchcancel, !1), e.draw(!0))
                     }
                 }, e.touchSelect = function (t, o) {
+                    console.log("e.touchSelect: ");
                     if (void 0 !== t.rowIndex && void 0 !== t.columnIndex) {
                         e.touchSelecting = !0;
                         var r = e.getSelectionBounds();
                         "selection-handle-bl" === o && t.rowIndex >= r.top && t.columnIndex <= r.right ? (r.bottom = t.rowIndex, r.left = t.columnIndex) : "selection-handle-tl" === o && t.rowIndex <= r.bottom && t.columnIndex <= r.right ? (r.top = t.rowIndex, r.left = t.columnIndex) : "selection-handle-tr" === o && t.rowIndex <= r.bottom && t.columnIndex >= r.left ? (r.top = t.rowIndex, r.right = t.columnIndex) : "selection-handle-br" === o && t.rowIndex >= r.top && t.columnIndex >= r.left && (r.bottom = t.rowIndex, r.right = t.columnIndex), "row" === e.attributes.selectionMode || -1 === t.rowIndex ? (r.left = 0, r.right = e.getSchema().length - 1) : r.left = Math.max(0, r.left), e.selectArea(r), e.draw(!0)
                     }
                 }, e.touchmove = function (o) {
+                    console.log("e.touchmove: ");
                     var r, n, l, i, a, s, c, d, u;
                     if (!e.dispatchEvent("beforetouchmove", {NativeEvent: o})) {
                         if (clearTimeout(t), o.changedTouches[0] && (e.touchPosition = e.getTouchPos(o)), o.changedTouches[1] && (e.touchPosition1 = e.getTouchPos(o, 1)), Math.abs(e.touchDelta.x) + Math.abs(e.touchDelta.y) > e.attributes.touchDeadZone && clearTimeout(e.touchContextTimeout), 2 === o.touches.length && e.touchPosition && e.touchPosition1) return d = e.touchPosition.y, u = e.touchPosition1.y, e.zoomDeltaStart || (e.zoomDeltaStart = Math.abs(d - u), e.startScale = e.scale), e.touchLength = 2, e.scaleDelta = e.zoomDeltaStart - Math.abs(d - u), e.scale = e.startScale - e.scaleDelta * e.attributes.touchZoomSensitivity, e.scale = Math.min(Math.max(e.scale, e.attributes.touchZoomMin), e.attributes.touchZoomMax), e.zoomAltered = !0, e.resize(!0), void e.resizeChildGrids();
@@ -1829,8 +1876,10 @@
                         }(), /vertical-scroll-/.test(e.startingCell.style) ? e.scrollBox.scrollTop = e.scrollBox.scrollHeight * ((e.touchPosition.y - r - c) / (e.scrollBox.height - c - r)) : /horizontal-scroll-/.test(e.startingCell.style) ? e.scrollBox.scrollLeft = e.scrollBox.scrollWidth * ((e.touchPosition.x - n - c) / (e.scrollBox.width - c - n)) : /selection-handle-/.test(e.startingCell.style) ? e.touchSelect(e.currentCell, e.startingCell.style) : (e.scrollBox.scrollTo(e.touchScrollStart.x - e.touchDelta.x, e.touchScrollStart.y - e.touchDelta.y), e.draw(!0)))
                     }
                 }, e.touchEndEvents = function (t) {
+                    console.log("e.touchEndEvents: ");
                     e.zoomDeltaStart = void 0, e.touchSelecting = !1, clearInterval(e.touchScrollTimeout), clearInterval(e.touchContextTimeout), clearInterval(e.calculatePPSTimer), t.stopPropagation(), document.body.removeEventListener("touchmove", e.touchmove, {passive: !1}), document.body.removeEventListener("touchend", e.touchend, !1), document.body.removeEventListener("touchcancel", e.touchcancel, !1)
                 }, e.touchend = function (t) {
+                    console.log("e.touchend: ");
                     if (!e.dispatchEvent("touchend", {
                         NativeEvent: t,
                         cell: e.currentCell
@@ -1839,6 +1888,7 @@
                         isNaN(e.xPPS) && (e.xPPS = 0), isNaN(e.yPPS) && (e.yPPS = 0), isNaN(e.xPPST) && (e.xPPST = 0), isNaN(e.yPPST) && (e.yPPST = 0), e.touchAnimateTo.x = e.xPPS * e.attributes.touchReleaseAcceleration, e.touchAnimateTo.y = e.yPPS * e.attributes.touchReleaseAcceleration, e.calculatePPSTimed(), o && !e.contextMenu ? e.touchCell(e.touchStartEvent)() : 0 !== e.animationFrames || !(Math.abs(e.xPPST) > e.attributes.scrollAnimationPPSThreshold || Math.abs(e.yPPST) > e.attributes.scrollAnimationPPSThreshold) || /-scroll-/.test(e.startingCell.style) || o || (e.stopAnimation = !1, e.touchEndAnimation()), e.touchEndEvents(t)
                     }
                 }, e.touchcancel = function (t) {
+                    console.log("e.touchcancel: ");
                     e.dispatchEvent("touchcancel", {NativeEvent: t, cell: e.currentCell}) || e.touchEndEvents(t)
                 }
             }
@@ -1850,14 +1900,18 @@
             return function (e) {
                 var t;
                 e.stopPropagation = function (e) {
+                    console.log("e.stopPropagation: ");
                     e.stopPropagation()
                 }, e.addEventListener = function (t, o) {
+                    console.log("e.addEventListener: ");
                     e.events[t] = e.events[t] || [], e.events[t].unshift(o)
                 }, e.removeEventListener = function (t, o) {
+                    console.log("e.removeEventListener: ");
                     (e.events[t] || []).forEach(function (r, n) {
                         o === r && e.events[t].splice(n, 1)
                     })
                 }, e.dispatchEvent = function (t, o) {
+                    console.log("e.dispatchEvent: " + t);
                     var r;
 
                     function n() {
@@ -1868,8 +1922,10 @@
                         o.ctx = e.ctx, o.preventDefault = n, t.apply(e.intf, [o])
                     }), r
                 }, e.getRatio = function () {
+                    console.log("e.getRatio: ");
                     return Math.min(e.attributes.maxPixelRatio, (window.devicePixelRatio || 1) / (e.ctx.webkitBackingStorePixelRatio || e.ctx.mozBackingStorePixelRatio || e.ctx.msBackingStorePixelRatio || e.ctx.oBackingStorePixelRatio || e.ctx.backingStorePixelRatio || 1))
                 }, e.resize = function (t) {
+                    console.log("e.resize: ");
                     if (e.canvas) {
                         var o, r, n = {x: 0, y: 0, height: 0, width: 0, style: "vertical-scroll-bar"},
                             l = {x: 0, y: 0, height: 0, width: 0, style: "horizontal-scroll-bar"},
@@ -1923,14 +1979,23 @@
                         }))
                     }
                 }, e.scroll = function (t) {
+                    console.log("e.scroll: ");
                     var o = e.getSchema(), r = (e.data || []).length, n = e.style.cellHeight;
-                    for (e.scrollIndexTop = Math.floor(r * (e.scrollBox.scrollTop / e.scrollBox.scrollHeight) - 100), e.scrollIndexTop = Math.max(e.scrollIndexTop, 0), e.scrollPixelTop = e.scrollCache.y[e.scrollIndexTop], 0 === e.scrollBox.scrollHeight && (e.scrollIndexTop = 0), e.scrollPixelTop = 0, e.scrollIndexLeft = e.frozenColumn, e.scrollPixelLeft = 0; e.scrollPixelTop < e.scrollBox.scrollTop && e.scrollIndexTop < e.data.length;) e.scrollIndexTop += 1, e.scrollPixelTop = e.scrollCache.y[e.scrollIndexTop];
-                    for (; e.scrollPixelLeft < e.scrollBox.scrollLeft + 1 && e.scrollIndexLeft < o.length;) e.scrollPixelLeft = e.scrollCache.x[e.scrollIndexLeft], e.scrollIndexLeft += 1;
-                    o.length > 0 && (e.scrollIndexLeft = Math.max(e.scrollIndexLeft - 1, 0), e.scrollPixelLeft -= e.getColummnWidth(e.orders.columns[e.scrollIndexLeft])), (e.data || []).length > 0 && (e.scrollIndexTop = Math.max(e.scrollIndexTop - 1, 0), e.scrollPixelTop = Math.max(e.scrollPixelTop - (e.data[e.scrollIndexTop] ? (e.sizes.rows[e.scrollIndexTop] || n) + (e.sizes.trees[e.scrollIndexTop] || 0) : n) * e.scale, 0)), e.ellipsisCache = {}, t || e.draw(!0), requestAnimationFrame(e.resizeEditInput), e.dispatchEvent("scroll", {
+                    for (e.scrollIndexTop = Math.floor(r * (e.scrollBox.scrollTop / e.scrollBox.scrollHeight) - 100), e.scrollIndexTop = Math.max(e.scrollIndexTop, 0),
+                             e.scrollPixelTop = e.scrollCache.y[e.scrollIndexTop], 0 === e.scrollBox.scrollHeight && (e.scrollIndexTop = 0), e.scrollPixelTop = 0,
+                             e.scrollIndexLeft = e.frozenColumn, e.scrollPixelLeft = 0; e.scrollPixelTop < e.scrollBox.scrollTop && e.scrollIndexTop < e.data.length;)
+                        e.scrollIndexTop += 1, e.scrollPixelTop = e.scrollCache.y[e.scrollIndexTop];
+                    for (; e.scrollPixelLeft < e.scrollBox.scrollLeft + 1 && e.scrollIndexLeft < o.length;)
+                        e.scrollPixelLeft = e.scrollCache.x[e.scrollIndexLeft], e.scrollIndexLeft += 1;
+                    o.length > 0 && (e.scrollIndexLeft = Math.max(e.scrollIndexLeft - 1, 0), e.scrollPixelLeft -= e.getColummnWidth(e.orders.columns[e.scrollIndexLeft])),
+                    (e.data || []).length > 0 && (e.scrollIndexTop = Math.max(e.scrollIndexTop - 1, 0),
+                        e.scrollPixelTop = Math.max(e.scrollPixelTop - (e.data[e.scrollIndexTop] ? (e.sizes.rows[e.scrollIndexTop] || n) + (e.sizes.trees[e.scrollIndexTop] || 0) : n) * e.scale, 0)),
+                        e.ellipsisCache = {}, t || e.draw(!0), requestAnimationFrame(e.resizeEditInput), e.dispatchEvent("scroll", {
                         top: e.scrollBox.scrollTop,
                         left: e.scrollBox.scrollLeft
                     })
                 }, e.mousemove = function (t, o) {
+                    console.log("e.mousemove: ");
                     if (!e.contextMenu && !e.input) {
                         e.mouse = o || e.getLayerPos(t);
                         var r, n, l, i, a = t.ctrlKey || t.metaKey || e.attributes.persistantSelectionMode,
@@ -1939,10 +2004,13 @@
                         if (clearTimeout(e.scrollTimer), e.isInGrid({
                             x: c,
                             y: d
-                        }) || (e.hasFocus = !1), !e.dispatchEvent("mousemove", h) && (u && e.currentCell && (e.rowBoundaryCrossed = e.currentCell.rowIndex !== u.rowIndex, e.columnBoundaryCrossed = e.currentCell.columnIndex !== u.columnIndex, e.cellBoundaryCrossed = e.rowBoundaryCrossed || e.columnBoundaryCrossed, ["row", "column", "cell"].forEach(function (t) {
+                        }) || (e.hasFocus = !1), !e.dispatchEvent("mousemove", h) && (u && e.currentCell && (e.rowBoundaryCrossed = e.currentCell.rowIndex !== u.rowIndex,
+                            e.columnBoundaryCrossed = e.currentCell.columnIndex !== u.columnIndex, e.cellBoundaryCrossed = e.rowBoundaryCrossed || e.columnBoundaryCrossed,
+                            ["row", "column", "cell"].forEach(function (t) {
                             e[t + "BoundaryCrossed"] && (h.cell = f, e.dispatchEvent(t + "mouseout", h), h.cell = u, e.dispatchEvent(t + "mouseover", h))
                         })), e.currentCell = u, e.hasFocus)) {
-                            if (e.hovers = {}, !e.draggingItem && u && -1 === e.scrollModes.indexOf(u.context) && (e.dragItem = u, e.dragMode = u.dragContext, e.cursor = u.context, "cell" === u.context && (e.cursor = "default", e.hovers = {
+                            if (e.hovers = {}, !e.draggingItem && u && -1 === e.scrollModes.indexOf(u.context) && (e.dragItem = u, e.dragMode = u.dragContext, e.cursor = u.context,
+                            "cell" === u.context && (e.cursor = "default", e.hovers = {
                                 rowIndex: u.rowIndex,
                                 columnIndex: u.columnIndex
                             }), (e.selecting || e.reorderObject) && "cell" === u.context)) {
@@ -1957,26 +2025,46 @@
                                     left: Math.min(e.dragStartObject.columnIndex, u.columnIndex),
                                     bottom: Math.max(e.dragStartObject.rowIndex, u.rowIndex),
                                     right: Math.max(e.dragStartObject.columnIndex, u.columnIndex)
-                                }, -1 === e.dragStartObject.columnIndex && (l = e.getSelectionBounds(), n.left = -1, n.right = s.length - 1, n.top = Math.min(l.top, u.rowIndex), n.bottom = Math.max(l.bottom, u.rowIndex)), e.dragStartObject.rowIndex === u.rowIndex && e.dragStartObject.columnIndex === u.columnIndex || (e.ignoreNextClick = !0), (e.cellBoundaryCrossed || 0 === i.x && 0 === i.y || "row" === e.attributes.selectionMode) && ("row" !== e.attributes.selectionMode && -1 !== e.dragStartObject.columnIndex || !e.rowBoundaryCrossed ? "row" !== e.attributes.selectionMode && (e.dragAddToSelection || void 0 === u.rowIndex ? (e.selections[u.rowIndex] = e.selections[u.rowIndex] || [], -1 === e.selections[u.rowIndex].indexOf(u.columnIndex) && e.selections[u.rowIndex].push(u.columnIndex)) : e.selections[u.rowIndex] && -1 !== e.selections[u.rowIndex].indexOf(u.columnIndex) && e.selections[u.rowIndex].splice(e.selections[u.rowIndex].indexOf(u.columnIndex), 1)) : e.selectRow(u.rowIndex, a, null, !0)), !(e.selectionBounds && n.top === e.selectionBounds.top && n.left === e.selectionBounds.left && n.bottom === e.selectionBounds.bottom && n.right === e.selectionBounds.right || a)) if (e.selections = [], l = n, "row" === e.attributes.selectionMode) for (r = l.top; r <= l.bottom; r += 1) e.selectRow(r, !0, null, !0); else -1 !== n.top && e.selectArea(l, !0);
+                                }, -1 === e.dragStartObject.columnIndex
+                                && (l = e.getSelectionBounds(), n.left = -1, n.right = s.length - 1, n.top = Math.min(l.top, u.rowIndex), n.bottom = Math.max(l.bottom, u.rowIndex)), e.dragStartObject.rowIndex === u.rowIndex
+                                && e.dragStartObject.columnIndex === u.columnIndex || (e.ignoreNextClick = !0), (e.cellBoundaryCrossed || 0 === i.x && 0 === i.y || "row" === e.attributes.selectionMode)
+                                && ("row" !== e.attributes.selectionMode && -1 !== e.dragStartObject.columnIndex || !e.rowBoundaryCrossed ? "row" !== e.attributes.selectionMode
+                                    && (e.dragAddToSelection || void 0 === u.rowIndex ? (e.selections[u.rowIndex] = e.selections[u.rowIndex] || [], -1 === e.selections[u.rowIndex].indexOf(u.columnIndex)
+                                    && e.selections[u.rowIndex].push(u.columnIndex)) : e.selections[u.rowIndex] && -1 !== e.selections[u.rowIndex].indexOf(u.columnIndex)
+                                        && e.selections[u.rowIndex].splice(e.selections[u.rowIndex].indexOf(u.columnIndex), 1)) : e.selectRow(u.rowIndex, a, null, !0)),
+                                    !(e.selectionBounds && n.top === e.selectionBounds.top && n.left === e.selectionBounds.left && n.bottom === e.selectionBounds.bottom && n.right === e.selectionBounds.right || a))
+                                    if (e.selections = [], l = n, "row" === e.attributes.selectionMode)
+                                        for (r = l.top; r <= l.bottom; r += 1)
+                                            e.selectRow(r, !0, null, !0);
+                                        else
+                                            -1 !== n.top && e.selectArea(l, !0);
                                 e.autoScrollZone(t, c, d, a)
                             }
                             e.cellBoundaryCrossed = !1, e.rowBoundaryCrossed = !1, e.columnBoundaryCrossed = !1, e.draw(!0)
                         }
                     }
                 }, e.click = function (t, o) {
+                    console.log("e.click: ");
                     var r, n = JSON.stringify(e.getSelectionBounds()),
                         l = t.ctrlKey || t.metaKey || e.attributes.persistantSelectionMode, i = o || e.getLayerPos(t);
-                    if (e.currentCell = e.getCellAt(i.x, i.y), void 0 === e.currentCell.grid) if (e.input && e.endEdit(), e.ignoreNextClick) e.ignoreNextClick = !1; else if (r = e.currentCell, !e.dispatchEvent("click", {
-                        NativeEvent: t,
-                        cell: e.currentCell
-                    }) && e.hasFocus) {
-                        if (-1 !== ["rowHeaderCell", "columnHeaderCell"].indexOf(e.currentCell.style) || l || e.setActiveCell(r.columnIndex, r.rowIndex), "cell" === e.currentCell.context) {
-                            if ("cornerCell" === e.currentCell.style) return e.selectAll(), e.draw(), void a();
-                            if ("columnHeaderCell" === e.currentCell.style) {
-                                if ("sort" === e.attributes.columnHeaderClickBehavior) return e.orderBy === r.header.name ? e.orderDirection = "asc" === e.orderDirection ? "desc" : "asc" : e.orderDirection = "asc", e.order(r.header.name, e.orderDirection), void a();
-                                if ("select" === e.attributes.columnHeaderClickBehavior) return e.selectColumn(r.header.index, l, t.shiftKey), void e.draw()
+                    if (e.currentCell = e.getCellAt(i.x, i.y), void 0 === e.currentCell.grid)
+                        if (e.input && e.endEdit(), e.ignoreNextClick)
+                            e.ignoreNextClick = !1;
+                        else if (r = e.currentCell, !e.dispatchEvent("click", {NativeEvent: t, cell: e.currentCell}) && e.hasFocus) {
+                            if (-1 !== ["rowHeaderCell", "columnHeaderCell"].indexOf(e.currentCell.style) || l || e.setActiveCell(r.columnIndex, r.rowIndex), "cell" === e.currentCell.context) {
+                                if ("cornerCell" === e.currentCell.style)
+                                    return e.selectAll(), e.draw(), void a();
+                                if ("columnHeaderCell" === e.currentCell.style) {
+                                    if ("sort" === e.attributes.columnHeaderClickBehavior)
+                                        return e.orderBy === r.header.name ? e.orderDirection = "asc" === e.orderDirection ? "desc" : "asc" : e.orderDirection = "asc", e.order(r.header.name, e.orderDirection), void a();
+                                    if ("select" === e.attributes.columnHeaderClickBehavior)
+                                        return e.selectColumn(r.header.index, l, t.shiftKey), void e.draw()
                             }
-                            if (e.selections[r.rowIndex] = e.selections[r.rowIndex] || [], ("row" === e.attributes.selectionMode || "rowHeaderCell" === e.currentCell.style) && "rowHeaderCell" === e.currentCell.style && e.attributes.tree && i.x > 0 && i.x - e.currentCell.x < e.style.treeArrowWidth + e.style.treeArrowMarginLeft + e.style.treeArrowMarginRight + e.style.treeArrowClickRadius && i.y - e.currentCell.y < e.style.treeArrowHeight + e.style.treeArrowMarginTop + e.style.treeArrowClickRadius && i.y > 0) return void e.toggleTree(r.rowIndex);
+                            if (e.selections[r.rowIndex] = e.selections[r.rowIndex] || [], ("row" === e.attributes.selectionMode || "rowHeaderCell" === e.currentCell.style)
+                            && "rowHeaderCell" === e.currentCell.style && e.attributes.tree && i.x > 0
+                            && i.x - e.currentCell.x < e.style.treeArrowWidth + e.style.treeArrowMarginLeft + e.style.treeArrowMarginRight + e.style.treeArrowClickRadius
+                            && i.y - e.currentCell.y < e.style.treeArrowHeight + e.style.treeArrowMarginTop + e.style.treeArrowClickRadius && i.y > 0)
+                                return void e.toggleTree(r.rowIndex);
                             t.shiftKey && !l && (e.selectionBounds = e.getSelectionBounds(), e.selectArea(void 0, !1))
                         }
                         a(), e.draw(!0)
@@ -1994,6 +2082,7 @@
                         }), e.dispatchEvent("selectionchanged", t))
                     }
                 }, e.dragResizeColumn = function (t) {
+                    console.log("e.dragResizeColumn: ");
                     var o, r, n;
                     return o = e.getLayerPos(t), r = e.resizingStartingWidth + o.x - e.dragStart.x, n = e.resizingStartingHeight + o.y - e.dragStart.y, r < e.style.minColumnWidth && (r = e.style.minColumnWidth), n < e.style.minRowHeight && (n = e.style.minRowHeight), !e.dispatchEvent("resizecolumn", {
                         x: r,
@@ -2001,13 +2090,17 @@
                         draggingItem: e.draggingItem
                     }) && (e.scrollBox.scrollLeft > e.scrollBox.scrollWidth - e.attributes.resizeScrollZone && "ew-resize" === e.dragMode && (e.resize(!0), e.scrollBox.scrollLeft += r), "ew-resize" === e.dragMode ? (e.sizes.columns["rowHeaderCell" === e.draggingItem.header.style ? "cornerCell" : e.draggingItem.sortColumnIndex] = r, -1 !== ["rowHeaderCell", "cornerCell"].indexOf(e.draggingItem.header.style) && e.resize(!0), void e.resizeChildGrids()) : "ns-resize" === e.dragMode ? (e.draggingItem.rowOpen ? e.sizes.trees[e.draggingItem.rowIndex] = n : e.attributes.globalRowResize ? e.style.cellHeight = n : e.sizes.rows[e.draggingItem.rowIndex] = n, e.dispatchEvent("resizerow", {row: n}), void e.resizeChildGrids()) : void(e.ellipsisCache = {}))
                 }, e.stopDragResize = function () {
+                    console.log("e.stopDragResize: ");
                     e.resize(), document.body.removeEventListener("mousemove", e.dragResizeColumn, !1), document.body.removeEventListener("mouseup", e.stopDragResize, !1), e.setStorageData(), e.draw(!0), e.ignoreNextClick = !0
                 }, e.scrollGrid = function (t) {
+                    console.log("e.scrollGrid: ");
                     var o = e.getLayerPos(t);
                     return e.attributes.scrollPointerLock && e.pointerLockPosition && -1 !== ["horizontal-scroll-box", "vertical-scroll-box"].indexOf(e.scrollStartMode) && (e.pointerLockPosition.x += t.movementX, e.pointerLockPosition.y += t.movementY, e.pointerLockPosition.x = Math.min(e.width - e.style.scrollBarWidth, Math.max(0, e.pointerLockPosition.x)), e.pointerLockPosition.y = Math.min(e.height - e.style.scrollBarWidth, Math.max(0, e.pointerLockPosition.y)), o = e.pointerLockPosition), e.scrollMode = e.getCellAt(o.x, o.y).context, "horizontal-scroll-box" === e.scrollMode && "horizontal-scroll-box" !== e.scrollStartMode ? (e.scrollStartMode = "horizontal-scroll-box", e.dragStart = o, e.scrollStart.left = e.scrollBox.scrollLeft, void clearTimeout(e.scrollTimer)) : "vertical-scroll-box" === e.scrollMode && "vertical-scroll-box" !== e.scrollStartMode ? (e.scrollStartMode = "vertical-scroll-box", e.dragStart = o, e.scrollStart.top = e.scrollBox.scrollTop, void clearTimeout(e.scrollTimer)) : ("vertical-scroll-box" === e.scrollStartMode && "vertical-scroll-box" !== e.scrollMode && (e.scrollMode = "vertical-scroll-box"), "horizontal-scroll-box" === e.scrollStartMode && "horizontal-scroll-box" !== e.scrollMode && (e.scrollMode = "horizontal-scroll-box"), clearTimeout(e.scrollTimer), void(-1 !== e.scrollModes.indexOf(e.scrollMode) && ("vertical-scroll-box" === e.scrollMode ? e.scrollBox.scrollTop = e.scrollStart.top + (o.y - e.dragStart.y) / e.scrollBox.heightBoxRatio : "vertical-scroll-top" === e.scrollMode ? (e.scrollBox.scrollTop -= e.page * e.style.cellHeight, e.scrollTimer = setTimeout(e.scrollGrid, e.attributes.scrollRepeatRate, t)) : "vertical-scroll-bottom" === e.scrollMode && (e.scrollBox.scrollTop += e.page * e.style.cellHeight, e.scrollTimer = setTimeout(e.scrollGrid, e.attributes.scrollRepeatRate, t)), "horizontal-scroll-box" === e.scrollMode ? e.scrollBox.scrollLeft = e.scrollStart.left + (o.x - e.dragStart.x) / e.scrollBox.widthBoxRatio : "horizontal-scroll-right" === e.scrollMode ? (e.scrollBox.scrollLeft += e.attributes.selectionScrollIncrement, e.scrollTimer = setTimeout(e.scrollGrid, e.attributes.scrollRepeatRate, t)) : "horizontal-scroll-left" === e.scrollMode && (e.scrollBox.scrollLeft -= e.attributes.selectionScrollIncrement, e.scrollTimer = setTimeout(e.scrollGrid, e.attributes.scrollRepeatRate, t)))))
                 }, e.stopScrollGrid = function () {
+                    console.log("e.stopScrollGrid: ");
                     clearTimeout(e.scrollTimer), document.exitPointerLock && document.exitPointerLock(), document.removeEventListener("mousemove", e.scrollGrid, !1)
                 }, e.dragReorder = function (t) {
+                    console.log("e.dragReorder: ");
                     var o, r, n, l = "column-reorder" === e.dragMode, i = "row-reorder" === e.dragMode;
                     r = (o = e.getLayerPos(t)).x - e.dragStart.x, n = o.y - e.dragStart.y, !e.attributes.allowColumnReordering && l || !e.attributes.allowRowReordering && i || e.dispatchEvent("reordering", {
                         NativeEvent: t,
@@ -2019,6 +2112,7 @@
                         y: n
                     }, e.autoScrollZone(t, l ? o.x : -1, i ? o.y : -1, !1))
                 }, e.stopDragReorder = function (t) {
+                    console.log("e.stopDragReorder: ");
                     var o, r, n = {"row-reorder": e.orders.rows, "column-reorder": e.orders.columns},
                         l = {"row-reorder": "rowIndex", "column-reorder": "sortColumnIndex"}[e.dragMode];
                     document.body.removeEventListener("mousemove", e.dragReorder, !1), document.body.removeEventListener("mouseup", e.stopDragReorder, !1), e.reorderObject && e.reorderTarget && ("column-reorder" === e.dragMode && e.reorderTarget.sortColumnIndex > -1 && e.reorderTarget.sortColumnIndex < e.getSchema().length || "row-reorder" === e.dragMode && e.reorderTarget.rowIndex > -1 && e.reorderTarget.rowIndex < e.data.length) && e.reorderObject[l] !== e.reorderTarget[l] && !e.dispatchEvent("reorder", {
@@ -2028,6 +2122,7 @@
                         dragMode: e.dragMode
                     }) && (e.ignoreNextClick = !0, o = n[e.dragMode].indexOf(e.reorderObject[l]), r = n[e.dragMode].indexOf(e.reorderTarget[l]), n[e.dragMode].splice(o, 1), n[e.dragMode].splice(r, 0, e.reorderObject[l]), e.resize(), e.setStorageData()), e.reorderObject = void 0, e.reorderTarget = void 0, e.draw(!0)
                 }, e.dragMove = function (t) {
+                    console.log("e.dragMove: ");
                     if (!e.dispatchEvent("moving", {NativeEvent: t, cell: e.currentCell})) {
                         var o = e.getLayerPos(t);
                         e.moveOffset = {
@@ -2038,6 +2133,7 @@
                         }, 1)
                     }
                 }, e.stopDragMove = function (t) {
+                    console.log("e.stopDragMove: ");
                     document.body.removeEventListener("mousemove", e.dragMove, !1), document.body.removeEventListener("mouseup", e.stopDragMove, !1);
                     var o = e.getSelectionBounds();
                     if (e.dispatchEvent("endmove", {
@@ -2046,6 +2142,7 @@
                     })) return e.movingSelection = void 0, e.moveOffset = void 0, void e.draw(!0);
                     e.moveOffset && (e.moveTo(e.movingSelection, o.left + e.moveOffset.x, o.top + e.moveOffset.y), e.moveSelection(e.moveOffset.x, e.moveOffset.y)), e.movingSelection = void 0, e.moveOffset = void 0, e.draw(!0)
                 }, e.freezeMove = function (t) {
+                    console.log("e.freezeMove: ");
                     if (!e.dispatchEvent("freezemoving", {NativeEvent: t, cell: e.currentCell})) {
                         var o = e.getLayerPos(t);
                         e.ignoreNextClick = !0, e.freezeMarkerPosition = o, e.currentCell && void 0 !== e.currentCell.rowIndex && "frozen-row-marker" === e.dragMode && (e.scrollBox.scrollTop = 0, e.frozenRow = e.currentCell.rowIndex + 1), e.currentCell && void 0 !== e.currentCell.columnIndex && "frozen-column-marker" === e.dragMode && (e.scrollBox.scrollLeft = 0, e.frozenColumn = e.currentCell.columnIndex + 1), (Math.abs(o.x) > e.attributes.reorderDeadZone || Math.abs(o.y) > e.attributes.reorderDeadZone) && setTimeout(function () {
@@ -2053,9 +2150,11 @@
                         }, 1)
                     }
                 }, e.stopFreezeMove = function (t) {
+                    console.log("e.stopFreezeMove: ");
                     if (document.body.removeEventListener("mousemove", e.freezeMove, !1), document.body.removeEventListener("mouseup", e.stopFreezeMove, !1), e.freezeMarkerPosition = void 0, e.dispatchEvent("endfreezemove", {NativeEvent: t})) return e.frozenRow = e.startFreezeMove.x, e.frozenColumn = e.startFreezeMove.y, void e.draw(!0);
                     e.draw(!0)
                 }, e.mousedown = function (t, o) {
+                    console.log("e.mousedown: ");
                     if (e.lastMouseDownTarget = t.target, !e.dispatchEvent("mousedown", {
                         NativeEvent: t,
                         cell: e.currentCell
@@ -2090,15 +2189,18 @@
                         }
                     }
                 }, e.mouseup = function (t) {
+                    console.log("e.mouseup: ");
                     clearTimeout(e.scrollTimer), e.cellBoundaryCrossed = !0, e.rowBoundaryCrossed = !0, e.columnBoundaryCrossed = !0, e.selecting = void 0, e.draggingItem = void 0, e.dragStartObject = void 0, e.dispatchEvent("mouseup", {
                         NativeEvent: t,
                         cell: e.currentCell
                     }) || (e.hasFocus || t.target === e.canvas) && (e.currentCell && void 0 !== e.currentCell.grid || e.contextMenu || e.input || (e.dragStart && e.isInGrid(e.dragStart) && e.controlInput.focus(), t.preventDefault()))
                 }, e.getAdjacentCells = function () {
+                    console.log("e.getAdjacentCells: ");
                     var t, o = e.getSchema(), r = {};
                     for (t = 0; t < o.length; t += 1) o[e.orders.columns[t]].hidden || (void 0 === r.first && (r.first = t, r.left = t), r.last = t, t > e.activeCell.columnIndex && void 0 === r.right && (r.right = t), t < e.activeCell.columnIndex && (r.left = t));
                     return void 0 === r.right && (r.right = r.last), r
                 }, e.keydown = function (t) {
+                    console.log("e.keydown: ");
                     var o, r, n = e.getAdjacentCells(), l = e.activeCell.columnIndex, i = e.activeCell.rowIndex,
                         a = t.ctrlKey || t.metaKey, s = e.data.length - 1, c = e.getSchema().length - 1;
                     if (!e.dispatchEvent("keydown", {NativeEvent: t, cell: e.currentCell}) && e.hasFocus) {
@@ -2118,15 +2220,19 @@
                         }), e.dispatchEvent("selectionchanged", r)), e.draw(!0))
                     }
                 }, e.keyup = function (t) {
+                    console.log("e.keyup: ");
                     e.dispatchEvent("keyup", {NativeEvent: t, cell: e.currentCell}) || e.hasFocus
                 }, e.keypress = function (t) {
+                    console.log("e.keypress: ");
                     e.hasFocus && e.dispatchEvent("keypress", {NativeEvent: t, cell: e.currentCell})
                 }, e.dblclick = function (t) {
+                    console.log("e.dblclick: ");
                     e.dispatchEvent("dblclick", {
                         NativeEvent: t,
                         cell: e.currentCell
                     }) || e.hasFocus && ("ew-resize" === e.currentCell.context && "columnHeaderCell" === e.currentCell.style ? e.fitColumnToValues(e.currentCell.header.name) : "ew-resize" === e.currentCell.context && "cornerCell" === e.currentCell.style ? e.autosize() : -1 !== ["cell", "activeCell"].indexOf(e.currentCell.style) && e.beginEditAt(e.currentCell.columnIndex, e.currentCell.rowIndex))
                 }, e.scrollWheel = function (o) {
+                    console.log("e.scrollWheel: ");
                     var r, n, l = o, i = void 0 === o.deltaX ? o.NativeEvent.deltaX : o.deltaX,
                         a = void 0 === o.deltaY ? o.NativeEvent.deltaY : o.deltaY,
                         s = void 0 === o.deltaMode ? o.NativeEvent.deltaMode : o.deltaMode;
@@ -2137,6 +2243,7 @@
                         }, 1))
                     }
                 }, e.pasteItem = function (t, o, r, n) {
+                    console.log("e.pasteItem: ");
                     var l, i = e.getVisibleSchema(), a = r - 1, s = [];
                     if (/^text\/html/.test(n)) {
                         if (!/^(<meta[^>]+>)?<table>/.test(t.substring(0, 29))) return void console.warn("Unrecognized HTML format.  HTML must be a simple table, e.g.: <table><tr><td>data</td></tr></table>.  Data with the mime type text/html not in this format will not be imported as row data.");
@@ -2158,14 +2265,17 @@
                         }(t, e.data[r], o, i, n, r)
                     }), e.selections = s, l
                 }, e.getNextVisibleColumnIndex = function (t) {
+                    console.log("e.getNextVisibleColumnIndex: ");
                     var o, r = e.getVisibleSchema();
                     for (o = 0; o < r.length; o += 1) if (r[o].columnIndex === t) return r[o + 1].columnIndex;
                     return -1
                 }, e.getVisibleColumnIndexOf = function (t) {
+                    console.log("e.getVisibleColumnIndexOf: ");
                     var o, r = e.getVisibleSchema();
                     for (o = 0; o < r.length; o += 1) if (r[o].columnIndex === t) return o;
                     return -1
                 }, e.paste = function (t) {
+                    console.log("e.paste: ");
                     var o;
                     (o = Array.prototype.filter.call(t.clipboardData.items, function (e) {
                         return "text/html" === e.type
@@ -2180,10 +2290,12 @@
                         })
                     }(o) : console.warn("Cannot find supported clipboard data type.  Supported types are text/html, text/csv, text/plain.")
                 }, e.cut = function (t) {
+                    console.log("e.cut: ");
                     e.copy(t), e.forEachSelectedCell(function (e, t, o) {
                         e[t][o] = ""
                     })
                 }, e.copy = function (t) {
+                    console.log("e.copy: ");
                     if (!e.dispatchEvent("copy", {NativeEvent: t}) && e.hasFocus && t.clipboardData) {
                         e.data;
                         var o, r, n, l = [], i = [], a = {}, s = e.getSelectedData(), c = e.getSchema();
@@ -2308,6 +2420,7 @@
                 }
 
                 e.htmlImageCache = {}, e.draw = function (o) {
+                    console.log("e.draw: ");
                     if (!e.dispatchEvent("beforedraw", {}) && (e.isChildGrid || e.height && e.width)) if (e.isChildGrid && o) requestAnimationFrame(e.parentGrid.draw); else if (!1 !== e.intf.visible) {
                         var y, v, w, b, C, B, S, I, M, E, T, z, P, H, O, k, L, R, A = e.data || [],
                             W = "collapse" === e.style.gridBorderCollapse, D = [], F = [], N = [], j = [], _ = A.length,
@@ -2681,6 +2794,7 @@
                 }
 
                 return component.dehyphenateProperty = function (e) {
+                    console.log("component.dehyphenateProperty: ");
                     e = e.replace("--cdg-", "");
                     var t, o = "";
                     return Array.prototype.forEach.call(e, function (e) {
@@ -2688,11 +2802,13 @@
                         "-" !== e ? o += e : t = !0
                     }), o
                 }, component.hyphenateProperty = function (e, t) {
+                    console.log("component.hyphenateProperty: ");
                     var o = "";
                     return Array.prototype.forEach.call(e, function (e) {
                         e !== e.toUpperCase() ? o += e : o += "-" + e.toLowerCase()
                     }), (t ? "--cdg-" : "") + o
                 }, component.applyComponentStyle = function (e, t) {
+                    console.log("component.applyComponentStyle: ");
                     if (t.isComponent) {
                         var o = window.getComputedStyle("CANVAS-DATAGRID" === t.tagName ? t : t.canvas, null), r = {};
                         t.computedStyle = o, defaults(r), (r = r.defaults.styles).forEach(function (e) {
@@ -2724,17 +2840,22 @@
                         return e
                     }
                 }, component.getObservableAttributes = function () {
+                    console.log("component.getObservableAttributes: ");
                     var e = {}, t = ["data", "schema", "style", "className", "name"];
                     return defaults(e), e.defaults.attributes.forEach(function (e) {
                         t.push(e[0].toLowerCase())
                     }), t
                 }, component.disconnectedCallback = function () {
+                    console.log(" component.disconnectedCallback: ");
                     this.connected = !1
                 }, component.connectedCallback = function () {
+                    console.log("component.connectedCallback: ");
                     this.connected = !0, component.observe(this), component.applyComponentStyle(!0, this), this.resize(!0)
                 }, component.adoptedCallback = function () {
+                    console.log("component.adoptedCallback: ");
                     this.resize()
                 }, component.attributeChangedCallback = function (attrName, oldVal, newVal) {
+                    console.log("component.attributeChangedCallback: ");
                     var tfn, intf = this, def;
                     if ("style" !== attrName) {
                         if ("data" === attrName) return "application/x-canvas-datagrid" === intf.dataType && (intf.dataType = "application/json+x-canvas-datagrid"), void(intf.args.data = newVal);
@@ -2748,6 +2869,7 @@
                         } else intf.name = newVal; else intf.args.schema = typeMap.schema(newVal)
                     } else component.applyComponentStyle(!1, intf)
                 }, component.observe = function (e) {
+                    console.log("component.observe: ");
                     var t;
                     window.MutationObserver && (e.applyComponentStyle = function () {
                         component.applyComponentStyle(!1, e), e.resize()
@@ -2789,6 +2911,7 @@
             !window || window.canvasDatagrid || window.require || (window.canvasDatagrid = function (e) {
                 return new Grid(e)
             }), module.exports = function (e) {
+                console.log("module.exports: ");
                 e = e || {};
                 var t,
                     o = ["style", "formatters", "sorters", "filters", "treeGridAttributes", "cellGridAttributes", "data", "schema"];

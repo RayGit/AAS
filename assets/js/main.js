@@ -86,7 +86,7 @@ var _onsheet = function(json, sheetnames, select_sheet_cb) {
     for (var i = 0; i < json[0].length; i ++) {
         if (json[0][i] === "定性"){
             insert_pos = i + 1;
-            json[0].splice(insert_pos, 0 , "定性关键词");
+            json[0].splice(insert_pos, 0 , "关键词");
         }
     }
     console.log("json[0]: " + json[0]);
