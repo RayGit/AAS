@@ -12,6 +12,27 @@ $(function () {
     };
 });
 
+$(function (json) {
+    json = JSON.parse(localStorage.table_json);
+
+    /* 显示 grid */
+    _grid.style.display = "block";
+    _resize();
+
+    /* 设置表头 */
+    var L = 0;
+    json.forEach(function(r) {
+        if(L < r.length) L = r.length;
+    });
+
+    /* 加载数据 */
+    cdg.data = json;
+
+    /* 操作表格 */
+    cdg.autosize();
+    cdg.deleteRow(0);
+});
+
 
 /** drop target **/
 var _target = document.getElementById('drop');
@@ -64,20 +85,21 @@ var cdg = canvasDatagrid({
 cdg.style.height = '100%';
 cdg.style.width = '100%';
 
-// function _resize() {
-//     _grid.style.height = (window.innerHeight - 200) + "px";
-//     _grid.style.width = (window.innerWidth - 200) + "px";
-// }
+function _resize() {
+    _grid.style.height = (window.innerHeight - 200) + "px";
+    _grid.style.width = (window.innerWidth - 200) + "px";
+    // _grid.style.height = "100%";
+    // _grid.style.width = "100%"
+}
 //window.addEventListener('resize', _resize);
 
 var _onsheet = function(json, sheetnames, select_sheet_cb) {
-    document.getElementById('footnote').style.display = "none";
 
     //make_buttons(sheetnames, select_sheet_cb);
 
     /* 显示 grid */
     _grid.style.display = "block";
-    //_resize();
+    _resize();
 
     /* 设置表头 */
     var L = 0;
@@ -119,6 +141,8 @@ var _onsheet = function(json, sheetnames, select_sheet_cb) {
 
     /* 加载数据 */
     cdg.data = json;
+    console.log("json:" + typeof json);
+    localStorage.setItem("table_json", JSON.stringify(json));
 
     /* 操作表格 */
     cdg.autosize();
