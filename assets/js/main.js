@@ -64,11 +64,11 @@ var cdg = canvasDatagrid({
 cdg.style.height = '100%';
 cdg.style.width = '100%';
 
-function _resize() {
-    _grid.style.height = (window.innerHeight - 200) + "px";
-    _grid.style.width = (window.innerWidth - 200) + "px";
-}
-window.addEventListener('resize', _resize);
+// function _resize() {
+//     _grid.style.height = (window.innerHeight - 200) + "px";
+//     _grid.style.width = (window.innerWidth - 200) + "px";
+// }
+//window.addEventListener('resize', _resize);
 
 var _onsheet = function(json, sheetnames, select_sheet_cb) {
     document.getElementById('footnote').style.display = "none";
@@ -77,7 +77,7 @@ var _onsheet = function(json, sheetnames, select_sheet_cb) {
 
     /* 显示 grid */
     _grid.style.display = "block";
-    _resize();
+    //_resize();
 
     /* 设置表头 */
     var L = 0;
