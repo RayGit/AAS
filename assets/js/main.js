@@ -13,24 +13,29 @@ $(function () {
 });
 
 $(function (json) {
+
+
     json = JSON.parse(localStorage.table_json);
+    if (typeof json !== "undefined") {
+        make_banner_s();
 
-    /* 显示 grid */
-    _grid.style.display = "block";
-    _resize();
+        /* 显示 grid */
+        _grid.style.display = "block";
+        _resize();
 
-    /* 设置表头 */
-    var L = 0;
-    json.forEach(function(r) {
-        if(L < r.length) L = r.length;
-    });
+        /* 设置表头 */
+        var L = 0;
+        json.forEach(function(r) {
+            if(L < r.length) L = r.length;
+        });
 
-    /* 加载数据 */
-    cdg.data = json;
+        /* 加载数据 */
+        cdg.data = json;
 
-    /* 操作表格 */
-    cdg.autosize();
-    cdg.deleteRow(0);
+        /* 操作表格 */
+        cdg.autosize();
+        cdg.deleteRow(0);
+    }
 });
 
 
@@ -72,11 +77,17 @@ var make_buttons = function(sheetnames, cb) {
         btn.type = 'button';
         btn.name = 'btn' + idx;
         btn.text = s;
-        var txt = document.createElement('h3'); txt.innerText = s; btn.appendChild(txt);
+        var txt = document.createElement('h3');
+        txt.innerText = s; btn.appendChild(txt);
         btn.addEventListener('click', function() { cb(idx); }, false);
         buttons.appendChild(btn);
-        buttons.appendChild(document.createElement('br'));
     });
+};
+
+var make_banner_s = function() {
+    var banner_s = document.getElementById('banner_s_h2');
+    banner_s.innerHTML = "<img id=\"banner_s\" src=\"assets/img/banner.png\">";
+
 };
 
 var cdg = canvasDatagrid({
@@ -94,8 +105,13 @@ function _resize() {
 //window.addEventListener('resize', _resize);
 
 var _onsheet = function(json, sheetnames, select_sheet_cb) {
+    console.log("测试" + json);
+    if (typeof json === "undefined") {
+        alertify.alert('空表格', function(){});
+    }
 
-    //make_buttons(sheetnames, select_sheet_cb);
+    make_banner_s();
+    make_buttons(sheetnames, select_sheet_cb);
 
     /* 显示 grid */
     _grid.style.display = "block";
@@ -127,17 +143,18 @@ var _onsheet = function(json, sheetnames, select_sheet_cb) {
         }
     }
     console.log("json[0]: " + json[0]);
-    for (var i = 1; i < json.length; i ++){
-        json[i].splice(insert_pos, 0 , "");
-        for (var j = 0; j < dx_keys.length; j ++)
-            if (json[i][insert_pos-1].indexOf(dx_keys[j])> -1)
-                json[i][insert_pos] += dx_keys[j]+"; ";
+    if (json[0][insert_pos] === "关键词")
+        for (var i = 1; i < json.length; i ++){
+            json[i].splice(insert_pos, 0 , "");
+            for (var j = 0; j < dx_keys.length; j ++)
+                if (json[i][insert_pos-1] && json[i][insert_pos-1].indexOf(dx_keys[j])> -1)
+                    json[i][insert_pos] += dx_keys[j]+"; ";
 
-        if (json[i][json[i].length-1] === "1")
-            json[i][L] = "大学";
-        else if (json[i][json[i].length-1] === "2")
-            json[i][L] = "研究机构"
-    }
+            if (json[i][json[i].length-1] === "1")
+                json[i][L] = "大学";
+            else if (json[i][json[i].length-1] === "2")
+                json[i][L] = "研究机构"
+        }
 
     /* 加载数据 */
     cdg.data = json;
