@@ -43,13 +43,13 @@ label {
 }
 
 #banner_s{
-    width: 15%;
-    height: 15%;
+    width: 171px;
+    height: 30px;
 }
 
 #banner_l{
-    width: 60%;
-    height: 60%;
+    width: 856px;
+    height: 150px;
     margin: 10% 0;
 }
 
