@@ -6,6 +6,12 @@ h2 {
     text-align: center;
 }
 
+h3 {
+    height: 30px;
+    vertical-align: middle;
+    margin-bottom: 10px;
+}
+
 #drop {
     border: 2px dashed #bbb;
     -moz-border-radius: 5px;
@@ -49,8 +55,7 @@ label {
 
 button{
     height: 40px;
-    text-align: center;
-    vertical-align: auto;
+    padding-bottom: 10px;
 }
 
 #logo {

@@ -77,8 +77,9 @@ var make_buttons = function(sheetnames, cb) {
         btn.type = 'button';
         btn.name = 'btn' + idx;
         btn.text = s;
-        var txt = document.createElement('h3');
-        txt.innerText = s; btn.appendChild(txt);
+        // var txt = document.createElement('h3');
+        // txt.innerText = s; btn.appendChild(txt);
+        btn.innerHTML = s;
         btn.addEventListener('click', function() { cb(idx); }, false);
         buttons.appendChild(btn);
     });
@@ -87,6 +88,9 @@ var make_buttons = function(sheetnames, cb) {
 var make_banner_s = function() {
     var banner_s = document.getElementById('banner_s_h2');
     banner_s.innerHTML = "<img id=\"banner_s\" src=\"assets/img/banner.png\">";
+    var banner_l = document.getElementById('banner_l');
+    banner_l.style.display = "none"
+
 
 };
 
