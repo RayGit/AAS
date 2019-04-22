@@ -87,11 +87,9 @@ var make_buttons = function(sheetnames, cb) {
 
 var make_banner_s = function() {
     var banner_s = document.getElementById('banner_s_h2');
-    banner_s.innerHTML = "<img id=\"banner_s\" src=\"assets/img/banner.png\">";
+    banner_s.innerHTML = "<a href=\"javascript:location.reload();\"><img id=\"banner_s\" src=\"assets/img/banner.png\"></a>";
     var banner_l = document.getElementById('banner_l');
     banner_l.style.display = "none"
-
-
 };
 
 var cdg = canvasDatagrid({
