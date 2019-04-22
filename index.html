@@ -7,6 +7,16 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="icon" type="image/png" href="assets/img/logo.png"/>
     <link rel="stylesheet" href="assets/css/sheetjs.css">
+
+    <style>
+        .xport, .btn {
+            display: inline;
+            text-align:center;
+        }
+        a { text-decoration: none }
+        #data-table, #data-table th, #data-table td { border: 1px solid black }
+    </style>
+
 </head>
 <body>
 <script src="assets/vendor/alertify.js"></script>
@@ -17,6 +27,7 @@
 
 <link rel="stylesheet" media="screen" href="assets/vendor/samples.css">
 <link rel="stylesheet" media="screen" href="assets/vendor/alertify.css">
+
 
 <div id="body">
 
@@ -37,6 +48,7 @@
                 <input type="file" id="file" value=""><br>
                 <label for="file">拖动文件到虚线区域或点击按钮选择一个文件</label>
             </div>
+            <input id="export_xlxs" type="submit" value="导出表格" onclick="export_xlxs();">
         </div>
         <div id="right">
             <div id="buttons"></div>

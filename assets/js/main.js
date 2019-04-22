@@ -14,7 +14,6 @@ $(function () {
 
 $(function (json) {
 
-
     json = JSON.parse(localStorage.table_json);
     if (typeof json !== "undefined") {
         make_banner_s();
@@ -31,6 +30,7 @@ $(function (json) {
 
         /* 加载数据 */
         cdg.data = json;
+        cdg.columnName = [cdg.data[0]];
 
         /* 操作表格 */
         cdg.autosize();
@@ -160,8 +160,7 @@ var _onsheet = function(json, sheetnames, select_sheet_cb) {
 
     /* 加载数据 */
     cdg.data = json;
-    console.log("json:" + typeof json);
-    localStorage.setItem("table_json", JSON.stringify(json));
+    cdg.columnName = [json[0]];
 
     /* 操作表格 */
     cdg.autosize();
@@ -186,3 +185,26 @@ DropSheet({
     foo: 'bar'
   }
 });
+
+
+
+function export_xlxs() {
+    //console.log("data: "+ ishidden);
+    var filename = "AAS.xlsx";
+    var ws_name = "Sheet1";
+    var save_data = eval(JSON.stringify(cdg.columnName.concat(cdg.data)));
+
+    for (let i = save_data.length-1; i >= 0; i --){
+        for (let j = save_data[0].length-1; j >= 0 ; j --)
+            if (!cdg.isColumnVisible(j))
+                save_data[i].splice(j,1);
+    }
+
+    var wb = XLSX.utils.book_new(), ws = XLSX.utils.aoa_to_sheet(save_data);
+
+    /* add worksheet to workbook */
+    XLSX.utils.book_append_sheet(wb, ws, ws_name);
+
+    /* write workbook */
+    XLSX.writeFile(wb, filename);
+}
